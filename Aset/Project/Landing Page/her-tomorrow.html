@@ -1,0 +1,685 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Her Tomorrow — Feminine Knitwear, Made With Intention</title>
+<meta name="description" content="Her Tomorrow makes quietly considered knitwear — feminine silhouettes, honest materials, and details made to be noticed slowly.">
+<link rel="icon" type="image/png" href="https://res.cloudinary.com/kpkuyids/image/upload/v1791127429/favicon.png">
+<link rel="apple-touch-icon" href="https://res.cloudinary.com/kpkuyids/image/upload/v1791127429/favicon.png">
+<meta property="og:title" content="Her Tomorrow — Feminine Knitwear, Made With Intention">
+<meta property="og:description" content="For the woman she's becoming. Two knit pieces, made with care.">
+<meta property="og:image" content="https://res.cloudinary.com/kpkuyids/image/upload/v1791127430/belle-papillon.jpg">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Italiana&family=Cormorant+Garamond:wght@400;500;600&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#FFFFFF;
+    --bg-alt:#FFFFFF;
+    --text:#442C15;
+    --text-soft:#7a5f45;
+    --accent:#D8AAA0;
+    --taupe:#B8A898;
+    --line:rgba(68,44,21,0.16);
+    --btn-text:#FBF4E9;
+  }
+  *{box-sizing:border-box;}
+  html{
+    scroll-behavior:smooth;
+    scroll-padding-top:calc(env(safe-area-inset-top,0px) + 100px);
+  }
+  body{
+    margin:0;
+    background:var(--bg);
+    color:var(--text);
+    font-family:'Jost',sans-serif;
+    font-weight:300;
+    line-height:1.65;
+    -webkit-font-smoothing:antialiased;
+    padding-top:env(safe-area-inset-top,0px);
+    padding-bottom:env(safe-area-inset-bottom,0px);
+    overflow-x:hidden;
+  }
+  img,svg{max-width:100%;}
+
+  h1,h2,h3,.serif{font-family:'Times New Roman',Times,serif;font-weight:400;letter-spacing:.03em;}
+  .accent-serif{font-family:'Cormorant Garamond',serif;font-weight:500;letter-spacing:.04em;}
+
+  .wrap{max-width:1180px;margin:0 auto;padding:0 32px;}
+  @media(max-width:640px){.wrap{padding:0 20px;}}
+
+  a{color:inherit;text-decoration:none;}
+
+  /* ---------- NAV ---------- */
+  header{
+    position:sticky;top:0;top:env(safe-area-inset-top,0px);
+    z-index:50;
+    padding:14px 16px;
+    pointer-events:none;
+  }
+  nav.nav{
+    pointer-events:auto;
+    position:relative;isolation:isolate;
+    max-width:1120px;margin:0 auto;
+    height:72px;padding:0 14px 0 26px;
+    display:flex;align-items:center;justify-content:space-between;
+    border-radius:999px;
+    border:1px solid var(--line);
+    box-shadow:0 14px 34px -18px rgba(68,44,21,.28);
+    transition:height .35s ease, box-shadow .35s ease, max-width .35s ease;
+  }
+  /* glass lives on a pseudo-element so the mobile overlay can still be position:fixed */
+  nav.nav::before{
+    content:"";position:absolute;inset:0;z-index:-1;border-radius:inherit;
+    background:rgba(255,255,255,.8);
+    -webkit-backdrop-filter:blur(16px) saturate(1.3);backdrop-filter:blur(16px) saturate(1.3);
+  }
+  header.scrolled nav.nav{height:60px;max-width:880px;box-shadow:0 18px 40px -16px rgba(68,44,21,.38);}
+
+  .logo{
+    position:relative;z-index:3;
+    display:flex;align-items:center;gap:13px;
+    font-family:'Italiana',serif;
+    font-size:23px;letter-spacing:.2em;text-transform:uppercase;
+  }
+  .logo img{height:32px;width:auto;display:block;transition:height .35s ease;}
+  header.scrolled .logo img{height:26px;}
+  @media(max-width:420px){
+    .logo{font-size:18px;letter-spacing:.14em;gap:10px;}
+    .logo img{height:26px;}
+  }
+
+  .nav-links{position:relative;display:flex;gap:2px;}
+  .nav-links a{
+    position:relative;z-index:1;
+    padding:9px 20px;border-radius:999px;
+    font-size:14px;letter-spacing:.05em;
+    color:var(--text-soft);
+    transition:color .25s ease;
+  }
+  .nav-links a:hover,.nav-links a.active{color:var(--text);}
+  .nav-links a.active{font-weight:500;}
+  .nav-ind{
+    position:absolute;left:0;top:50%;height:36px;margin-top:-18px;width:0;
+    border-radius:999px;background:rgba(216,170,160,.3);
+    opacity:0;pointer-events:none;
+    transition:transform .45s cubic-bezier(.65,.05,.2,1), width .45s cubic-bezier(.65,.05,.2,1), opacity .25s ease;
+  }
+
+  .nav-right{position:relative;z-index:3;display:flex;gap:10px;align-items:center;}
+  .nav-cta{
+    display:inline-flex;align-items:center;
+    background:var(--text);color:var(--btn-text);
+    padding:12px 24px;border-radius:999px;
+    font-size:13px;letter-spacing:.06em;
+    border:1px solid var(--text);
+    transition:background .25s ease,color .25s ease;
+  }
+  .nav-cta:hover{background:var(--accent);border-color:var(--accent);color:var(--text);}
+
+  /* a seam of stitches that fills with thread as you scroll */
+  .stitch{
+    position:absolute;left:38px;right:38px;bottom:8px;height:2px;
+    pointer-events:none;overflow:hidden;
+    background:repeating-linear-gradient(90deg,rgba(68,44,21,.16) 0 6px,transparent 6px 11px);
+  }
+  .stitch i{
+    display:block;height:100%;width:calc(var(--p,0) * 100%);
+    background:repeating-linear-gradient(90deg,var(--accent) 0 6px,transparent 6px 11px);
+  }
+  header.scrolled .stitch{bottom:6px;}
+
+  .menu-btn{
+    display:none;position:relative;z-index:3;flex:none;
+    width:46px;height:46px;border-radius:50%;
+    background:var(--text);border:0;cursor:pointer;padding:0;
+    -webkit-appearance:none;appearance:none;
+    touch-action:manipulation;-webkit-tap-highlight-color:transparent;
+    transition:transform .2s ease;
+  }
+  .menu-btn:active{transform:scale(.93);}
+  .menu-btn:focus-visible{outline:2px solid var(--accent);outline-offset:3px;}
+  /* bars: 1.5px tall, 6px apart — the pair is centred in the 46px circle at y=23 */
+  .menu-btn span{
+    position:absolute;left:12px;right:12px;height:1.5px;background:var(--btn-text);
+    transition:transform .4s cubic-bezier(.65,.05,.2,1), top .4s ease;
+  }
+  .menu-btn span:nth-child(1){top:18.5px;}
+  .menu-btn span:nth-child(2){top:26px;}
+  .menu-btn[aria-expanded="true"] span:nth-child(1){top:22.25px;transform:rotate(45deg);}
+  .menu-btn[aria-expanded="true"] span:nth-child(2){top:22.25px;transform:rotate(-45deg);}
+
+  @media(max-width:760px){
+    header{padding:10px 12px;}
+    nav.nav{height:64px;padding:0 9px 0 20px;}
+    header.scrolled nav.nav{height:58px;max-width:none;}
+    /* 56px clears the 46px button + its 10px inset, +8px of breathing room */
+    .stitch{left:26px;right:64px;}
+    .nav-cta{display:none;}
+    .menu-btn{display:block;}
+    .nav-ind{display:none;}
+    .nav-links{
+      position:fixed;inset:0;z-index:1;
+      flex-direction:column;justify-content:center;align-items:flex-start;gap:6px;
+      padding:calc(clamp(76px,11vh,90px) + env(safe-area-inset-top,0px)) 32px
+              calc(clamp(28px,6vh,40px) + env(safe-area-inset-bottom,0px));
+      background:#FBF1EC;
+      clip-path:circle(0 at calc(100% - 44px) 42px);
+      pointer-events:none;
+      /* keeps the links out of the tab order while the menu is shut */
+      visibility:hidden;
+      /* last resort on very short viewports, where the links can still outgrow the screen */
+      overflow-y:auto;overscroll-behavior:contain;-webkit-overflow-scrolling:touch;
+      transition:clip-path .65s cubic-bezier(.7,0,.2,1), visibility 0s linear .65s;
+    }
+    /* plain `center` makes overflow unreachable; `safe` falls back to flex-start instead */
+    @supports (justify-content:safe center){.nav-links{justify-content:safe center;}}
+    .nav-links.open{
+      clip-path:circle(150% at calc(100% - 44px) 42px);
+      pointer-events:auto;visibility:visible;
+      transition:clip-path .65s cubic-bezier(.7,0,.2,1), visibility 0s;
+    }
+    .nav-links a{
+      padding:4px 0;border-radius:0;flex:none;
+      font-family:'Times New Roman',Times,serif;
+      /* 9.5vh keeps all four links on screen on a landscape phone */
+      font-size:clamp(30px,min(12vw,9.5vh),56px);
+      letter-spacing:.01em;line-height:1.15;color:var(--text);
+      opacity:0;transform:translateY(18px);
+      transition:opacity .5s ease, transform .5s ease, color .25s ease;
+    }
+    .nav-links.open a{opacity:1;transform:none;}
+    .nav-links.open a:nth-child(1){transition-delay:.25s;}
+    .nav-links.open a:nth-child(2){transition-delay:.32s;}
+    .nav-links.open a:nth-child(3){transition-delay:.39s;}
+    .nav-links.open a:nth-child(4){transition-delay:.46s;}
+    .nav-links a.active{color:#b9786b;font-weight:400;}
+    .nav-links:focus{outline:none;}
+    .nav-links a:focus-visible{outline:2px solid var(--accent);outline-offset:6px;border-radius:2px;}
+  }
+  html.menu-open{overflow:hidden;}
+  @media (prefers-reduced-motion: reduce){
+    .nav-links,.nav-links a,.nav-ind,nav.nav,.menu-btn span{transition:none !important;}
+  }
+
+  /* ---------- HERO ---------- */
+  .hero{
+    display:grid;grid-template-columns:1.05fr .95fr;
+    align-items:center;
+    min-height:calc(100svh - 100px);
+    gap:40px;
+  }
+  @media(max-width:900px){.hero{grid-template-columns:1fr;min-height:auto;padding-top:56px;}}
+  .hero-copy{padding:60px 0;}
+  .hero-eyebrow{
+    font-weight:500;letter-spacing:.08em;
+    font-family:'Cormorant Garamond',serif;
+    color:var(--text-soft);font-size:19px;margin:0 0 18px;
+    opacity:0;animation:riseIn .9s .1s ease forwards;
+  }
+  .hero h1{
+    font-size:clamp(42px,6.4vw,76px);
+    line-height:1.04;margin:0 0 26px;
+    max-width:11.5ch;
+    opacity:0;animation:riseIn .9s .25s ease forwards;
+  }
+  .hero p.lede{
+    font-size:17px;color:var(--text-soft);max-width:44ch;margin:0 0 34px;
+    opacity:0;animation:riseIn .9s .4s ease forwards;
+  }
+  .hero-cta{display:flex;gap:28px;align-items:center;opacity:0;animation:riseIn .9s .55s ease forwards;}
+  @keyframes riseIn{from{opacity:0;transform:translateY(14px);}to{opacity:1;transform:translateY(0);}}
+  @media (prefers-reduced-motion: reduce){
+    .hero-eyebrow,.hero h1,.hero p.lede,.hero-cta{animation:none;opacity:1;}
+  }
+
+  .btn{
+    display:inline-flex;align-items:center;gap:10px;
+    background:var(--text);color:var(--btn-text);
+    padding:15px 30px;font-size:12.5px;letter-spacing:.14em;text-transform:uppercase;
+    border:1px solid var(--text);
+    transition:background .25s ease,color .25s ease;
+  }
+  .btn:hover{background:transparent;color:var(--text);}
+  .btn-outline{
+    font-size:12.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--text-soft);
+    border-bottom:1px solid var(--taupe);padding-bottom:3px;
+    transition:color .25s ease,border-color .25s ease;
+  }
+  .btn-outline:hover{color:var(--text);border-color:var(--text);}
+
+  .hero-art{
+    background:#F4F4F2;
+    position:relative;
+    overflow:hidden;
+  }
+  /* the garment sets the height, so no width ever crops the sleeves */
+  .hero-art img{width:100%;height:auto;display:block;}
+  @media(max-width:900px){
+    .hero-art{max-width:520px;margin:0 auto;}
+  }
+
+  /* ---------- SECTION SHELL ---------- */
+  section{padding:110px 0;}
+  @media(max-width:640px){section{padding:72px 0;}}
+  .divider{height:1px;background:var(--line);width:100%;}
+
+  .section-head{max-width:640px;margin:0 0 56px;}
+  .section-head h2{font-size:clamp(30px,4vw,44px);margin:0 0 14px;}
+  .section-head p{color:var(--text-soft);font-size:16px;margin:0;max-width:52ch;}
+
+  /* ---------- STORY ---------- */
+  .story{background:var(--bg-alt);}
+  .story-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:70px;align-items:center;}
+  @media(max-width:860px){.story-grid{grid-template-columns:1fr;gap:38px;}}
+  .story-mark img{width:100%;max-width:270px;height:auto;display:block;}
+  @media(max-width:860px){.story-mark img{max-width:210px;}}
+  .story h2{font-size:clamp(28px,3.6vw,40px);margin:0 0 24px;max-width:12ch;}
+  .story p{color:var(--text-soft);font-size:16.5px;max-width:54ch;margin:0 0 18px;}
+  .story p.close-line{color:var(--text);font-family:'Cormorant Garamond',serif;font-weight:500;letter-spacing:.03em;font-size:21px;margin-top:26px;}
+
+  /* ---------- PRODUCTS ---------- */
+  .product{
+    display:grid;grid-template-columns:1fr 1fr;gap:70px;align-items:start;
+    padding:70px 0;
+  }
+  .product:not(:last-child){border-bottom:1px solid var(--line);}
+  .product.reverse .p-art{order:2;}
+  .product.reverse .p-info{order:1;}
+  @media(max-width:860px){
+    .product,.product.reverse{grid-template-columns:1fr;gap:34px;}
+    .product.reverse .p-art{order:1;}
+    .product.reverse .p-info{order:2;}
+  }
+  .p-art{
+    aspect-ratio:1/1;
+    overflow:hidden;
+    background:#F4F4F2;
+    display:flex;align-items:center;justify-content:center;
+    border:1px solid var(--line);
+    position:relative;
+  }
+  .p-art img{width:100%;height:100%;object-fit:cover;display:block;}
+  .p-tag{
+    position:absolute;top:18px;left:18px;
+    font-size:11px;letter-spacing:.14em;text-transform:uppercase;
+    color:var(--text-soft);
+    border:1px solid var(--line);
+    padding:6px 12px;
+    background:var(--bg);
+  }
+  .p-kicker{font-family:'Cormorant Garamond',serif;font-weight:500;letter-spacing:.06em;color:var(--text-soft);font-size:18px;margin:0 0 8px;}
+  .p-info h3{font-size:clamp(26px,3vw,34px);margin:0 0 14px;}
+  .p-desc{color:var(--text-soft);font-size:15.5px;max-width:46ch;margin:0 0 28px;}
+
+  .p-facts{display:grid;grid-template-columns:1fr 1fr;gap:14px 24px;margin-bottom:30px;}
+  .p-fact dt{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--text-soft);margin:0 0 4px;}
+  .p-fact dd{margin:0;font-size:15px;}
+
+  details.acc{border-top:1px solid var(--line);}
+  details.acc:last-of-type{border-bottom:1px solid var(--line);}
+  details.acc summary{
+    list-style:none;cursor:pointer;
+    display:flex;align-items:center;justify-content:space-between;
+    padding:16px 2px;font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:var(--text);
+  }
+  details.acc summary::-webkit-details-marker{display:none;}
+  details.acc summary .plus{font-family:'Italiana',serif;font-size:18px;color:var(--text-soft);transition:transform .25s ease;}
+  details.acc[open] summary .plus{transform:rotate(45deg);}
+  .acc-body{padding:0 2px 20px;color:var(--text-soft);font-size:14.5px;}
+  .acc-body table{width:100%;border-collapse:collapse;margin-bottom:6px;}
+  .acc-body td{padding:6px 0;border-bottom:1px solid var(--line);}
+  .acc-body td:last-child{text-align:right;color:var(--text);}
+  .acc-body ul{margin:10px 0 0;padding-left:18px;}
+  .acc-body li{margin-bottom:5px;}
+
+  .p-status{
+    margin-top:8px;
+    display:inline-block;
+    font-size:11px;letter-spacing:.12em;text-transform:uppercase;
+    color:var(--text-soft);
+    border:1px solid var(--taupe);
+    padding:8px 16px;
+  }
+
+  /* ---------- PROMISE STRIP ---------- */
+  .promise{background:var(--text);color:var(--bg);text-align:center;}
+  .promise .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:26px;padding:44px 32px;}
+  .promise p{margin:0;font-family:'Cormorant Garamond',serif;font-weight:500;letter-spacing:.08em;font-size:19px;color:var(--accent);}
+
+  /* ---------- CONTACT ---------- */
+  .contact{text-align:center;}
+  .contact .wrap{max-width:640px;}
+  .contact h2{font-size:clamp(28px,4vw,40px);margin:0 0 18px;}
+  .contact p{color:var(--text-soft);font-size:16px;margin:0 0 30px;}
+  .contact .note{
+    display:inline-block;border:1px solid var(--line);padding:16px 26px;
+    font-size:13px;letter-spacing:.06em;color:var(--text-soft);
+  }
+
+  /* ---------- FOOTER ---------- */
+  footer{border-top:1px solid var(--line);background:var(--bg-alt);}
+  .foot-top{
+    display:flex;justify-content:space-between;align-items:flex-start;
+    padding:64px 0 40px;flex-wrap:wrap;gap:30px;
+  }
+  .foot-mark{display:flex;align-items:center;gap:12px;}
+  .foot-mark img{height:30px;width:auto;display:block;}
+  .foot-word{font-family:'Italiana',serif;font-size:20px;letter-spacing:.16em;text-transform:uppercase;}
+  .foot-links{display:flex;gap:36px;flex-wrap:wrap;}
+  .foot-links a{font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--text-soft);}
+  .foot-links a:hover{color:var(--text);}
+  .foot-bottom{
+    border-top:1px solid var(--line);
+    padding:22px 0 30px;
+    display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;
+    font-size:12px;color:var(--text-soft);
+  }
+</style>
+</head>
+<body>
+
+<header id="siteHeader">
+  <nav class="nav" aria-label="Main">
+    <a href="#home" class="logo">
+      <img src="https://res.cloudinary.com/kpkuyids/image/upload/v1791127390/logo-mark.png" alt="" aria-hidden="true" width="470" height="500">
+      <span>Her Tomorrow</span>
+    </a>
+    <div class="nav-links" id="navLinks" tabindex="-1">
+      <span class="nav-ind" id="navInd" aria-hidden="true"></span>
+      <a href="#home">Home</a>
+      <a href="#story">About</a>
+      <a href="#shop">Shop</a>
+      <a href="#contact">Contact</a>
+    </div>
+    <div class="nav-right">
+      <a href="#shop" class="nav-cta">Meet the Knits</a>
+      <button class="menu-btn" id="menuBtn" aria-label="Open menu" aria-expanded="false" aria-controls="navLinks"><span></span><span></span></button>
+    </div>
+    <div class="stitch" aria-hidden="true"><i id="stitchFill"></i></div>
+  </nav>
+</header>
+
+<main>
+
+  <!-- HERO -->
+  <section id="home" style="padding:0;">
+    <div class="wrap hero">
+      <div class="hero-copy">
+        <p class="hero-eyebrow">Feminine. Elegant. Intentional.</p>
+        <h1>For the woman<br>she's becoming.</h1>
+        <p class="lede">Her Tomorrow makes quietly considered knitwear — feminine silhouettes, honest materials, and details made to be noticed slowly, not all at once.</p>
+        <div class="hero-cta">
+          <a href="#shop" class="btn">View the Edit</a>
+          <a href="#story" class="btn-outline">Our story</a>
+        </div>
+      </div>
+      <div class="hero-art">
+        <img src="https://res.cloudinary.com/kpkuyids/image/upload/v1791127430/belle-papillon.jpg" width="1200" height="936" fetchpriority="high"
+             alt="Belle Papillon knit cardigan in light grey, with butterfly intarsia and pearl flower buttons.">
+      </div>
+    </div>
+  </section>
+
+  <div class="divider wrap" style="max-width:1180px;"></div>
+
+  <!-- STORY -->
+  <section id="story" class="story">
+    <div class="wrap story-grid">
+      <div class="story-mark">
+        <img src="https://res.cloudinary.com/kpkuyids/image/upload/v1791127432/logo-lockup.png" width="886" height="596" loading="lazy" alt="Her Tomorrow">
+      </div>
+      <div>
+        <p class="p-kicker">A little something about her</p>
+        <h2>We create pieces for the woman she's becoming.</h2>
+        <p>Thoughtfully designed with feminine details, timeless silhouettes, and a quiet sense of beauty. Every piece is built to be worn often, styled differently each time, and kept for years rather than a season.</p>
+        <p>Her Tomorrow is for the mahasiswi finishing her final semester, the young professional finding her voice in the boardroom, and the founder building something of her own — women who are becoming more confident, more mature, more themselves.</p>
+        <p class="close-line">Made for the woman she is, and the woman she's becoming.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- SHOP -->
+  <section id="shop">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>The First Concept</h2>
+        <p>We're starting small, on purpose — two knit pieces, made with care, before anything else joins them.</p>
+      </div>
+
+      <!-- PRODUCT 1 -->
+      <article class="product">
+        <div class="p-art">
+          <span class="p-tag">Butterfly Knitwear</span>
+          <img src="https://res.cloudinary.com/kpkuyids/image/upload/v1791127430/belle-papillon.jpg" width="1400" height="1400" loading="lazy"
+               alt="Belle Papillon cardigan in light grey, buttoned front with pearl flower buttons and knitted butterfly motifs.">
+        </div>
+        <div class="p-info">
+          <p class="p-kicker">Belle Papillon Knit</p>
+          <h3>Belle Papillon</h3>
+          <p class="p-desc">Named for the butterfly — soft, light, and made to move with you. A relaxed knit in a gentle grey, cut to be layered through every season of becoming.</p>
+          <dl class="p-facts">
+            <div class="p-fact"><dt>Material</dt><dd>100% Viscose</dd></div>
+            <div class="p-fact"><dt>Color</dt><dd>Light Grey</dd></div>
+            <div class="p-fact"><dt>Size</dt><dd>All Size</dd></div>
+            <div class="p-fact"><dt>Fit</dt><dd>Relaxed, true to size</dd></div>
+          </dl>
+
+          <details class="acc">
+            <summary>Measurements <span class="plus">+</span></summary>
+            <div class="acc-body">
+              <table>
+                <tr><td>Bust</td><td>110–120 cm</td></tr>
+                <tr><td>Length</td><td>59 cm</td></tr>
+                <tr><td>Sleeve Length</td><td>54 cm</td></tr>
+              </table>
+              <p>Due to the natural stretch of knitwear, measurements may vary slightly — please allow a 1–2 cm difference.</p>
+            </div>
+          </details>
+
+          <details class="acc">
+            <summary>Care Guide <span class="plus">+</span></summary>
+            <div class="acc-body">
+              <p>Treat your knitwear gently to help maintain its shape and quality.</p>
+              <ul>
+                <li>Gentle cold wash</li>
+                <li>Use a laundry bag</li>
+                <li>Do not wring or twist</li>
+                <li>Reshape while damp</li>
+                <li>Lay flat to dry, do not hang</li>
+                <li>Avoid tumble drying</li>
+                <li>Store folded</li>
+              </ul>
+            </div>
+          </details>
+
+          <span class="p-status">Coming to shop soon</span>
+        </div>
+      </article>
+
+      <!-- PRODUCT 2 -->
+      <article class="product reverse">
+        <div class="p-art">
+          <span class="p-tag">Cardigan Knitwear</span>
+          <img src="https://res.cloudinary.com/kpkuyids/image/upload/v1791127430/fleur-of-tomorrow.jpg" width="1400" height="1400" loading="lazy"
+               alt="Fleur of Tomorrow cardigan in warm beige, buttoned front with a scalloped neckline and hem.">
+        </div>
+        <div class="p-info">
+          <p class="p-kicker">Fleur of Tomorrow Knit</p>
+          <h3>Fleur of Tomorrow</h3>
+          <p class="p-desc">A quiet nod to what's ahead. Soft cotton in a warm beige, made to sit easily under a blazer or on its own — steady, feminine, and entirely wearable.</p>
+          <dl class="p-facts">
+            <div class="p-fact"><dt>Material</dt><dd>100% Cotton</dd></div>
+            <div class="p-fact"><dt>Color</dt><dd>Beige</dd></div>
+            <div class="p-fact"><dt>Size</dt><dd>All Size</dd></div>
+            <div class="p-fact"><dt>Fit</dt><dd>Relaxed, true to size</dd></div>
+          </dl>
+
+          <details class="acc">
+            <summary>Measurements <span class="plus">+</span></summary>
+            <div class="acc-body">
+              <table>
+                <tr><td>Bust</td><td>110–120 cm</td></tr>
+                <tr><td>Length</td><td>59 cm</td></tr>
+                <tr><td>Sleeve Length</td><td>54 cm</td></tr>
+              </table>
+              <p>Due to the natural stretch of knitwear, measurements may vary slightly — please allow a 1–2 cm difference.</p>
+            </div>
+          </details>
+
+          <details class="acc">
+            <summary>Care Guide <span class="plus">+</span></summary>
+            <div class="acc-body">
+              <p>Treat your knitwear gently to help maintain its shape and quality.</p>
+              <ul>
+                <li>Gentle cold wash</li>
+                <li>Use a laundry bag</li>
+                <li>Do not wring or twist</li>
+                <li>Reshape while damp</li>
+                <li>Lay flat to dry, do not hang</li>
+                <li>Avoid tumble drying</li>
+                <li>Store folded</li>
+              </ul>
+            </div>
+          </details>
+
+          <span class="p-status">Coming to shop soon</span>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- PROMISE STRIP -->
+  <section class="promise" style="padding:0;">
+    <div class="wrap">
+      <p>quality over quantity — worn often, kept for years</p>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="contact">
+    <div class="wrap">
+      <p class="p-kicker" style="justify-content:center;display:block;">Get in touch</p>
+      <h2>We'd love to hear from you.</h2>
+      <p>Her Tomorrow is just getting started, and our contact details are being finalized as we prepare to launch.</p>
+      <span class="note">Contact information coming soon</span>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap foot-top">
+    <div class="foot-mark">
+      <img src="https://res.cloudinary.com/kpkuyids/image/upload/v1791127390/logo-mark.png" width="470" height="500" loading="lazy" alt="" aria-hidden="true">
+      <span class="foot-word">Her Tomorrow</span>
+    </div>
+    <div class="foot-links">
+      <a href="#home">Home</a>
+      <a href="#story">About</a>
+      <a href="#shop">Shop</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </div>
+  <div class="wrap foot-bottom">
+    <span>© 2026 Her Tomorrow. All rights reserved.</span>
+    <span>Feminine · Elegant · Intentional</span>
+  </div>
+</footer>
+
+<script>
+  const header = document.getElementById('siteHeader');
+  const menuBtn = document.getElementById('menuBtn');
+  const navLinks = document.getElementById('navLinks');
+  const ind = document.getElementById('navInd');
+  const fill = document.getElementById('stitchFill');
+  const links = [...navLinks.querySelectorAll('a')];
+  const sections = ['home','story','shop','contact'].map(id => document.getElementById(id));
+  let active = null;
+
+  function moveTo(el){
+    if(!el){ ind.style.opacity = 0; return; }
+    ind.style.opacity = 1;
+    ind.style.width = el.offsetWidth + 'px';
+    ind.style.transform = 'translateX(' + el.offsetLeft + 'px)';
+  }
+  function setActive(id){
+    const el = links.find(a => a.getAttribute('href') === '#' + id) || null;
+    if(el === active) return;
+    active = el;
+    links.forEach(a => a.classList.toggle('active', a === el));
+    moveTo(el);
+  }
+  function onScroll(){
+    const y = window.scrollY;
+    header.classList.toggle('scrolled', y > 40);
+    const max = document.documentElement.scrollHeight - window.innerHeight;
+    fill.style.setProperty('--p', max > 0 ? Math.min(1, y / max) : 0);
+    let current = 'home';
+    const line = window.innerHeight * 0.35;
+    sections.forEach(sec => { if(sec && sec.getBoundingClientRect().top <= line) current = sec.id; });
+    setActive(current);
+  }
+  window.addEventListener('scroll', onScroll, {passive:true});
+  window.addEventListener('resize', () => moveTo(active));
+  window.addEventListener('load', () => { moveTo(active); onScroll(); });
+  if(document.fonts && document.fonts.ready) document.fonts.ready.then(() => moveTo(active));
+  links.forEach(a => {
+    a.addEventListener('mouseenter', () => moveTo(a));
+    a.addEventListener('mouseleave', () => moveTo(active));
+    a.addEventListener('click', () => closeMenu());
+  });
+  document.querySelector('.logo').addEventListener('click', () => closeMenu());
+
+  /* ---- mobile menu ---- */
+  const mqMobile = window.matchMedia('(max-width:760px)');
+  const isOpen = () => navLinks.classList.contains('open');
+  let lastFocus = null;
+
+  function openMenu(){
+    lastFocus = document.activeElement;
+    navLinks.classList.add('open');
+    document.documentElement.classList.add('menu-open');
+    menuBtn.setAttribute('aria-expanded','true');
+    menuBtn.setAttribute('aria-label','Close menu');
+    navLinks.focus({preventScroll:true});
+  }
+  function closeMenu(restoreFocus){
+    if(!isOpen()) return;
+    navLinks.classList.remove('open');
+    document.documentElement.classList.remove('menu-open');
+    menuBtn.setAttribute('aria-expanded','false');
+    menuBtn.setAttribute('aria-label','Open menu');
+    if(restoreFocus && lastFocus) lastFocus.focus({preventScroll:true});
+    lastFocus = null;
+  }
+  menuBtn.addEventListener('click', () => { isOpen() ? closeMenu(true) : openMenu(); });
+
+  // keep Tab inside the overlay while it covers the page
+  function trapTab(e){
+    const f = [...links, menuBtn];
+    const i = f.indexOf(document.activeElement);
+    const next = e.shiftKey
+      ? (i <= 0 ? f.length - 1 : i - 1)
+      : (i === -1 || i === f.length - 1 ? 0 : i + 1);
+    e.preventDefault();
+    f[next].focus({preventScroll:true});
+  }
+  document.addEventListener('keydown', e => {
+    if(e.key === 'Escape') closeMenu(true);
+    else if(e.key === 'Tab' && isOpen()) trapTab(e);
+  });
+
+  // rotating past the breakpoint with the menu open would leave the page scroll-locked
+  const onBreakpoint = () => { if(!mqMobile.matches) closeMenu(); };
+  if(mqMobile.addEventListener) mqMobile.addEventListener('change', onBreakpoint);
+  else mqMobile.addListener(onBreakpoint);
+
+  onScroll();
+</script>
+
+</body>
+</html>

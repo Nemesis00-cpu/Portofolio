@@ -1,0 +1,1880 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Unit 5 — House and Home: the Present Continuous Tense, rooms and furniture vocabulary, and listening strategies, with an interactive video task and two graded listening tasks.">
+<title>House and Home — English Grade 7</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+
+<!-- ====== Tailwind (utilities + design tokens) ====== -->
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = {
+    darkMode: ['selector', '[data-theme="dark"]'],
+    corePlugins: { preflight: false },
+    theme: { extend: {
+      colors: {
+        ink:'var(--ng-ink)', paper:'var(--ng-white)', yellow:'var(--ng-yellow)',
+        muted:'var(--ng-muted)', line:'var(--ng-border)', soft:'var(--ng-soft)',
+        okbd:'var(--ok-bd)', okbg:'var(--ok-bg)', warnbd:'var(--warn-bd)',
+        warnbg:'var(--warn-bg)', errbd:'var(--err-bd)', errbg:'var(--err-bg)'
+      },
+      fontFamily: {
+        sans:['"Plus Jakarta Sans"','system-ui','-apple-system','sans-serif'],
+        serif:['"Plus Jakarta Sans"','system-ui','-apple-system','sans-serif']
+      },
+      maxWidth: { content:'820px', measure:'772px', wide:'1296px' }
+    }}
+  }
+</script>
+
+<!-- ====== Design system (inline) ====== -->
+<style>
+  :root{
+    --ng-white:#ffffff; --ng-ink:#000000; --ng-yellow:#ffcc00;
+    --ng-muted:#000000; --ng-border:#e2e2e2; --ng-soft:#f5f5f5;
+    --ng-link:#000000; --ng-link-hov:#000000;
+    --content:70%; --side-w:190px; --side-gap:24px; --gutter:24px;
+    --wide:70%;
+    --measure:calc(var(--content) - 2 * var(--gutter));
+    --ok-bg:#eaf4ec; --ok-bd:#2e7d4f; --err-bg:#f9ecec; --err-bd:#c0473f;
+    --warn-bg:#fdf3d6; --warn-bd:#b8860b;
+    --btn-bg:#000000; --btn-fg:#ffffff; --canvas-bg:#ffffff;
+    /* Jakarta Sans tidak memuat glif simbol (→ ✓ ✕). Modul ini memakai 39
+       simbol di dalam teks, jadi font pengganti ditaruh langsung pada token
+       — lebih aman daripada membungkus satu per satu. */
+    --sans:'Plus Jakarta Sans',system-ui,-apple-system,'Helvetica Neue',Arial,'Segoe UI Symbol','DejaVu Sans',sans-serif;
+    --serif:'Plus Jakarta Sans',system-ui,-apple-system,'Helvetica Neue',Arial,'Segoe UI Symbol','DejaVu Sans',sans-serif;
+  }
+  [data-theme="dark"]{
+    --ng-white:#141414; --ng-ink:#ededed; --ng-yellow:#ffcc00;
+    --ng-muted:#ededed; --ng-border:#333333; --ng-soft:#1f1f1f;
+    --ng-link:#ededed; --ng-link-hov:#ededed;
+    --ok-bg:#15281c; --ok-bd:#4caf6e; --err-bg:#2a1716; --err-bd:#e06b62;
+    --warn-bg:#2a230f; --warn-bd:#e0b341;
+    --btn-bg:#ededed; --btn-fg:#141414; --canvas-bg:#1b1b1b;
+  }
+  *{box-sizing:border-box;}
+  /* scrollbar-gutter: ruang bilah gulir selalu disediakan, jadi halaman tidak
+     bergeser saat popup mengunci gulir dengan body{overflow:hidden}. */
+  html{-webkit-text-size-adjust:100%; scroll-behavior:smooth; scrollbar-gutter:stable;}
+  @media (prefers-reduced-motion:reduce){ html{ scroll-behavior:auto; } }
+  body{ margin:0; background:var(--ng-white); color:var(--ng-ink); font-family:var(--sans); font-size:18px; font-weight:400; line-height:1.65; font-variant-emoji:text; -webkit-font-smoothing:antialiased; transition:background-color .25s ease, color .25s ease; }
+  ::selection{ background:var(--ng-yellow); color:#000000; }
+  h1,h2,h3{ font-family:var(--sans); }
+
+  .article>*{ max-width:var(--content); margin-left:auto; margin-right:auto; padding-left:var(--gutter); padding-right:var(--gutter); }
+  .article{ padding-bottom:clamp(72px,12vh,140px); } /* ruang napas di ujung modul */
+  .article h2{ font-size:22px; font-weight:600; line-height:1.18; margin:0 0 18px; letter-spacing:-.01em; scroll-margin-top:90px; }
+  .article h3{ font-family:var(--sans); font-size:22px; font-weight:600; letter-spacing:-.01em; margin:34px 0 12px; }
+  .article h4{ font-family:var(--sans); font-size:18px; font-weight:600; margin:24px 0 10px; }
+
+  .prose{ font-family:var(--serif); font-size:18px; font-weight:400; line-height:1.72; }
+  .prose p{ margin:0 0 22px; }
+  .prose strong{ font-weight:700; }
+  .prose h2{ margin-top:0; }
+  .prose h3{ font-family:var(--sans); font-size:22px; font-weight:600; margin:30px 0 12px; }
+  .prose h4{ font-family:var(--sans); font-size:18px; font-weight:600; margin:22px 0 10px; }
+  .article>section.prose{ margin-top:40px; }
+
+  .hero--full{ position:relative; width:100%; min-height:480px; height:100vh; height:100svh; display:flex; align-items:flex-end; justify-content:center; overflow:hidden; background:#1f2a37; }
+  .hero--full .hero-bg{ position:absolute; inset:0; width:100%; height:100%; background-size:cover; background-position:center; }
+  .hero--full::after{ content:""; position:absolute; inset:0; z-index:1; background:linear-gradient(to top, rgba(0,0,0,.72) 0%, rgba(0,0,0,.30) 40%, rgba(0,0,0,0) 70%); }
+  .hero--full .hero-inner{ position:relative; z-index:2; width:100%; max-width:var(--content); padding:0 var(--gutter) clamp(40px,8vh,88px); text-align:center; color:#fff; }
+  .hero--full .kicker{ color:#fff; }
+  .hero--full h1{ color:#fff; margin-bottom:18px; }
+  .hero--full .dek{ color:rgba(255,255,255,.9); margin-left:auto; margin-right:auto; }
+  .hero--full .hero-inner .btn{ margin-top:26px; }
+  @media (max-width:600px){ .hero--full .hero-inner{ padding-left:16px; padding-right:16px; } }
+  .kicker{ display:inline-block; font-family:var(--sans); font-size:15px; font-weight:400; text-transform:uppercase; letter-spacing:.08em; color:var(--ng-muted); text-decoration:none; border-bottom:2px solid var(--ng-yellow); padding-bottom:2px; margin-bottom:22px; }
+  h1{ font-size:30px; font-weight:700; line-height:1.06; letter-spacing:-.02em; margin:0 0 18px; }
+  .dek{ font-family:var(--sans); font-size:18px; font-weight:400; line-height:1.45; color:var(--ng-ink); margin:0 auto; max-width:620px; }
+
+  .bagian-head{ text-align:center; margin-top:88px; scroll-margin-top:24px; }
+  .bagian-num{ display:inline-block; font-family:var(--sans); font-size:15px; font-weight:400; text-transform:uppercase; letter-spacing:.12em; color:var(--ng-muted); border-bottom:2px solid var(--ng-yellow); padding-bottom:3px; margin-bottom:16px; }
+  .bagian-head .bagian-title{ font-family:var(--sans); font-size:22px; font-weight:700; line-height:1.1; letter-spacing:-.02em; margin:0; }
+
+  .btn{ display:inline-flex; align-items:center; justify-content:center; gap:8px; font-family:var(--sans); font-size:15px; font-weight:400; line-height:1; letter-spacing:.02em; padding:13px 26px; border:1px solid transparent; background:none; color:var(--ng-ink); text-decoration:none; cursor:pointer; transition:opacity .15s, background-color .25s, border-color .12s, transform .12s; }
+  .btn:hover{ opacity:.85; }
+  .btn:focus-visible{ outline:3px solid var(--ng-yellow); outline-offset:2px; }
+  .btn:disabled{ opacity:.4; cursor:default; }
+  .btn-dark{ background:var(--btn-bg); color:var(--btn-fg); border-color:var(--btn-bg); }
+  .btn-primary{ background:var(--ng-yellow); color:#000000; border-color:var(--ng-yellow); }
+  .btn-ghost{ background:none; color:var(--ng-ink); border-color:var(--ng-border); }
+  .btn-ghost:hover{ opacity:1; border-color:var(--ng-ink); }
+  .btn-lg{ padding:15px 30px; font-weight:700; text-transform:uppercase; letter-spacing:.06em; }
+  .btn-lg:hover{ transform:translateY(-2px); }
+  .btn-sm{ padding:10px 16px; font-size:15px; font-weight:400; }
+  .btn-icon{ width:48px; height:48px; padding:0; gap:0; }
+  .btn-icon svg{ width:22px; height:22px; }
+  .btn-done[hidden]{ display:none; }
+
+  .navmenu{ position:fixed; top:24px; left:24px; z-index:90; display:flex; align-items:center; gap:8px; }
+  .theme-toggle .ic-sun{ display:none; }
+  [data-theme="dark"] .theme-toggle .ic-moon{ display:none; }
+  [data-theme="dark"] .theme-toggle .ic-sun{ display:block; }
+  .nav-list{ position:absolute; top:calc(100% + 8px); left:0; min-width:290px; background:var(--ng-white); border:1px solid var(--ng-border); padding:6px 0; box-shadow:0 10px 34px rgba(0,0,0,.14); }
+  .nav-list[hidden]{ display:none; }
+  .nav-list a{ display:block; padding:11px 18px; font-family:var(--sans); text-decoration:none; color:var(--ng-ink); }
+  .nav-list a:hover{ background:var(--ng-soft); }
+  .nav-list a .n{ display:block; font-size:15px; font-weight:400; text-transform:uppercase; letter-spacing:.06em; color:var(--ng-muted); margin-bottom:3px; }
+  .nav-list a .t{ font-size:18px; font-weight:400; }
+  @media(max-width:767px){ .nav-list{ max-height:80vh; overflow-y:auto; } }
+
+  .has-side{ position:relative; }
+  .sidepanel{ background:none; border:none; padding:0; }
+  .has-side > .sidepanel{ margin-top:26px; }
+  .side-body{ margin-bottom:14px; }
+  .side-label{ font-family:var(--sans); font-size:15px; font-weight:400; text-transform:uppercase; letter-spacing:.07em; color:var(--ng-muted); }
+  .side-body p{ font-family:var(--sans); font-size:15px; font-weight:400; line-height:1.55; margin:6px 0 0; color:var(--ng-ink); }
+  @media(min-width:768px) and (max-width:1023px){
+    .has-side{ display:grid; grid-template-columns:minmax(0,1fr) var(--side-w); column-gap:var(--side-gap); align-items:start; align-content:start; }
+    .has-side > *{ grid-column:1; }
+    .has-side > .sidepanel{ grid-column:2; grid-row:1 / -1; align-self:start; margin-top:4px; }
+  }
+  @media(min-width:1024px) and (max-width:1299px){
+    :root{ --side-w:160px; --side-gap:22px; }
+    .has-side > .sidepanel{ position:absolute; top:4px; left:calc(100% + var(--side-gap)); width:var(--side-w); margin-top:0; }
+  }
+  @media(min-width:1300px){
+    .has-side > .sidepanel{ position:absolute; top:4px; left:calc(100% + var(--side-gap)); width:var(--side-w); margin-top:0; }
+  }
+
+  .eq{ background:var(--ng-soft); border-left:3px solid var(--ng-yellow); padding:20px 24px; margin:28px auto; max-width:var(--measure); }
+  .eq-label{ font-family:var(--sans); font-size:15px; font-weight:400; text-transform:uppercase; letter-spacing:.07em; color:var(--ng-muted); margin-bottom:12px; }
+  .eq-body{ font-family:var(--sans); font-size:18px; font-weight:400; line-height:1.7; overflow-x:auto; }
+  .eq-body .line{ display:block; }
+  .eq-body .line + .line{ margin-top:10px; }
+  .eq-body em{ font-style:normal; background:var(--ng-yellow); color:#000000; padding:0 5px; }
+  @media(max-width:600px){ .eq{ margin-left:16px; margin-right:16px; } }
+
+  .ket{ font-family:var(--sans); font-size:15px; font-weight:400; line-height:1.6; color:var(--ng-muted); max-width:var(--measure); margin:-14px auto 28px; }
+  .ket i{ font-style:italic; }
+  @media(max-width:600px){ .ket{ margin-left:16px; margin-right:16px; } }
+
+  .table-block{ margin-top:14px; }
+  .data-table{ width:100%; border-collapse:collapse; font-family:var(--sans); font-size:18px; font-weight:400; }
+  .data-table th{ text-align:left; font-size:15px; font-weight:400; text-transform:uppercase; letter-spacing:.05em; color:var(--ng-muted); padding:0 16px 10px; border-bottom:2px solid var(--ng-ink); }
+  .data-table td{ padding:12px 16px; border-bottom:1px solid var(--ng-border); }
+  .data-table td:first-child{ font-weight:600; }
+  .data-table tbody tr:last-child td{ border-bottom:none; }
+  .data-table.text-left th:not(:first-child), .data-table.text-left td:not(:first-child){ text-align:left; }
+
+  .example{ max-width:var(--measure); margin:24px auto 0; border:1px solid var(--ng-border); padding:6px 24px 14px; }
+  .example .panel-head{ margin:14px 0 2px; }
+  .ex-row{ padding:18px 0; border-bottom:1px solid var(--ng-border); }
+  .ex-row:last-child{ border-bottom:none; }
+  .ex-tag{ display:block; font-family:var(--sans); font-size:15px; font-weight:400; text-transform:uppercase; letter-spacing:.06em; color:var(--ng-muted); margin-bottom:8px; }
+  .ex-body{ font-family:var(--serif); font-size:18px; font-weight:400; line-height:1.7; }
+  .ex-body p{ margin:0 0 10px; } .ex-body p:last-child{ margin:0; }
+  .ex-answer{ background:var(--ng-soft); border-left:3px solid var(--ng-yellow); padding:14px 18px; margin-top:18px; font-family:var(--sans); font-size:18px; font-weight:400; line-height:1.5; }
+
+  .cardgrid{ display:grid; grid-template-columns:repeat(auto-fit,minmax(min(100%,180px),1fr)); gap:14px; max-width:var(--measure); margin:24px auto; }
+  .cardgrid--wide{ grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr)); }
+  .info-card{ background:var(--ng-soft); border-left:3px solid var(--ng-ink); padding:16px 18px; display:flex; flex-direction:column; }
+  .info-card .ic-num{ font-family:var(--sans); font-size:15px; font-weight:400; letter-spacing:.1em; color:var(--ng-muted); margin-bottom:10px; }
+  .info-card p{ font-family:var(--serif); font-size:18px; font-weight:400; line-height:1.55; color:var(--ng-ink); margin:7px 0 0; }
+  .info-card p:first-child{ margin-top:0; }
+  .info-card em{ font-style:italic; }
+
+  /* Kutipan penutup: materinya dipertahankan, gayanya diturunkan ke skala
+     badan teks (18px/400) — bukan display quote. */
+  .pullquote{ max-width:var(--measure); margin:32px auto; border-left:3px solid var(--ng-yellow); background:var(--ng-soft); padding:18px 24px; font-family:var(--serif); font-size:18px; font-weight:400; line-height:1.72; }
+  .pullquote cite{ display:block; margin-top:10px; font-family:var(--sans); font-size:15px; font-weight:400; font-style:normal; text-transform:uppercase; letter-spacing:.04em; color:var(--ng-muted); }
+  @media(max-width:600px){ .pullquote{ margin-left:16px; margin-right:16px; padding:18px 16px; } }
+
+  .panel-head{ margin-bottom:18px; }
+  .panel-label{ font-family:var(--sans); font-size:15px; font-weight:400; text-transform:uppercase; letter-spacing:.08em; color:var(--ng-muted); border-bottom:2px solid var(--ng-yellow); padding-bottom:2px; }
+  .panel-title{ font-family:var(--sans); font-size:22px; font-weight:600; line-height:1.18; letter-spacing:-.01em; margin:10px 0 0; }
+
+  /* ---- Figures ---- */
+  .ng-img{ display:block; width:100%; height:auto; }
+  .figure-prose{ margin-top:40px; margin-bottom:40px; }
+  figure{ margin:0; }
+  figcaption{ font-family:var(--sans); font-size:15px; font-weight:400; line-height:1.5; color:var(--ng-muted); position:relative; padding-left:16px; max-width:none; margin:16px 0 0; }
+  figcaption::before{ content:""; position:absolute; left:0; top:5px; width:3px; height:1.05em; background:var(--ng-yellow); }
+  .credit{ display:block; margin:0 0 6px; font-size:15px; font-weight:400; text-transform:uppercase; letter-spacing:.04em; color:var(--ng-muted); }
+  .cover-figure{ margin:24px auto 8px; }
+  .cover-figure .ng-img{ border:1px solid var(--ng-border); }
+
+  /* ---- Dialogue ---- */
+  .dialogue{ max-width:var(--measure); margin:28px auto; border-left:3px solid var(--ng-yellow); background:var(--ng-soft); padding:20px 24px; }
+  .dialogue .dl-label{ font-family:var(--sans); font-size:15px; font-weight:400; text-transform:uppercase; letter-spacing:.07em; color:var(--ng-muted); margin-bottom:14px; }
+  .dialogue .line{ display:grid; grid-template-columns:96px minmax(0,1fr); gap:12px; font-family:var(--serif); font-size:18px; font-weight:400; line-height:1.6; margin-bottom:10px; }
+  .dialogue .line:last-child{ margin-bottom:0; }
+  .dialogue .who{ font-family:var(--sans); font-size:15px; font-weight:400; text-transform:uppercase; letter-spacing:.04em; color:var(--ng-muted); padding-top:4px; }
+  @media(max-width:600px){ .dialogue{ margin-left:16px; margin-right:16px; padding:18px 16px; } .dialogue .line{ grid-template-columns:1fr; gap:2px; } }
+
+  /* ---- Interactive widgets ---- */
+  .sim-block{ max-width:var(--measure); margin:44px auto; padding:22px 24px 24px; border:1px solid var(--ng-border); background:var(--ng-white); }
+  .sim-controls{ display:flex; flex-wrap:wrap; gap:20px; align-items:flex-end; margin-top:18px; }
+  .ctrl{ flex:1 1 200px; }
+  .ctrl label{ display:block; font-family:var(--sans); font-size:15px; font-weight:400; text-transform:uppercase; letter-spacing:.05em; color:var(--ng-muted); margin-bottom:8px; }
+  .ctrl input[type=text], .ctrl select{ width:100%; font-family:var(--sans); font-size:18px; font-weight:400; color:var(--ng-ink); background:var(--ng-white); border:1px solid var(--ng-border); padding:12px 14px; }
+  .ctrl input[type=text]:focus, .ctrl select:focus{ outline:3px solid var(--ng-yellow); outline-offset:1px; border-color:var(--ng-ink); }
+  .sim-note{ font-family:var(--sans); font-size:15px; font-weight:400; line-height:1.6; color:var(--ng-muted); margin:14px 0 0; }
+  @media(max-width:600px){ .sim-block{ margin-left:16px; margin-right:16px; padding:18px 16px 20px; } }
+
+  .chipset{ display:flex; flex-wrap:wrap; gap:8px; margin-top:6px; }
+  .chip{ font-family:var(--sans); font-size:18px; font-weight:400; padding:10px 18px; border:1px solid var(--ng-border); background:none; color:var(--ng-ink); cursor:pointer; transition:border-color .12s, background .12s; }
+  .chip:hover{ border-color:var(--ng-ink); }
+  .chip[aria-pressed="true"]{ background:var(--ng-yellow); border-color:var(--ng-yellow); color:#000000; }
+
+  .be-out{ margin-top:22px; display:grid; gap:1px; background:var(--ng-border); border:1px solid var(--ng-border); }
+  .be-out > div{ background:var(--ng-white); padding:14px 16px; }
+  .be-label{ display:block; font-family:var(--sans); font-size:15px; font-weight:400; text-transform:uppercase; letter-spacing:.05em; color:var(--ng-muted); }
+  .be-val{ display:block; font-family:var(--serif); font-size:18px; font-weight:400; margin-top:5px; }
+  .be-val em{ font-style:normal; background:var(--ng-yellow); color:#000000; padding:0 5px; }
+  .be-val .ing{ font-style:normal; border-bottom:3px solid var(--ok-bd); }
+
+  /* -ing machine */
+  .ing-out{ display:flex; flex-wrap:wrap; gap:10px; margin-top:20px; align-items:center; }
+  .ing-tile{ display:inline-flex; flex-direction:column; align-items:center; min-width:96px; padding:12px 16px; background:var(--ng-soft); border:1px solid var(--ng-border); border-bottom:3px solid var(--ng-yellow); }
+  .ing-tile .tl{ font-family:var(--sans); font-size:15px; font-weight:400; text-transform:uppercase; letter-spacing:.05em; color:var(--ng-muted); }
+  .ing-tile .tv{ font-family:var(--sans); font-size:18px; font-weight:600; margin-top:3px; }
+  .ing-arrow{ font-family:var(--sans); font-size:22px; font-weight:400; color:var(--ng-muted); }
+  .ing-rule{ font-family:var(--sans); font-size:18px; font-weight:400; line-height:1.6; margin-top:18px; padding:14px 18px; background:var(--ok-bg); border-left:3px solid var(--ok-bd); }
+  .ing-rule b{ display:block; font-size:15px; font-weight:400; text-transform:uppercase; letter-spacing:.06em; color:var(--ng-muted); margin-bottom:4px; }
+
+  /* House explorer */
+  .house-grid{ display:grid; grid-template-columns:repeat(auto-fit,minmax(min(100%,150px),1fr)); gap:1px; background:var(--ng-border); border:1px solid var(--ng-border); margin-top:18px; }
+  .house-room{ background:var(--ng-white); padding:16px 14px; text-align:left; border:none; cursor:pointer; font-family:var(--sans); color:var(--ng-ink); transition:background .12s; }
+  .house-room:hover{ background:var(--ng-soft); }
+  .house-room[aria-pressed="true"]{ background:var(--ng-yellow); color:#000000; }
+  .house-room .rn{ display:block; font-size:15px; font-weight:400; text-transform:uppercase; letter-spacing:.06em; color:var(--ng-muted); }
+  .house-room[aria-pressed="true"] .rn{ color:#000000; }
+  .house-room .rt{ display:block; font-size:18px; font-weight:600; margin-top:3px; }
+  .house-detail{ margin-top:20px; padding:18px 20px; background:var(--ng-soft); border-left:3px solid var(--ng-yellow); }
+  .house-detail .hd-def{ font-family:var(--serif); font-size:18px; font-weight:400; line-height:1.6; margin:0 0 14px; }
+  .house-objs{ display:flex; flex-wrap:wrap; gap:8px; }
+  .house-objs span{ font-family:var(--sans); font-size:18px; font-weight:400; padding:7px 14px; background:var(--ng-white); border:1px solid var(--ng-border); }
+  .house-ex{ font-family:var(--serif); font-size:18px; font-weight:400; font-style:italic; margin:16px 0 0; color:var(--ng-ink); }
+
+  /* ---- Media: launcher + modal + graded answers ---- */
+  .media-block{ max-width:var(--measure); margin:34px auto; border-left:3px solid var(--ng-yellow); background:none; padding:4px 0 4px 22px; display:flex; flex-wrap:wrap; gap:18px; align-items:center; justify-content:space-between; }
+  .media-meta{ flex:1 1 300px; }
+  .media-label{ display:inline-flex; align-items:center; gap:7px; font-family:var(--sans); font-size:15px; font-weight:400; text-transform:uppercase; letter-spacing:.07em; color:var(--ng-muted); }
+  .media-label svg{ width:16px; height:16px; }
+  .media-title{ font-family:var(--sans); font-size:22px; font-weight:600; line-height:1.2; letter-spacing:-.01em; margin:8px 0 0; }
+  .media-desc{ font-family:var(--serif); font-size:18px; font-weight:400; line-height:1.6; color:var(--ng-ink); margin:8px 0 0; }
+  .media-open svg{ width:18px; height:18px; }
+  .media-done{ display:none; font-family:var(--sans); font-size:15px; font-weight:400; text-transform:uppercase; letter-spacing:.06em; color:var(--ng-ink); margin-top:10px; }
+  .media-done.show{ display:block; }
+  @media(max-width:600px){ .media-block{ margin-left:16px; margin-right:16px; padding:4px 0 4px 16px; } }
+
+  /* Popup adalah anak langsung .article, jadi ikut terkena
+     `.article>*{ max-width:var(--content); margin:auto }` dan lapisannya
+     menyusut jadi satu kolom di tengah. max-width:none mengembalikannya. */
+  .media-modal{ position:fixed; inset:0; z-index:120; max-width:none; margin:0; display:flex; align-items:center; justify-content:center; padding:20px;
+    opacity:0; visibility:hidden; transition:opacity .3s ease, visibility .3s ease; }
+  .media-modal[hidden]{ display:none; }
+  .media-modal.open{ opacity:1; visibility:visible; }
+  .media-backdrop{ position:absolute; inset:0; background:rgba(0,0,0,.42); -webkit-backdrop-filter:blur(7px) saturate(.85); backdrop-filter:blur(7px) saturate(.85); }
+  @supports not ((backdrop-filter:blur(1px)) or (-webkit-backdrop-filter:blur(1px))){
+    .media-backdrop{ background:rgba(0,0,0,.68); }
+  }
+  .media-dialog{ position:relative; z-index:1; width:100%; max-width:680px; max-height:88vh; overflow-y:auto; -webkit-overflow-scrolling:touch; background:var(--ng-white); border:1px solid var(--ng-border); padding:30px 30px 26px;
+    transform:translateY(16px) scale(.975); opacity:.4; transition:transform .34s cubic-bezier(.22,.85,.26,1), opacity .34s ease; }
+  .media-modal.open .media-dialog{ transform:none; opacity:1; }
+  @media (prefers-reduced-motion:reduce){
+    .media-modal, .media-dialog{ transition:none; }
+    .media-dialog{ transform:none; opacity:1; }
+  }
+  .media-x{ position:absolute; top:14px; right:14px; width:38px; height:38px; display:flex; align-items:center; justify-content:center; background:var(--ng-white); border:1px solid var(--ng-border); color:var(--ng-ink); font-size:22px; font-weight:400; line-height:1; cursor:pointer; font-family:var(--sans); }
+  .media-x:focus-visible{ outline:3px solid var(--ng-yellow); outline-offset:2px; }
+  .media-x:hover{ border-color:var(--ng-ink); }
+  .media-player{ width:100%; margin-top:20px; display:block; }
+  video.media-player{ background:#000; max-height:52vh; }
+  .task-lead{ font-family:var(--sans); font-size:15px; font-weight:400; line-height:1.6; color:var(--ng-muted); margin:22px 0 0; padding-bottom:10px; border-bottom:1px solid var(--ng-border); }
+  .task-list{ list-style:none; margin:0; padding:0; counter-reset:tq; }
+  .task-list li{ counter-increment:tq; padding:18px 0; border-bottom:1px solid var(--ng-border); }
+  .task-list li:last-child{ border-bottom:none; }
+  .task-list label{ display:block; font-family:var(--serif); font-size:18px; font-weight:400; line-height:1.5; margin-bottom:10px; }
+  .task-list label::before{ content:counter(tq) "."; font-family:var(--sans); font-size:15px; font-weight:400; color:var(--ng-muted); margin-right:8px; }
+  .ans-wrap{ position:relative; }
+  .task-list textarea, .task-list select{ width:100%; font-family:var(--serif); font-size:18px; font-weight:400; line-height:1.6; color:var(--ng-ink); background:var(--ng-white); border:1px solid var(--ng-border); padding:11px 44px 11px 13px; transition:border-color .15s, background .15s; }
+  .task-list textarea{ min-height:56px; resize:vertical; }
+  .task-list select{ font-family:var(--sans); font-weight:400; padding-right:44px; }
+  .task-list textarea:focus, .task-list select:focus{ outline:3px solid var(--ng-yellow); outline-offset:1px; border-color:var(--ng-ink); }
+  .task-list textarea.is-correct, .task-list select.is-correct{ border-color:var(--ok-bd); background:var(--ok-bg); }
+  .task-list textarea.is-wrong, .task-list select.is-wrong{ border-color:var(--err-bd); background:var(--err-bg); }
+  .ans-mark{ position:absolute; top:10px; right:10px; width:26px; height:26px; border-radius:50%; display:none; align-items:center; justify-content:center; font-family:var(--sans); font-size:15px; font-weight:700; color:#fff; pointer-events:none; }
+  .ans-mark.ok{ display:flex; background:var(--ok-bd); }
+  .ans-mark.no{ display:flex; background:var(--err-bd); }
+  .ans-hint{ display:none; font-family:var(--sans); font-size:15px; font-weight:400; line-height:1.55; color:var(--ng-ink); margin-top:8px; }
+  .ans-hint.show{ display:block; }
+  .task-key{ display:none; font-family:var(--serif); font-size:18px; font-weight:400; line-height:1.55; margin-top:10px; padding:11px 14px; background:var(--ok-bg); border-left:3px solid var(--ok-bd); }
+  .task-key.show{ display:block; }
+  .task-key b{ font-family:var(--sans); font-size:15px; font-weight:400; text-transform:uppercase; letter-spacing:.06em; color:var(--ng-muted); display:block; margin-bottom:4px; }
+  .task-free{ font-family:var(--sans); font-size:15px; font-weight:400; text-transform:uppercase; letter-spacing:.06em; color:var(--ng-muted); margin-left:6px; }
+  .media-actions{ display:flex; flex-wrap:wrap; gap:10px; justify-content:flex-end; margin-top:22px; padding-top:18px; border-top:2px solid var(--ng-ink); }
+  .media-saved{ flex:1 1 auto; align-self:center; font-family:var(--sans); font-size:15px; font-weight:400; color:var(--ng-muted); }
+  .media-result{ display:none; font-family:var(--sans); font-size:18px; font-weight:400; margin-top:20px; padding:14px 18px; background:var(--ng-soft); border-left:3px solid var(--ng-yellow); }
+  .media-result.show{ display:block; }
+  .media-result.all-ok{ background:var(--ok-bg); border-left-color:var(--ok-bd); }
+  @media(max-width:600px){ .media-dialog{ padding:26px 18px 20px; } }
+
+  .q{ padding:22px 0; border-bottom:1px solid var(--ng-border); }
+  .q:last-of-type{ border-bottom:none; }
+  .q-num{ display:block; font-family:var(--sans); font-weight:400; font-size:15px; text-transform:uppercase; letter-spacing:.05em; color:var(--ng-muted); margin-bottom:6px; }
+  .q-head{ display:flex; align-items:center; gap:10px; flex-wrap:wrap; margin-bottom:10px; }
+  .q-head .q-num{ margin-bottom:0; }
+  .q-level{ font-family:var(--sans); font-size:15px; font-weight:400; text-transform:uppercase; letter-spacing:.07em; padding:3px 10px; border-radius:999px; border:1px solid currentColor; }
+  .q-level.lvl-mudah{ color:var(--ng-ink); background:var(--ok-bg); }
+  .q-level.lvl-medium{ color:var(--ng-ink); background:var(--warn-bg); }
+  .quiz-group{ font-family:var(--sans); font-size:15px; font-weight:400; text-transform:uppercase; letter-spacing:.05em; color:var(--ng-ink); margin:38px 0 20px; padding-bottom:8px; border-bottom:2px solid var(--ng-ink); }
+  .quiz-group:first-of-type{ margin-top:8px; }
+  .quiz-group span{ color:var(--ng-muted); font-weight:400; text-transform:none; letter-spacing:0; }
+  .q-text{ font-family:var(--serif); font-size:18px; line-height:1.5; font-weight:400; margin:0 0 16px; }
+  .opt{ display:flex; align-items:center; gap:12px; width:100%; text-align:left; background:none; border:1px solid var(--ng-border); padding:12px 14px; margin-bottom:8px; cursor:pointer; font-family:var(--sans); font-size:18px; font-weight:400; color:var(--ng-ink); transition:border-color .12s, background .12s; }
+  .opt:hover:not(:disabled){ border-color:var(--ng-ink); }
+  .opt-l{ width:26px; height:26px; border-radius:50%; border:1px solid var(--ng-border); display:flex; align-items:center; justify-content:center; font-weight:400; font-size:15px; flex:0 0 auto; }
+  .opt:disabled{ cursor:default; }
+  .opt.is-correct{ border-color:var(--ok-bd); background:var(--ok-bg); }
+  .opt.is-correct .opt-l{ background:var(--ok-bd); color:#fff; border-color:var(--ok-bd); }
+  .opt.is-wrong{ border-color:var(--err-bd); background:var(--err-bg); }
+  .opt.is-wrong .opt-l{ background:var(--err-bd); color:#fff; border-color:var(--err-bd); }
+  .q-feedback{ display:none; font-family:var(--sans); font-size:15px; font-weight:400; line-height:1.55; margin-top:10px; padding-left:14px; border-left:3px solid var(--ng-border); color:var(--ng-muted); }
+  .q-feedback.show{ display:block; }
+  .q-feedback.show.ok{ border-left-color:var(--ok-bd); }
+  .q-feedback.show.no{ border-left-color:var(--err-bd); }
+  .q-feedback b, .q-feedback strong{ color:var(--ng-ink); font-weight:700; }
+  .quiz-score{ display:none; font-family:var(--sans); font-weight:400; font-size:18px; margin-top:24px; padding:16px 20px; background:var(--ng-soft); border-left:3px solid var(--ng-yellow); }
+  .quiz-score.show{ display:block; }
+  .quiz-practice{ max-width:var(--measure); margin:32px auto 0; }
+
+  a:focus-visible{ outline:3px solid var(--ng-yellow); outline-offset:3px; }
+
+  .prose ol{ margin:0 0 22px; padding-left:1.5em; }
+  .prose ol li{ margin:0 0 10px; padding-left:4px; }
+  .prose ul{ list-style:none; margin:0 0 22px; padding-left:0; }
+  .prose ul li{ position:relative; padding-left:22px; margin:0 0 10px; }
+  .prose ul li::before{ content:""; position:absolute; left:0; top:.62em; width:6px; height:6px; background:var(--ng-ink); }
+
+  /* Blok lebar penuh & sampul bagian mengikuti kolom lebar, bukan kolom teks. */
+  .article>.wide{ max-width:var(--wide); margin-top:40px; margin-bottom:40px; }
+  .article>.cover{ padding-left:0; padding-right:0; }
+
+  /* Kolom isi 70%, margin 15% kiri-kanan. Panel samping berada di luar kolom,
+     jadi di layar yang belum cukup lebar ia dikembalikan mengalir dalam teks
+     agar tidak terpotong margin. */
+  @media (max-width:1499px){
+    .has-side{ display:block; }
+    .has-side > .sidepanel{ position:static; left:auto; right:auto; width:auto; margin-top:24px; }
+  }
+  /* Di layar sempit margin 15% memakan ruang baca, jadi kolom dilebarkan
+     bertahap. Ditaruh setelah :root supaya menang atas aturan di atas. */
+  @media (max-width:1023px){ :root{ --content:90%; --wide:96%; } }
+  @media (max-width:600px){  :root{ --content:100%; --wide:100%; } }
+
+  /* ---- Penyesuaian layar sempit ---- */
+  @media (max-width:600px){
+    body{ font-size:18px; font-weight:400; } .prose{ font-size:18px; font-weight:400; }
+    .article>*{ padding-left:16px; padding-right:16px; }
+    .article>.wide{ padding-left:16px; padding-right:16px; }
+    .article>.cover{ padding-left:0; padding-right:0; }
+    .bagian-head{ margin-top:64px; }
+    .navmenu{ top:16px; left:16px; }
+    .data-table th{ padding:0 10px 8px; }
+    .data-table td{ padding:10px 10px; }
+    .example{ padding-left:16px; padding-right:16px; }
+    .nav-list{ min-width:min(248px, calc(100vw - 32px)); }
+  }
+
+  /* ---- Bacaan di dalam popup memakai lebar penuh dialog ---- */
+  .media-dialog .dialogue{ max-width:none; margin:0; }
+  .media-dialog .dialogue:not(:last-child){ margin-bottom:18px; }
+
+  /* ---- Perataan teks: rata kiri-kanan ----
+     TIDAK diratakan: judul, label, tombol, sel tabel, pilihan jawaban, dan
+     baris dialog (berkolom, sehingga perataan penuh merusak jaraknya). */
+  .prose p,
+  .prose ul li,
+  .prose ol li,
+  .ex-body p,
+  .media-desc{ text-align:justify; text-justify:inter-word; }
+
+  .ket, .sim-note, .task-lead, .ans-hint, .task-key,
+  .q-text, .q-feedback, .pullquote,
+  .house-detail .hd-def, .ing-rule,
+  .info-card p, .side-body p{ text-align:justify; text-justify:inter-word; }
+  figcaption, .credit{ text-align:left; }
+
+  @media(max-width:600px){
+    .prose p, .prose ul li, .prose ol li, .ex-body p, .media-desc,
+    .ket, .sim-note, .task-lead, .ans-hint, .task-key,
+    .q-text, .q-feedback, .pullquote,
+    .house-detail .hd-def, .ing-rule{
+      -webkit-hyphens:auto; hyphens:auto; hyphenate-limit-chars:6 3 3;
+      overflow-wrap:break-word;
+    }
+    .info-card p, .side-body p{ text-align:left; hyphens:none; }
+  }
+</style>
+</head>
+<body>
+
+<nav class="navmenu">
+  <button class="btn btn-dark btn-icon theme-toggle" type="button" aria-label="Switch light/dark mode" aria-pressed="false">
+    <svg class="ic-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+    <svg class="ic-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><line x1="12" y1="2" x2="12" y2="4"/><line x1="12" y1="20" x2="12" y2="22"/><line x1="2" y1="12" x2="4" y2="12"/><line x1="20" y1="12" x2="22" y2="12"/><line x1="4.9" y1="4.9" x2="6.3" y2="6.3"/><line x1="17.7" y1="17.7" x2="19.1" y2="19.1"/><line x1="4.9" y1="19.1" x2="6.3" y2="17.7"/><line x1="17.7" y1="6.3" x2="19.1" y2="4.9"/></svg>
+  </button>
+  <button class="btn btn-dark btn-icon nav-toggle" type="button" aria-label="Open section list" aria-expanded="false" aria-controls="nav-list">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="20" y2="17"/></svg>
+  </button>
+  <div class="nav-list" id="nav-list" hidden>
+    <a href="#m1"><span class="n">TOPIC 1</span><span class="t">The Present Continuous Tense</span></a>
+    <a href="#m2"><span class="n">TOPIC 2</span><span class="t">House and Home Vocabulary</span></a>
+    <a href="#m3"><span class="n">TOPICC 3</span><span class="t">Listening to Conversations</span></a>
+    <a href="#review"><span class="n">Review</span><span class="t">Unit Exercises</span></a>
+    <a href="#summary"><span class="n">Summary</span><span class="t">Unit Summary</span></a>
+  </div>
+</nav>
+
+<header class="hero hero--full">
+  <div class="hero-bg" style="background-image:url('https://scola-uploader.scolacdn.com/upload/4bee329524b0b5332a985f81/5.0%20awal.png');"></div>
+  <div class="hero-inner">
+    <span class="kicker">ENGLISH · SMA · UNIT 5</span>
+    <h1>House and Home</h1>
+    <p class="dek">Talk about what is happening <em>right now</em>, name every room in the house, and understand real conversations about parties and picnics.</p>
+    <a class="btn btn-primary btn-lg" href="#m1">Start Learning</a>
+  </div>
+</header>
+
+<main class="article">
+
+  <!-- ============ 5.1 ============ -->
+  <div class="bagian-head" id="m1">
+    <span class="bagian-num">TOPIC 1</span>
+    <h2 class="bagian-title">The Present Continuous Tense</h2>
+  </div>
+
+  <figure class="figure-prose cover-figure">
+    <img class="ng-img" src="https://scola-uploader.scolacdn.com/upload/41186c41913b8184eebcb46c/5.1%20The%20Present%20Continuous%20Tense.png" alt="Cover illustration for the Present Continuous Tense.">
+  </figure>
+
+  <section class="prose has-side">
+    <p>The Present Continuous Tense describes an activity that is <strong>happening now</strong> or around the present time. Look at these examples: <em>I am reading a book. She is washing her hands. They are cooking dinner. We are studying English.</em></p>
+    <p>All of these activities are happening at the time of speaking.</p>
+    <aside class="sidepanel">
+      <div class="side-body">
+        <span class="side-label">The Formula</span>
+        <p>Subject + <em>am/is/are</em> + verb-<em>ing</em>. Every Present Continuous sentence follows it.</p>
+      </div>
+    </aside>
+  </section>
+
+  <section class="prose">
+    <h3>A. Affirmative sentences</h3>
+  </section>
+
+  <div class="eq">
+    <div class="eq-label">Structure</div>
+    <div class="eq-body">
+      <span class="line">Subject + <em>am / is / are</em> + verb-<em>ing</em></span>
+    </div>
+  </div>
+
+  <div class="table-block">
+    <table class="data-table text-left">
+      <thead><tr><th>Subject</th><th>Be</th><th>Example</th></tr></thead>
+      <tbody>
+        <tr><td>I</td><td>am</td><td><em>I am studying.</em></td></tr>
+        <tr><td>He, She, It</td><td>is</td><td><em>She is cooking.</em></td></tr>
+        <tr><td>You, We, They</td><td>are</td><td><em>They are playing.</em></td></tr>
+      </tbody>
+    </table>
+    <p class="media-cap" style="font-family:var(--sans);font-size:15px;color:var(--ng-muted);padding-left:16px;position:relative;margin-top:14px">More examples: <em>I am cleaning my bedroom. Kevin is fixing his bicycle. My parents are visiting my grandparents. The children are playing in the garden.</em></p>
+  </div>
+
+  <section class="prose">
+    <h4>Short forms</h4>
+    <p>In everyday English we often use contractions: <em>I'm, He's, She's, It's, We're, You're, They're</em>. For example: <em>I'm doing my homework. She's washing the dishes. They're watching television.</em></p>
+  </section>
+
+  <section class="prose">
+    <h3>B. Negative sentences</h3>
+    <p>We put <strong>not</strong> after <em>am</em>, <em>is</em>, or <em>are</em>. The verb ending in <em>-ing</em> does <strong>not</strong> change.</p>
+  </section>
+
+  <div class="eq">
+    <div class="eq-label">Structure</div>
+    <div class="eq-body">
+      <span class="line">Subject + <em>am / is / are</em> + <em>not</em> + verb-<em>ing</em></span>
+    </div>
+  </div>
+  <p class="ket">Examples: <i>I am not sleeping. He is not playing football. We are not having lunch.</i> · Common contractions: <i>is not → isn't</i> and <i>are not → aren't</i>, as in <i>It isn't raining. They aren't having a picnic.</i></p>
+
+  <section class="prose">
+    <h3>C. Interrogative sentences</h3>
+    <p>To make a question, place <em>am</em>, <em>is</em>, or <em>are</em> <strong>before</strong> the subject.</p>
+  </section>
+
+  <div class="eq">
+    <div class="eq-label">Two Question Patterns</div>
+    <div class="eq-body">
+      <span class="line"><em>Am / Is / Are</em> + subject + verb-<em>ing</em>?</span>
+      <span class="line">Question word + <em>am / is / are</em> + subject + verb-<em>ing</em>?</span>
+    </div>
+  </div>
+  <p class="ket">Yes/No questions: <i>Is Sarah reading a book? Are you doing your homework?</i> · With question words: <i>What are you doing? Where is she going? Why are they laughing? Who is cooking dinner?</i></p>
+
+  <section class="prose">
+    <h3>D. Short answers</h3>
+  </section>
+
+  <div class="cardgrid cardgrid--wide">
+    <div class="info-card">
+      <span class="ic-num">POSITIVE</span>
+      <p>Yes, I <strong>am</strong>.</p>
+      <p>Yes, he <strong>is</strong>. / Yes, she <strong>is</strong>.</p>
+      <p>Yes, they <strong>are</strong>.</p>
+    </div>
+    <div class="info-card">
+      <span class="ic-num">NEGATIVE</span>
+      <p>No, I<strong>'m not</strong>.</p>
+      <p>No, he <strong>isn't</strong>. / No, she <strong>isn't</strong>.</p>
+      <p>No, they <strong>aren't</strong>.</p>
+    </div>
+    <div class="info-card">
+      <span class="ic-num">IN USE</span>
+      <p><em>Is your brother fixing his motorbike?</em> — Yes, he is.</p>
+      <p><em>Are your cousins having fun?</em> — No, they aren't.</p>
+    </div>
+  </div>
+
+  <!-- ===== INTERACTIVE 1 ===== -->
+  <div class="sim-block">
+    <div class="panel-head">
+      <span class="panel-label">Interactive 1 · Try It</span>
+      <div class="panel-title">Present Continuous sentence builder</div>
+    </div>
+    <div class="sim-controls">
+      <div class="ctrl" style="flex:1 1 100%">
+        <label>Choose a subject</label>
+        <div class="chipset" id="pc-subjects" role="group" aria-label="Subject"></div>
+      </div>
+      <div class="ctrl">
+        <label for="pc-verb">Verb (base form)</label>
+        <input type="text" id="pc-verb" value="cook" autocomplete="off" spellcheck="false" maxlength="20">
+      </div>
+      <div class="ctrl">
+        <label for="pc-rest">Rest of the sentence</label>
+        <input type="text" id="pc-rest" value="dinner" autocomplete="off" maxlength="40">
+      </div>
+    </div>
+    <div class="be-out">
+      <div><span class="be-label">Affirmative</span><span class="be-val" id="pc-aff"></span></div>
+      <div><span class="be-label">Negative</span><span class="be-val" id="pc-neg"></span></div>
+      <div><span class="be-label">Question</span><span class="be-val" id="pc-int"></span></div>
+      <div><span class="be-label">Short answers</span><span class="be-val" id="pc-short"></span></div>
+    </div>
+    <p class="sim-note">Change the subject and watch the highlighted <em>be</em> switch between <strong>am</strong>, <strong>is</strong>, and <strong>are</strong>. Notice that the <span style="border-bottom:3px solid var(--ok-bd)">-ing verb</span> never changes — not in the negative, not in the question. Only the <em>be</em> moves.</p>
+  </div>
+
+  <section class="prose">
+    <h3>E. Forming verbs with <em>-ing</em></h3>
+    <p>Most verbs simply add <strong>-ing</strong>: <em>read → reading, wash → washing, cook → cooking, visit → visiting, listen → listening, play → playing</em>. But three groups of verbs change their spelling first.</p>
+  </section>
+
+  <div class="cardgrid cardgrid--wide">
+    <div class="info-card">
+      <span class="ic-num">RULE 1 · SILENT E</span>
+      <p>Remove the final <strong>e</strong>, then add <em>-ing</em>.</p>
+      <p><em>make → making, ride → riding, write → writing, bake → baking, dance → dancing</em></p>
+    </div>
+    <div class="info-card">
+      <span class="ic-num">RULE 2 · SHORT CVC</span>
+      <p><strong>Double</strong> the final consonant, then add <em>-ing</em>.</p>
+      <p><em>run → running, swim → swimming, sit → sitting, get → getting, begin → beginning</em></p>
+    </div>
+    <div class="info-card">
+      <span class="ic-num">RULE 3 · ENDING IN IE</span>
+      <p>Change <strong>ie</strong> to <strong>y</strong>, then add <em>-ing</em>.</p>
+      <p><em>lie → lying, die → dying, tie → tying</em></p>
+    </div>
+  </div>
+
+  <!-- ===== INTERACTIVE 2 ===== -->
+  <div class="sim-block">
+    <div class="panel-head">
+      <span class="panel-label">Interactive 2 · Try It</span>
+      <div class="panel-title">The <em>-ing</em> spelling machine</div>
+    </div>
+    <div class="sim-controls">
+      <div class="ctrl" style="flex:1 1 100%">
+        <label for="ing-in">Type any verb in its base form</label>
+        <input type="text" id="ing-in" value="write" autocomplete="off" spellcheck="false" maxlength="20">
+      </div>
+    </div>
+    <div class="ing-out" id="ing-out" aria-live="polite"></div>
+    <div class="ing-rule" id="ing-rule"></div>
+    <p class="sim-note">Try <strong>write</strong> (silent e), <strong>swim</strong> (double the consonant), <strong>lie</strong> (ie → y), and <strong>visit</strong> — the last one looks like it should double, but it doesn't, because the stress is not on the last syllable. The machine tells you which rule it used and why.</p>
+  </div>
+
+  <section class="prose">
+    <h3>F. The four uses of the Present Continuous</h3>
+  </section>
+
+  <div class="cardgrid cardgrid--wide">
+    <div class="info-card">
+      <span class="ic-num">1 · RIGHT NOW</span>
+      <p>An action happening at the moment of speaking.</p>
+      <p><em>Mother is cooking dinner right now. It is raining outside.</em></p>
+      <p style="color:var(--ng-muted);font-size:15px;font-weight:400">Time words: now, right now, at the moment, currently</p>
+    </div>
+    <div class="info-card">
+      <span class="ic-num">2 · TEMPORARY</span>
+      <p>An activity happening for a limited period — not permanent.</p>
+      <p><em>My cousin is staying with us this week. Father is working from home this month.</em></p>
+    </div>
+    <div class="info-card">
+      <span class="ic-num">3 · AROUND NOW</span>
+      <p>In progress during the current period, but maybe not this exact second.</p>
+      <p><em>My brother is studying abroad. They are preparing for the school festival.</em></p>
+    </div>
+    <div class="info-card">
+      <span class="ic-num">4 · FIXED FUTURE</span>
+      <p>A future plan that is already arranged.</p>
+      <p><em>We are visiting Grandmother tomorrow. They are having a party tonight.</em></p>
+      <p style="color:var(--ng-muted);font-size:15px;font-weight:400">A future time expression makes the meaning clear.</p>
+    </div>
+  </div>
+
+  <div class="example">
+    <div class="panel-head"><span class="panel-label">Example in Daily Life</span></div>
+    <div class="ex-row"><div class="ex-body">
+      <p>It is seven o'clock in the evening. Rina and her family are at home. Her mother <strong>is cooking</strong> in the kitchen. Her father <strong>is reading</strong> a newspaper in the living room. Rina <strong>is doing</strong> her homework in her bedroom. Her younger brother <strong>is playing</strong> with his toys. Their cat <strong>is sleeping</strong> under the table.</p>
+    </div></div>
+    <div class="ex-answer">All five activities are happening at the same time — that is exactly what the Present Continuous is for.</div>
+  </div>
+
+  <!-- ===== VIDEO ===== -->
+  <div class="media-block">
+    <div class="media-meta">
+      <span class="media-label">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2" ry="2"/></svg>
+        Video · 1:21
+      </span>
+      <div class="media-title">Practice the Present Continuous</div>
+      <p class="media-desc">Watch a group of friends talking about what everyone is doing right now, then answer the questions.</p>
+      <span class="media-done" data-done>✓ You have answered this task</span>
+    </div>
+    <button class="btn btn-dark media-open" type="button" data-target="video-1">
+      <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
+      Watch &amp; Answer
+    </button>
+  </div>
+
+  <div class="media-modal" id="video-1" hidden>
+    <div class="media-backdrop" data-close></div>
+    <div class="media-dialog" role="dialog" aria-modal="true" aria-labelledby="video-1-t">
+      <button class="media-x" type="button" data-close aria-label="Close">&times;</button>
+      <span class="panel-label">Video Task · 5.1</span>
+      <div class="panel-title" id="video-1-t">Practice the Present Continuous</div>
+      <video class="media-player" controls preload="metadata" src="https://scola-uploader.scolacdn.com/upload/80d9d21d45a1562444b5754c/5.1%20Practice-the-Present-Continuous.mp4">Your browser does not support the video element.</video>
+      <p class="task-lead">Watch as many times as you need. Answer in full sentences using the Present Continuous.</p>
+      <ol class="task-list">
+        <li data-keys="writing;;wall">
+          <label for="v1q1">What is Charlie doing?</label>
+          <div class="ans-wrap"><textarea id="v1q1" data-save rows="2" placeholder="She is …"></textarea><span class="ans-mark" aria-hidden="true"></span></div>
+          <p class="ans-hint">Listen again to the beginning. She is doing something she should not do — and to <em>what</em>?</p>
+          <div class="task-key"><b>Answer</b>She is writing on the wall.</div>
+        </li>
+        <li data-keys="yes;;listening|is|am">
+          <label for="v1q2">Is Dexter listening? Answer with a short answer and say what he replies.</label>
+          <div class="ans-wrap"><textarea id="v1q2" data-save rows="2" placeholder="Yes, he is. He says …"></textarea><span class="ans-mark" aria-hidden="true"></span></div>
+          <p class="ans-hint">He replies "Yes, I'm listening." So the short answer is <em>Yes, he is</em>.</p>
+          <div class="task-key"><b>Answer</b>Yes, he is. He says "Yes, I'm listening."</div>
+        </li>
+        <li data-keys="looking|look;;book">
+          <label for="v1q3">What is Madeline doing?</label>
+          <div class="ans-wrap"><textarea id="v1q3" data-save rows="2" placeholder="She is …"></textarea><span class="ans-mark" aria-hidden="true"></span></div>
+          <p class="ans-hint">She answers the question "What are you doing?" with two words.</p>
+          <div class="task-key"><b>Answer</b>She is looking for a book.</div>
+        </li>
+        <li data-keys="chemistry">
+          <label for="v1q4">What subject are the two students studying?</label>
+          <div class="ans-wrap"><textarea id="v1q4" data-save rows="2" placeholder="They are studying …"></textarea><span class="ans-mark" aria-hidden="true"></span></div>
+          <p class="ans-hint">Someone asks "What are you studying?" — listen for the one-word answer.</p>
+          <div class="task-key"><b>Answer</b>They are studying Chemistry.</div>
+        </li>
+        <li data-keys="eli">
+          <label for="v1q5">Who are they laughing at?</label>
+          <div class="ans-wrap"><textarea id="v1q5" data-save rows="2" placeholder="They are laughing at …"></textarea><span class="ans-mark" aria-hidden="true"></span></div>
+          <p class="ans-hint">Listen to the very last line. They say his name.</p>
+          <div class="task-key"><b>Answer</b>They are laughing at Eli.</div>
+        </li>
+        <li data-free>
+          <label for="v1q6">Write down three Present Continuous questions you heard in the video. <span class="task-free">Free answer</span></label>
+          <div class="ans-wrap"><textarea id="v1q6" data-save rows="4" placeholder="1. Are you dancing now?"></textarea><span class="ans-mark" aria-hidden="true"></span></div>
+          <div class="task-key"><b>Sample answer</b>Are you dancing now? · Are you listening to me? · What are you doing? · What are you studying? · What are you two laughing at?</div>
+        </li>
+      </ol>
+      <div class="media-result" data-result></div>
+      <div class="media-actions">
+        <span class="media-saved" data-saved></span>
+        <button class="btn btn-dark btn-sm" type="button" data-check>Check answers</button>
+        <button class="btn btn-ghost btn-sm" type="button" data-reveal>Show answers</button>
+        <button class="btn btn-primary btn-sm btn-done" type="button" data-close hidden>Done</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== PRACTICE 5.1 ===== -->
+  <div class="quiz-practice quiz">
+    <div class="quiz-group">Exercise A · Present Continuous <span>· choose the correct answer</span></div>
+
+    <div class="q" data-correct="C" data-explain="The subject <em>my sister</em> is singular, so we use <em>is</em> + <em>washing</em>.">
+      <div class="q-head"><span class="q-num">Question 1</span><span class="q-level lvl-mudah">Easy</span></div>
+      <p class="q-text">My sister _____ her hands in the bathroom.</p>
+      <button class="opt" data-opt="A"><span class="opt-l">A</span><span>wash</span></button>
+      <button class="opt" data-opt="B"><span class="opt-l">B</span><span>washes</span></button>
+      <button class="opt" data-opt="C"><span class="opt-l">C</span><span>is washing</span></button>
+      <button class="opt" data-opt="D"><span class="opt-l">D</span><span>washing</span></button>
+      <div class="q-feedback"></div>
+    </div>
+
+    <div class="q" data-correct="B" data-explain="The subject is <em>you</em>, so the question begins with <em>Are</em>. Remember: Present Continuous questions start with <em>am/is/are</em>, never with <em>do</em>.">
+      <div class="q-head"><span class="q-num">Question 2</span><span class="q-level lvl-mudah">Easy</span></div>
+      <p class="q-text">_____ you reading the newspaper now?</p>
+      <button class="opt" data-opt="A"><span class="opt-l">A</span><span>Do</span></button>
+      <button class="opt" data-opt="B"><span class="opt-l">B</span><span>Are</span></button>
+      <button class="opt" data-opt="C"><span class="opt-l">C</span><span>Is</span></button>
+      <button class="opt" data-opt="D"><span class="opt-l">D</span><span>Am</span></button>
+      <div class="q-feedback"></div>
+    </div>
+
+    <div class="q" data-correct="A" data-explain="<em>My parents</em> is plural, so we use <em>are</em> + <em>visiting</em>.">
+      <div class="q-head"><span class="q-num">Question 3</span><span class="q-level lvl-mudah">Easy</span></div>
+      <p class="q-text">My parents _____ our grandparents at the moment.</p>
+      <button class="opt" data-opt="A"><span class="opt-l">A</span><span>are visiting</span></button>
+      <button class="opt" data-opt="B"><span class="opt-l">B</span><span>visit</span></button>
+      <button class="opt" data-opt="C"><span class="opt-l">C</span><span>is visiting</span></button>
+      <button class="opt" data-opt="D"><span class="opt-l">D</span><span>visiting</span></button>
+      <div class="q-feedback"></div>
+    </div>
+
+    <div class="q" data-correct="D" data-explain="<em>Matt</em> is singular, so the correct form is <em>is listening</em>.">
+      <div class="q-head"><span class="q-num">Question 4</span><span class="q-level lvl-mudah">Easy</span></div>
+      <p class="q-text">Matt _____ to rock music in his room.</p>
+      <button class="opt" data-opt="A"><span class="opt-l">A</span><span>listen</span></button>
+      <button class="opt" data-opt="B"><span class="opt-l">B</span><span>listens</span></button>
+      <button class="opt" data-opt="C"><span class="opt-l">C</span><span>are listening</span></button>
+      <button class="opt" data-opt="D"><span class="opt-l">D</span><span>is listening</span></button>
+      <div class="q-feedback"></div>
+    </div>
+
+    <div class="q" data-correct="A" data-explain="The subject <em>it</em> takes <em>is</em>, and the negative form is <em>is not raining</em>.">
+      <div class="q-head"><span class="q-num">Question 5</span><span class="q-level lvl-medium">Medium</span></div>
+      <p class="q-text">It _____ now, so we can play outside.</p>
+      <button class="opt" data-opt="A"><span class="opt-l">A</span><span>is not raining</span></button>
+      <button class="opt" data-opt="B"><span class="opt-l">B</span><span>does not rain</span></button>
+      <button class="opt" data-opt="C"><span class="opt-l">C</span><span>not raining</span></button>
+      <button class="opt" data-opt="D"><span class="opt-l">D</span><span>are not raining</span></button>
+      <div class="q-feedback"></div>
+    </div>
+
+    <div class="quiz-score"></div>
+  </div>
+
+  <div class="example">
+    <div class="panel-head"><span class="panel-label">Exercise B · Complete the Sentences</span></div>
+    <div class="ex-row"><span class="ex-tag">Task</span><div class="ex-body">
+      <p>1. My brother __________ his motorbike. <em>(fix)</em></p>
+      <p>2. Uncle Jim and Aunt Mary __________ dinner. <em>(cook)</em></p>
+      <p>3. Her grandson __________ his new bicycle. <em>(ride)</em></p>
+      <p>4. I __________ television at the moment. <em>(not watch)</em></p>
+      <p>5. My cousins __________ a good time because they are sick. <em>(not have)</em></p>
+    </div></div>
+    <div class="ex-row"><span class="ex-tag">Answers</span><div class="ex-body">
+      <p>1. <strong>is fixing</strong> — <em>my brother</em> is singular.</p>
+      <p>2. <strong>are cooking</strong> — there are two people.</p>
+      <p>3. <strong>is riding</strong> — the final <em>e</em> in <em>ride</em> is removed before adding <em>-ing</em>.</p>
+      <p>4. <strong>am not watching</strong> — the subject <em>I</em> takes <em>am</em>, followed by <em>not</em>.</p>
+      <p>5. <strong>are not having / aren't having</strong> — <em>my cousins</em> is plural.</p>
+    </div></div>
+  </div>
+
+  <div class="example">
+    <div class="panel-head"><span class="panel-label">Exercise C · Change the Sentences</span></div>
+    <div class="ex-row"><span class="ex-tag">Task</span><div class="ex-body">
+      <p>1. <em>She is cleaning the kitchen.</em> → Negative: ______</p>
+      <p>2. <em>They are playing in the garden.</em> → Question: ______</p>
+      <p>3. <em>Father is reading a newspaper.</em> → Negative: ______</p>
+      <p>4. <em>The children are watching television.</em> → Question: ______</p>
+    </div></div>
+    <div class="ex-row"><span class="ex-tag">Answers</span><div class="ex-body">
+      <p>1. <strong>She is not cleaning the kitchen.</strong> — add <em>not</em> after <em>is</em>.</p>
+      <p>2. <strong>Are they playing in the garden?</strong> — move <em>are</em> before the subject.</p>
+      <p>3. <strong>Father is not reading a newspaper.</strong> — add <em>not</em> after <em>is</em>.</p>
+      <p>4. <strong>Are the children watching television?</strong> — place <em>are</em> before the plural subject.</p>
+    </div></div>
+  </div>
+
+  <!-- ============ 5.2 ============ -->
+  <div class="bagian-head" id="m2">
+    <span class="bagian-num">TOPIC 2</span>
+    <h2 class="bagian-title">House and Home Vocabulary</h2>
+  </div>
+
+  <figure class="figure-prose cover-figure">
+    <img class="ng-img" src="https://scola-uploader.scolacdn.com/upload/4bee329524b0b5332a985f81/5.2%20House%20and%20Home%20Vocabulary.png" alt="Cover illustration for House and Home vocabulary.">
+  </figure>
+
+  <section class="prose has-side">
+    <p>A house has different <strong>rooms</strong>, <strong>furniture</strong>, and <strong>parts</strong>. Learning these words helps us describe where we live and talk about activities at home.</p>
+    <aside class="sidepanel">
+      <div class="side-body">
+        <span class="side-label">Tip</span>
+        <p>Learn each word together with a sentence — <em>Mother is cooking in the kitchen</em> teaches vocabulary <em>and</em> grammar at once.</p>
+      </div>
+    </aside>
+  </section>
+
+  <!-- ===== INTERACTIVE 3 ===== -->
+  <div class="sim-block">
+    <div class="panel-head">
+      <span class="panel-label">Interactive 3 · Explore</span>
+      <div class="panel-title">Walk through the house</div>
+    </div>
+    <div class="house-grid" id="house-rooms" role="group" aria-label="Rooms"></div>
+    <div class="house-detail" id="house-detail"></div>
+    <p class="sim-note">Click each room to see what is inside it. Notice that every example sentence uses the Present Continuous — that is how the two halves of this unit fit together.</p>
+  </div>
+
+  <section class="prose">
+    <h3>B. Furniture and household objects</h3>
+  </section>
+
+  <figure class="figure-prose">
+    <img class="ng-img" src="https://scola-uploader.scolacdn.com/upload/13f1ba43518e0601f1b6266f/gambar-02-living-room-furniture.jpg" alt="Living room furniture labelled: sofa, armchair, carpet, curtain, lamp, and coffee table.">
+    <figcaption><span class="credit">Figure 2</span>The living room and its furniture — armchair, carpet, curtain, and more.</figcaption>
+  </figure>
+
+  <figure class="figure-prose">
+    <img class="ng-img" src="https://scola-uploader.scolacdn.com/upload/953815be233d45a786696ec2/gambar-03-kitchen-and-household-objects.jpg" alt="Kitchen and household objects labelled: fridge, cupboard, stove, sink, and more.">
+    <figcaption><span class="credit">Figure 3</span>The kitchen and its household objects — fridge, cupboard, stove, and sink.</figcaption>
+  </figure>
+
+  <div class="table-block">
+    <table class="data-table text-left">
+      <thead><tr><th>Word</th><th>Meaning</th><th>Example</th></tr></thead>
+      <tbody>
+        <tr><td>Armchair</td><td>A comfortable chair for one person, usually with arm supports</td><td><em>Grandfather is sitting in the armchair.</em></td></tr>
+        <tr><td>Carpet</td><td>A thick material placed on the floor</td><td><em>The children are sitting on the carpet.</em></td></tr>
+        <tr><td>Curtain</td><td>A piece of cloth that covers a window</td><td><em>Please open the curtain. The room is dark.</em></td></tr>
+        <tr><td>Cupboard</td><td>Used for storing plates, cups, glasses, or food</td><td><em>The glasses are in the cupboard.</em></td></tr>
+        <tr><td>Fridge</td><td>Keeps food and drinks cold</td><td><em>We keep milk, cheese, and vegetables in the fridge.</em></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <section class="prose">
+    <h3>C. Parts outside or around a house</h3>
+  </section>
+
+  <figure class="figure-prose">
+    <img class="ng-img" src="https://scola-uploader.scolacdn.com/upload/e01b8c6fb8331c907889665d/gambar-04-outside-parts-of-a-house.jpg" alt="The outside of a house labelled: gate, roof, garden, and backyard.">
+    <figcaption><span class="credit">Figure 4</span>The parts outside and around a house — gate, roof, garden, and backyard.</figcaption>
+  </figure>
+
+  <div class="cardgrid cardgrid--wide">
+    <div class="info-card">
+      <span class="ic-num">GATE</span>
+      <p>Opens and closes at the entrance to a house, garden, or yard.</p>
+      <p><em>Father is opening the gate.</em></p>
+    </div>
+    <div class="info-card">
+      <span class="ic-num">ROOF</span>
+      <p>The top part of a house. It protects the house from sun and rain.</p>
+      <p><em>The roof is wet because it is raining.</em></p>
+    </div>
+    <div class="info-card">
+      <span class="ic-num">GARDEN</span>
+      <p>An area where people grow flowers, grass, fruit, or vegetables.</p>
+      <p><em>The children are playing in the garden.</em></p>
+    </div>
+    <div class="info-card">
+      <span class="ic-num">BACKYARD</span>
+      <p>An open area behind a house.</p>
+      <p><em>My brother is riding his bicycle in the backyard.</em></p>
+    </div>
+  </div>
+
+  <div class="example">
+    <div class="panel-head"><span class="panel-label">Example in Daily Life</span></div>
+    <div class="ex-row"><div class="ex-body">
+      <p>Dina lives in a small but comfortable house. There is a <strong>gate</strong> in front of the house and a red <strong>roof</strong> on top of it. The living room has a <strong>sofa</strong>, an <strong>armchair</strong>, a <strong>carpet</strong>, and two <strong>curtains</strong>. The kitchen has a <strong>fridge</strong> and a <strong>cupboard</strong>. There are two bedrooms and one bathroom. Dina usually puts her shoes in the <strong>hall</strong> before entering the living room.</p>
+    </div></div>
+    <div class="ex-answer">One short paragraph can describe the rooms, the furniture, and the parts of a house all at once.</div>
+  </div>
+
+  <!-- ===== PRACTICE 5.2 ===== -->
+  <div class="quiz-practice quiz">
+    <div class="quiz-group">Exercise A · Match the Words <span>· choose the correct definition</span></div>
+
+    <div class="q" data-correct="C" data-explain="A fridge keeps food and drinks cold.">
+      <div class="q-head"><span class="q-num">Question 1</span><span class="q-level lvl-mudah">Easy</span></div>
+      <p class="q-text">Fridge</p>
+      <button class="opt" data-opt="A"><span class="opt-l">A</span><span>A room where people wash</span></button>
+      <button class="opt" data-opt="B"><span class="opt-l">B</span><span>The top part of a house</span></button>
+      <button class="opt" data-opt="C"><span class="opt-l">C</span><span>A cold place for food</span></button>
+      <button class="opt" data-opt="D"><span class="opt-l">D</span><span>Cloth placed in front of a window</span></button>
+      <button class="opt" data-opt="E"><span class="opt-l">E</span><span>A comfortable chair for one person</span></button>
+      <div class="q-feedback"></div>
+    </div>
+
+    <div class="q" data-correct="D" data-explain="A curtain covers a window.">
+      <div class="q-head"><span class="q-num">Question 2</span><span class="q-level lvl-mudah">Easy</span></div>
+      <p class="q-text">Curtain</p>
+      <button class="opt" data-opt="A"><span class="opt-l">A</span><span>A room where people wash</span></button>
+      <button class="opt" data-opt="B"><span class="opt-l">B</span><span>The top part of a house</span></button>
+      <button class="opt" data-opt="C"><span class="opt-l">C</span><span>A cold place for food</span></button>
+      <button class="opt" data-opt="D"><span class="opt-l">D</span><span>Cloth placed in front of a window</span></button>
+      <button class="opt" data-opt="E"><span class="opt-l">E</span><span>A comfortable chair for one person</span></button>
+      <div class="q-feedback"></div>
+    </div>
+
+    <div class="q" data-correct="A" data-explain="People wash or take a shower in a bathroom.">
+      <div class="q-head"><span class="q-num">Question 3</span><span class="q-level lvl-mudah">Easy</span></div>
+      <p class="q-text">Bathroom</p>
+      <button class="opt" data-opt="A"><span class="opt-l">A</span><span>A room where people wash</span></button>
+      <button class="opt" data-opt="B"><span class="opt-l">B</span><span>The top part of a house</span></button>
+      <button class="opt" data-opt="C"><span class="opt-l">C</span><span>A cold place for food</span></button>
+      <button class="opt" data-opt="D"><span class="opt-l">D</span><span>Cloth placed in front of a window</span></button>
+      <button class="opt" data-opt="E"><span class="opt-l">E</span><span>A comfortable chair for one person</span></button>
+      <div class="q-feedback"></div>
+    </div>
+
+    <div class="q" data-correct="B" data-explain="A roof is the top part of a house.">
+      <div class="q-head"><span class="q-num">Question 4</span><span class="q-level lvl-mudah">Easy</span></div>
+      <p class="q-text">Roof</p>
+      <button class="opt" data-opt="A"><span class="opt-l">A</span><span>A room where people wash</span></button>
+      <button class="opt" data-opt="B"><span class="opt-l">B</span><span>The top part of a house</span></button>
+      <button class="opt" data-opt="C"><span class="opt-l">C</span><span>A cold place for food</span></button>
+      <button class="opt" data-opt="D"><span class="opt-l">D</span><span>Cloth placed in front of a window</span></button>
+      <button class="opt" data-opt="E"><span class="opt-l">E</span><span>A comfortable chair for one person</span></button>
+      <div class="q-feedback"></div>
+    </div>
+
+    <div class="q" data-correct="E" data-explain="An armchair is designed for one person.">
+      <div class="q-head"><span class="q-num">Question 5</span><span class="q-level lvl-mudah">Easy</span></div>
+      <p class="q-text">Armchair</p>
+      <button class="opt" data-opt="A"><span class="opt-l">A</span><span>A room where people wash</span></button>
+      <button class="opt" data-opt="B"><span class="opt-l">B</span><span>The top part of a house</span></button>
+      <button class="opt" data-opt="C"><span class="opt-l">C</span><span>A cold place for food</span></button>
+      <button class="opt" data-opt="D"><span class="opt-l">D</span><span>Cloth placed in front of a window</span></button>
+      <button class="opt" data-opt="E"><span class="opt-l">E</span><span>A comfortable chair for one person</span></button>
+      <div class="q-feedback"></div>
+    </div>
+
+    <div class="quiz-score"></div>
+  </div>
+
+  <div class="example">
+    <div class="panel-head"><span class="panel-label">Exercise B · Complete the Sentences</span></div>
+    <div class="ex-row"><span class="ex-tag">Task</span><div class="ex-body">
+      <p>Choose from: <em>gate — cupboard — kitchen — carpet — hall</em></p>
+      <p>1. We cook food in the __________.</p>
+      <p>2. The plates and glasses are in the __________.</p>
+      <p>3. Please close the __________ before the dog goes outside.</p>
+      <p>4. We put this soft material on the floor: __________.</p>
+      <p>5. Visitors usually enter the house through the __________.</p>
+    </div></div>
+    <div class="ex-row"><span class="ex-tag">Answers</span><div class="ex-body">
+      <p>1. <strong>kitchen</strong> — a kitchen is used for cooking.</p>
+      <p>2. <strong>cupboard</strong> — plates and glasses are stored in a cupboard.</p>
+      <p>3. <strong>gate</strong> — a gate opens and closes at the entrance.</p>
+      <p>4. <strong>carpet</strong> — a carpet is placed on the floor.</p>
+      <p>5. <strong>hall</strong> — the hall is the first indoor area near the entrance.</p>
+    </div></div>
+  </div>
+
+  <div class="example">
+    <div class="panel-head"><span class="panel-label">Exercise C · Short Description</span></div>
+    <div class="ex-row"><span class="ex-tag">Task</span><div class="ex-body">
+      <p>My family is in the living room. My father is sitting in an __________. My younger brother is playing on the __________. There is a long __________ in front of the window. In the kitchen, the food is inside the __________.</p>
+    </div></div>
+    <div class="ex-answer">My father is sitting in an <strong>armchair</strong>. My younger brother is playing on the <strong>carpet</strong>. There is a long <strong>curtain</strong> in front of the window. In the kitchen, the food is inside the <strong>fridge</strong>.</div>
+  </div>
+
+  <!-- ============ 5.3 ============ -->
+  <div class="bagian-head" id="m3">
+    <span class="bagian-num">TOPIC 3</span>
+    <h2 class="bagian-title">Listening to Conversations</h2>
+  </div>
+
+  <figure class="figure-prose cover-figure">
+    <img class="ng-img" src="https://scola-uploader.scolacdn.com/upload/4bee329524b0b5332a985f81/5.3%20Listening%20to%20Conversations.png" alt="Cover illustration for Listening to Conversations.">
+  </figure>
+
+  <section class="prose has-side">
+    <p>In daily life we listen to classmates, teachers, family members, announcements, videos, and telephone conversations. In this unit you will practise listening to short conversations about social events — a party and a picnic.</p>
+    <p>The tasks ask you to identify feelings, time, relationships, addresses, music preferences, people, and food. Below are the five strategies you need.</p>
+    <aside class="sidepanel">
+      <div class="side-body">
+        <span class="side-label">Golden Rule</span>
+        <p>Read the questions <em>before</em> you listen. It tells you what to listen for.</p>
+      </div>
+    </aside>
+  </section>
+
+  <div class="cardgrid cardgrid--wide">
+    <div class="info-card">
+      <span class="ic-num">A · MAIN IDEA</span>
+      <p>What is the conversation generally about?</p>
+      <p>Words like <em>birthday, music, Saturday, friends, address</em> together suggest an invitation to a party.</p>
+    </div>
+    <div class="info-card">
+      <span class="ic-num">B · SPECIFIC INFO</span>
+      <p>Names, times, dates, addresses, numbers, relationships, food, opinions.</p>
+      <p>Listen carefully — several numbers or names may be mentioned, and speakers often <strong>correct themselves</strong>.</p>
+    </div>
+    <div class="info-card">
+      <span class="ic-num">C · FEELINGS &amp; OPINIONS</span>
+      <p>Feeling words: happy, excited, worried, tired, bored, nervous, surprised.</p>
+      <p><em>"I do not know anyone there."</em> → the speaker feels worried.</p>
+      <p>Opinion phrases: <em>I think… I like… It sounds fun… I prefer…</em></p>
+    </div>
+    <div class="info-card">
+      <span class="ic-num">D · RELATIONSHIPS</span>
+      <p>sister, brother, cousin, friend, classmate, neighbour.</p>
+      <p><em>"Who is Rachel?" — "She is my friend from school."</em></p>
+    </div>
+    <div class="info-card">
+      <span class="ic-num">E · MATCHING</span>
+      <p>Match people with food, drinks, or objects.</p>
+      <p>Strategy: read all names → read all choices → listen for one person at a time → write a temporary answer → check on the second listening.</p>
+    </div>
+  </div>
+
+  <!-- ===== AUDIO 1 ===== -->
+  <div class="media-block">
+    <div class="media-meta">
+      <span class="media-label">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 18v-6a9 9 0 0 1 18 0v6"/><path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z"/></svg>
+        Listening 1 · 1:35
+      </span>
+      <div class="media-title">Jake's Party — Multiple Choice</div>
+      <p class="media-desc">You will hear Jared talking to his friend Gemma about a party. Careful — the speakers correct themselves more than once.</p>
+      <span class="media-done" data-done>✓ You have answered this task</span>
+    </div>
+    <button class="btn btn-dark media-open" type="button" data-target="audio-1">
+      <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
+      Listen &amp; Answer
+    </button>
+  </div>
+
+  <div class="media-modal" id="audio-1" hidden>
+    <div class="media-backdrop" data-close></div>
+    <div class="media-dialog" role="dialog" aria-modal="true" aria-labelledby="audio-1-t">
+      <button class="media-x" type="button" data-close aria-label="Close">&times;</button>
+      <span class="panel-label">Listening Task · 5.3</span>
+      <div class="panel-title" id="audio-1-t">Jake's Party</div>
+      <audio class="media-player" controls preload="none" src="https://scola-uploader.scolacdn.com/upload/6c1418cf36307f7d607d529d/5.3%20Listening%20-%20Multiple%20Choice.mp3">Your browser does not support the audio element.</audio>
+      <p class="task-lead">For each question, choose the correct answer. Listen as many times as you need.</p>
+      <ol class="task-list">
+        <li data-select="c">
+          <label for="a1q1">What time does the party start?</label>
+          <div class="ans-wrap"><select id="a1q1" data-save>
+            <option value="">— choose an answer —</option>
+            <option value="a">A. 2 o'clock</option>
+            <option value="b">B. 2:30</option>
+            <option value="c">C. 3 o'clock</option>
+          </select><span class="ans-mark" aria-hidden="true"></span></div>
+          <p class="ans-hint">One speaker guesses 2 o'clock, but the invitation says something different. 2:30 is when he <em>leaves</em>, not when the party starts.</p>
+          <div class="task-key"><b>Answer</b>C — "Here, look at the invitation. It's at 3 o'clock."</div>
+        </li>
+        <li data-select="c">
+          <label for="a1q2">What is the address of the party?</label>
+          <div class="ans-wrap"><select id="a1q2" data-save>
+            <option value="">— choose an answer —</option>
+            <option value="a">A. 14 Green Street</option>
+            <option value="b">B. 24 Green Street</option>
+            <option value="c">C. 40 Green Street</option>
+          </select><span class="ans-mark" aria-hidden="true"></span></div>
+          <p class="ans-hint">Three numbers are mentioned. Only the last one comes from the invitation itself.</p>
+          <div class="task-key"><b>Answer</b>C — 14 and 24 are both guesses. "It says 40 on the invitation."</div>
+        </li>
+        <li data-select="b">
+          <label for="a1q3">What kind of music is he bringing?</label>
+          <div class="ans-wrap"><select id="a1q3" data-save>
+            <option value="">— choose an answer —</option>
+            <option value="a">A. Hip hop</option>
+            <option value="b">B. Pop</option>
+            <option value="c">C. Rock</option>
+          </select><span class="ans-mark" aria-hidden="true"></span></div>
+          <p class="ans-hint">All three kinds of music are mentioned — but two of them are rejected. Jake <em>likes</em> hip hop, but that is not what is being brought.</p>
+          <div class="task-key"><b>Answer</b>B — "I'm bringing mainly pop. I think that's best." He has no hip hop, and not everyone likes rock.</div>
+        </li>
+        <li data-select="b">
+          <label for="a1q4">Who is Martin?</label>
+          <div class="ans-wrap"><select id="a1q4" data-save>
+            <option value="">— choose an answer —</option>
+            <option value="a">A. Jake's brother</option>
+            <option value="b">B. A cousin</option>
+            <option value="c">C. A friend from swimming</option>
+          </select><span class="ans-mark" aria-hidden="true"></span></div>
+          <p class="ans-hint">Three people are named in one sentence. Rachel is the friend from swimming.</p>
+          <div class="task-key"><b>Answer</b>B — "So Jake's brother, my cousin Martin, oh, and Rachel, your friend from swimming."</div>
+        </li>
+        <li data-select="c">
+          <label for="a1q5">Why is one speaker worried at first?</label>
+          <div class="ans-wrap"><select id="a1q5" data-save>
+            <option value="">— choose an answer —</option>
+            <option value="a">A. The party is too early</option>
+            <option value="b">B. She does not like the music</option>
+            <option value="c">C. She may not know anyone there</option>
+          </select><span class="ans-mark" aria-hidden="true"></span></div>
+          <p class="ans-hint">Listen to the very first exchange. She says she does not usually like parties — and gives a reason.</p>
+          <div class="task-key"><b>Answer</b>C — "I worry that I'm not going to know anyone there."</div>
+        </li>
+        <li data-select="b">
+          <label for="a1q6">What is he taking to the party?</label>
+          <div class="ans-wrap"><select id="a1q6" data-save>
+            <option value="">— choose an answer —</option>
+            <option value="a">A. Food</option>
+            <option value="b">B. Music</option>
+            <option value="c">C. Both food and music</option>
+          </select><span class="ans-mark" aria-hidden="true"></span></div>
+          <p class="ans-hint">He is asked directly about food. His answer begins with "No…"</p>
+          <div class="task-key"><b>Answer</b>B — "Are you taking any food?" "No, I'm taking music."</div>
+        </li>
+      </ol>
+      <div class="media-result" data-result></div>
+      <div class="media-actions">
+        <span class="media-saved" data-saved></span>
+        <button class="btn btn-dark btn-sm" type="button" data-check>Check answers</button>
+        <button class="btn btn-ghost btn-sm" type="button" data-reveal>Show answers</button>
+        <button class="btn btn-primary btn-sm btn-done" type="button" data-close hidden>Done</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== AUDIO 2 ===== -->
+  <div class="media-block">
+    <div class="media-meta">
+      <span class="media-label">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 18v-6a9 9 0 0 1 18 0v6"/><path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z"/></svg>
+        Listening 2 · 1:59
+      </span>
+      <div class="media-title">Samantha's Picnic — Matching</div>
+      <p class="media-desc">You will hear Sarah talking to Mike about a picnic. What will each person bring? One person is not coming at all.</p>
+      <span class="media-done" data-done>✓ You have answered this task</span>
+    </div>
+    <button class="btn btn-dark media-open" type="button" data-target="audio-2">
+      <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
+      Listen &amp; Answer
+    </button>
+  </div>
+
+  <div class="media-modal" id="audio-2" hidden>
+    <div class="media-backdrop" data-close></div>
+    <div class="media-dialog" role="dialog" aria-modal="true" aria-labelledby="audio-2-t">
+      <button class="media-x" type="button" data-close aria-label="Close">&times;</button>
+      <span class="panel-label">Listening Task · 5.3.1</span>
+      <div class="panel-title" id="audio-2-t">Samantha's Picnic</div>
+      <audio class="media-player" controls preload="none" src="https://scola-uploader.scolacdn.com/upload/6c1418cf36307f7d607d529d/5.3.1%20Listening%20-%20Matching.mp3">Your browser does not support the audio element.</audio>
+      <p class="task-lead">Match each person with what they will bring. Use the strategy: read all the names first, then listen for one person at a time.</p>
+      <ol class="task-list">
+        <li data-select="d">
+          <label for="a2q1">Sarah</label>
+          <div class="ans-wrap"><select id="a2q1" data-save>
+            <option value="">— choose an item —</option>
+            <option value="a">A. Cakes</option>
+            <option value="b">B. Cola</option>
+            <option value="c">C. Fruit</option>
+            <option value="d">D. Sandwiches</option>
+            <option value="e">E. Ice cream</option>
+            <option value="f">F. Biscuits</option>
+            <option value="g">G. Nothing — not coming</option>
+          </select><span class="ans-mark" aria-hidden="true"></span></div>
+          <p class="ans-hint">She says it right at the start: "Well, I'm going to make some…"</p>
+          <div class="task-key"><b>Answer</b>D — "I'm going to make some sandwiches."</div>
+        </li>
+        <li data-select="e">
+          <label for="a2q2">Mike</label>
+          <div class="ans-wrap"><select id="a2q2" data-save>
+            <option value="">— choose an item —</option>
+            <option value="a">A. Cakes</option>
+            <option value="b">B. Cola</option>
+            <option value="c">C. Fruit</option>
+            <option value="d">D. Sandwiches</option>
+            <option value="e">E. Ice cream</option>
+            <option value="f">F. Biscuits</option>
+            <option value="g">G. Nothing — not coming</option>
+          </select><span class="ans-mark" aria-hidden="true"></span></div>
+          <p class="ans-hint">Careful — Sarah first suggests crisps, but Mike proposes something else <em>instead</em>, because it will be hot.</p>
+          <div class="task-key"><b>Answer</b>E — "Maybe I could bring some ice cream instead?" (He is asked for crisps, but brings ice cream.)</div>
+        </li>
+        <li data-select="a">
+          <label for="a2q3">Margaret</label>
+          <div class="ans-wrap"><select id="a2q3" data-save>
+            <option value="">— choose an item —</option>
+            <option value="a">A. Cakes</option>
+            <option value="b">B. Cola</option>
+            <option value="c">C. Fruit</option>
+            <option value="d">D. Sandwiches</option>
+            <option value="e">E. Ice cream</option>
+            <option value="f">F. Biscuits</option>
+            <option value="g">G. Nothing — not coming</option>
+          </select><span class="ans-mark" aria-hidden="true"></span></div>
+          <p class="ans-hint">Hers look like little hamburgers — but they are not hamburgers.</p>
+          <div class="task-key"><b>Answer</b>A — "Margaret has already made some cakes. They look like little hamburgers."</div>
+        </li>
+        <li data-select="f">
+          <label for="a2q4">John</label>
+          <div class="ans-wrap"><select id="a2q4" data-save>
+            <option value="">— choose an item —</option>
+            <option value="a">A. Cakes</option>
+            <option value="b">B. Cola</option>
+            <option value="c">C. Fruit</option>
+            <option value="d">D. Sandwiches</option>
+            <option value="e">E. Ice cream</option>
+            <option value="f">F. Biscuits</option>
+            <option value="g">G. Nothing — not coming</option>
+          </select><span class="ans-mark" aria-hidden="true"></span></div>
+          <p class="ans-hint">He wanted to <em>make</em> them but was too busy — so he is going to <em>buy</em> them. He still brings them.</p>
+          <div class="task-key"><b>Answer</b>F — "John wanted to make some biscuits, but he's been really busy… so I think he's going to buy some."</div>
+        </li>
+        <li data-select="c">
+          <label for="a2q5">Andrea</label>
+          <div class="ans-wrap"><select id="a2q5" data-save>
+            <option value="">— choose an item —</option>
+            <option value="a">A. Cakes</option>
+            <option value="b">B. Cola</option>
+            <option value="c">C. Fruit</option>
+            <option value="d">D. Sandwiches</option>
+            <option value="e">E. Ice cream</option>
+            <option value="f">F. Biscuits</option>
+            <option value="g">G. Nothing — not coming</option>
+          </select><span class="ans-mark" aria-hidden="true"></span></div>
+          <p class="ans-hint">From her dad's garden — he has apple trees. The strawberries have already been eaten.</p>
+          <div class="task-key"><b>Answer</b>C — "She's going to bring some fruit from her dad's garden."</div>
+        </li>
+        <li data-select="b">
+          <label for="a2q6">Eric</label>
+          <div class="ans-wrap"><select id="a2q6" data-save>
+            <option value="">— choose an item —</option>
+            <option value="a">A. Cakes</option>
+            <option value="b">B. Cola</option>
+            <option value="c">C. Fruit</option>
+            <option value="d">D. Sandwiches</option>
+            <option value="e">E. Ice cream</option>
+            <option value="f">F. Biscuits</option>
+            <option value="g">G. Nothing — not coming</option>
+          </select><span class="ans-mark" aria-hidden="true"></span></div>
+          <p class="ans-hint">He brings a drink, from his mum's shop. The water comes from the café, not from a person.</p>
+          <div class="task-key"><b>Answer</b>B — "Eric is bringing some cola from his mum's shop."</div>
+        </li>
+        <li data-select="g">
+          <label for="a2q7">Phil</label>
+          <div class="ans-wrap"><select id="a2q7" data-save>
+            <option value="">— choose an item —</option>
+            <option value="a">A. Cakes</option>
+            <option value="b">B. Cola</option>
+            <option value="c">C. Fruit</option>
+            <option value="d">D. Sandwiches</option>
+            <option value="e">E. Ice cream</option>
+            <option value="f">F. Biscuits</option>
+            <option value="g">G. Nothing — not coming</option>
+          </select><span class="ans-mark" aria-hidden="true"></span></div>
+          <p class="ans-hint">"Is Phil coming?" — listen to the answer. He has other plans that day.</p>
+          <div class="task-key"><b>Answer</b>G — "No, he's going to a pizza restaurant with his volleyball team."</div>
+        </li>
+        <li data-keys="8|eight">
+          <label for="a2q8">How many people are going to the picnic?</label>
+          <div class="ans-wrap"><textarea id="a2q8" data-save rows="2" placeholder="There are going to be …"></textarea><span class="ans-mark" aria-hidden="true"></span></div>
+          <p class="ans-hint">Sarah says the number, and adds "including Sam".</p>
+          <div class="task-key"><b>Answer</b>There are going to be eight of them, including Sam.</div>
+        </li>
+      </ol>
+      <div class="media-result" data-result></div>
+      <div class="media-actions">
+        <span class="media-saved" data-saved></span>
+        <button class="btn btn-dark btn-sm" type="button" data-check>Check answers</button>
+        <button class="btn btn-ghost btn-sm" type="button" data-reveal>Show answers</button>
+        <button class="btn btn-primary btn-sm btn-done" type="button" data-close hidden>Done</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="example">
+    <div class="panel-head"><span class="panel-label">Exercise · Read the Conversation</span></div>
+    <div class="ex-row"><span class="ex-tag">Read as if you are listening</span><div class="ex-body">
+      <p><strong>Nadia:</strong> Are you coming to Riko's party on Saturday?<br>
+      <strong>Fahmi:</strong> Yes. What time does it start?<br>
+      <strong>Nadia:</strong> It starts at half past three.<br>
+      <strong>Fahmi:</strong> Where is the party?<br>
+      <strong>Nadia:</strong> It is at 18 Melati Street.<br>
+      <strong>Fahmi:</strong> Great! What kind of music will they play?<br>
+      <strong>Nadia:</strong> Riko likes pop music, but his brother prefers rock.<br>
+      <strong>Fahmi:</strong> I think everyone will enjoy the pop songs.</p>
+    </div></div>
+    <div class="ex-row"><span class="ex-tag">Answers</span><div class="ex-body">
+      <p>1. <strong>The party is on Saturday.</strong> — Nadia mentions the day in her first question.</p>
+      <p>2. <strong>It starts at half past three.</strong> — "Half past three" means 3:30.</p>
+      <p>3. <strong>It is at 18 Melati Street.</strong> — the address given by Nadia.</p>
+      <p>4. <strong>Riko likes pop music.</strong> — Nadia says this directly.</p>
+      <p>5. <strong>Fahmi thinks everyone will enjoy the pop songs.</strong> — his final statement expresses an opinion.</p>
+    </div></div>
+  </div>
+
+  <!-- ============ UNIT EXERCISES ============ -->
+  <div class="bagian-head" id="review">
+    <span class="bagian-num">Review</span>
+    <h2 class="bagian-title">Unit Exercises</h2>
+  </div>
+
+  <section class="prose" style="margin-top:40px">
+    <p style="color:var(--ng-muted);font-family:var(--sans);font-size:15px">Choose one answer. Feedback and an explanation appear automatically once you pick.</p>
+  </section>
+
+  <div id="quiz" class="quiz">
+    <div class="quiz-group">Part A · Multiple Choice <span>· 10 questions</span></div>
+
+    <div class="q" data-correct="C" data-explain="<em>The baby</em> is singular, and the action is happening now — so <em>is sleeping</em>.">
+      <div class="q-head"><span class="q-num">Question 1</span><span class="q-level lvl-mudah">Easy</span></div>
+      <p class="q-text">Look! The baby _____ on the carpet.</p>
+      <button class="opt" data-opt="A"><span class="opt-l">A</span><span>sleep</span></button>
+      <button class="opt" data-opt="B"><span class="opt-l">B</span><span>sleeps</span></button>
+      <button class="opt" data-opt="C"><span class="opt-l">C</span><span>is sleeping</span></button>
+      <button class="opt" data-opt="D"><span class="opt-l">D</span><span>are sleeping</span></button>
+      <div class="q-feedback"></div>
+    </div>
+
+    <div class="q" data-correct="B" data-explain="<em>My parents</em> is plural, so we use <em>are</em>.">
+      <div class="q-head"><span class="q-num">Question 2</span><span class="q-level lvl-mudah">Easy</span></div>
+      <p class="q-text">My parents _____ dinner in the kitchen now.</p>
+      <button class="opt" data-opt="A"><span class="opt-l">A</span><span>is cooking</span></button>
+      <button class="opt" data-opt="B"><span class="opt-l">B</span><span>are cooking</span></button>
+      <button class="opt" data-opt="C"><span class="opt-l">C</span><span>cook</span></button>
+      <button class="opt" data-opt="D"><span class="opt-l">D</span><span>cooks</span></button>
+      <div class="q-feedback"></div>
+    </div>
+
+    <div class="q" data-correct="C" data-explain="<em>Your sister</em> is singular, so the question begins with <em>Is</em>.">
+      <div class="q-head"><span class="q-num">Question 3</span><span class="q-level lvl-mudah">Easy</span></div>
+      <p class="q-text">_____ your sister cleaning her room?</p>
+      <button class="opt" data-opt="A"><span class="opt-l">A</span><span>Am</span></button>
+      <button class="opt" data-opt="B"><span class="opt-l">B</span><span>Are</span></button>
+      <button class="opt" data-opt="C"><span class="opt-l">C</span><span>Is</span></button>
+      <button class="opt" data-opt="D"><span class="opt-l">D</span><span>Do</span></button>
+      <div class="q-feedback"></div>
+    </div>
+
+    <div class="q" data-correct="A" data-explain="The correct negative form with <em>I</em> is <em>am not</em> + verb-ing.">
+      <div class="q-head"><span class="q-num">Question 4</span><span class="q-level lvl-medium">Medium</span></div>
+      <p class="q-text">I _____ television because I am doing my homework.</p>
+      <button class="opt" data-opt="A"><span class="opt-l">A</span><span>am not watching</span></button>
+      <button class="opt" data-opt="B"><span class="opt-l">B</span><span>do not watching</span></button>
+      <button class="opt" data-opt="C"><span class="opt-l">C</span><span>is not watching</span></button>
+      <button class="opt" data-opt="D"><span class="opt-l">D</span><span>not watch</span></button>
+      <div class="q-feedback"></div>
+    </div>
+
+    <div class="q" data-correct="B" data-explain="A fridge keeps food and drinks cold.">
+      <div class="q-head"><span class="q-num">Question 5</span><span class="q-level lvl-mudah">Easy</span></div>
+      <p class="q-text">We keep milk and cheese in the _____.</p>
+      <button class="opt" data-opt="A"><span class="opt-l">A</span><span>carpet</span></button>
+      <button class="opt" data-opt="B"><span class="opt-l">B</span><span>fridge</span></button>
+      <button class="opt" data-opt="C"><span class="opt-l">C</span><span>curtain</span></button>
+      <button class="opt" data-opt="D"><span class="opt-l">D</span><span>roof</span></button>
+      <div class="q-feedback"></div>
+    </div>
+
+    <div class="q" data-correct="A" data-explain="An armchair is a comfortable chair for one person, with supports for the arms.">
+      <div class="q-head"><span class="q-num">Question 6</span><span class="q-level lvl-mudah">Easy</span></div>
+      <p class="q-text">A comfortable chair for one person is called an _____.</p>
+      <button class="opt" data-opt="A"><span class="opt-l">A</span><span>armchair</span></button>
+      <button class="opt" data-opt="B"><span class="opt-l">B</span><span>hall</span></button>
+      <button class="opt" data-opt="C"><span class="opt-l">C</span><span>cupboard</span></button>
+      <button class="opt" data-opt="D"><span class="opt-l">D</span><span>gate</span></button>
+      <div class="q-feedback"></div>
+    </div>
+
+    <div class="q" data-correct="C" data-explain="Plates and glasses are stored in a cupboard.">
+      <div class="q-head"><span class="q-num">Question 7</span><span class="q-level lvl-mudah">Easy</span></div>
+      <p class="q-text">We usually put plates and glasses in a _____.</p>
+      <button class="opt" data-opt="A"><span class="opt-l">A</span><span>roof</span></button>
+      <button class="opt" data-opt="B"><span class="opt-l">B</span><span>bathroom</span></button>
+      <button class="opt" data-opt="C"><span class="opt-l">C</span><span>cupboard</span></button>
+      <button class="opt" data-opt="D"><span class="opt-l">D</span><span>carpet</span></button>
+      <div class="q-feedback"></div>
+    </div>
+
+    <div class="q" data-correct="C" data-explain="The roof is on top of a house, and it protects the house from sun and rain.">
+      <div class="q-head"><span class="q-num">Question 8</span><span class="q-level lvl-mudah">Easy</span></div>
+      <p class="q-text">The top part of a house is the _____.</p>
+      <button class="opt" data-opt="A"><span class="opt-l">A</span><span>curtain</span></button>
+      <button class="opt" data-opt="B"><span class="opt-l">B</span><span>gate</span></button>
+      <button class="opt" data-opt="C"><span class="opt-l">C</span><span>roof</span></button>
+      <button class="opt" data-opt="D"><span class="opt-l">D</span><span>hall</span></button>
+      <div class="q-feedback"></div>
+    </div>
+
+    <div class="q" data-correct="B" data-explain="&ldquo;Two thirty&rdquo; tells us <em>when</em> the meeting starts — that is a time.">
+      <div class="q-head"><span class="q-num">Question 9</span><span class="q-level lvl-medium">Medium</span></div>
+      <p class="q-text">"The meeting starts at two thirty." What information does the sentence give?</p>
+      <button class="opt" data-opt="A"><span class="opt-l">A</span><span>A person</span></button>
+      <button class="opt" data-opt="B"><span class="opt-l">B</span><span>A time</span></button>
+      <button class="opt" data-opt="C"><span class="opt-l">C</span><span>A place</span></button>
+      <button class="opt" data-opt="D"><span class="opt-l">D</span><span>A feeling</span></button>
+      <div class="q-feedback"></div>
+    </div>
+
+    <div class="q" data-correct="B" data-explain="The expression <em>I think</em> introduces an opinion.">
+      <div class="q-head"><span class="q-num">Question 10</span><span class="q-level lvl-medium">Medium</span></div>
+      <p class="q-text">"I think the picnic will be exciting." The sentence expresses _____.</p>
+      <button class="opt" data-opt="A"><span class="opt-l">A</span><span>an address</span></button>
+      <button class="opt" data-opt="B"><span class="opt-l">B</span><span>an opinion</span></button>
+      <button class="opt" data-opt="C"><span class="opt-l">C</span><span>a relationship</span></button>
+      <button class="opt" data-opt="D"><span class="opt-l">D</span><span>an instruction</span></button>
+      <div class="q-feedback"></div>
+    </div>
+
+    <div class="quiz-score" id="quiz-score"></div>
+  </div>
+
+  <div class="example">
+    <div class="panel-head"><span class="panel-label">Part B · Complete the Sentences</span></div>
+    <div class="ex-row"><span class="ex-tag">Task</span><div class="ex-body">
+      <p>1. I __________ a storybook now. <em>(read)</em></p>
+      <p>2. Mother __________ the dishes. <em>(wash)</em></p>
+      <p>3. My friends __________ in the garden. <em>(play)</em></p>
+      <p>4. The dog __________ under the table. <em>(not sleep)</em></p>
+      <p>5. __________ your father __________ the gate? <em>(open)</em></p>
+    </div></div>
+    <div class="ex-row"><span class="ex-tag">Answers</span><div class="ex-body">
+      <p>1. <strong>am reading</strong> &nbsp; 2. <strong>is washing</strong> &nbsp; 3. <strong>are playing</strong> &nbsp; 4. <strong>is not sleeping / isn't sleeping</strong> &nbsp; 5. <strong>Is</strong> your father <strong>opening</strong></p>
+      <p>Choose <em>am</em>, <em>is</em>, or <em>are</em> according to the subject. Then use the main verb with <em>-ing</em>.</p>
+    </div></div>
+  </div>
+
+  <div class="example">
+    <div class="panel-head"><span class="panel-label">Part C · Short Writing</span></div>
+    <div class="ex-row"><span class="ex-tag">Task</span><div class="ex-body">
+      <p>Write five sentences about what your family members are doing at home.</p>
+    </div></div>
+    <div class="ex-answer">Sample answer — My mother is cooking in the kitchen. My father is reading in the living room. My sister is studying in her bedroom. My brother is playing in the garden. I am writing at my desk.</div>
+    <div class="ex-row" style="border-bottom:none"><span class="ex-tag">A good answer</span><div class="ex-body">
+      <p>uses a clear subject; uses the correct form of <em>am/is/are</em>; uses a verb ending in <em>-ing</em>; mentions an activity happening now; and uses house vocabulary where possible.</p>
+    </div></div>
+  </div>
+
+  <!-- ============ SUMMARY ============ -->
+  <div class="bagian-head" id="summary">
+    <span class="bagian-num">Summary</span>
+    <h2 class="bagian-title">Unit Summary</h2>
+  </div>
+
+  <div class="eq">
+    <div class="eq-label">The Three Patterns</div>
+    <div class="eq-body">
+      <span class="line"><strong>Affirmative:</strong> Subject + <em>am/is/are</em> + verb-ing</span>
+      <span class="line"><strong>Negative:</strong> Subject + <em>am/is/are</em> + <em>not</em> + verb-ing</span>
+      <span class="line"><strong>Question:</strong> <em>Am/Is/Are</em> + subject + verb-ing?</span>
+    </div>
+  </div>
+
+  <section class="prose">
+    <p>The Present Continuous is used for <strong>activities happening right now</strong>, <strong>temporary situations</strong>, <strong>activities around the present period</strong>, and <strong>fixed future arrangements</strong>.</p>
+    <p>You also learned vocabulary for the home:</p>
+    <ul>
+      <li><strong>Rooms:</strong> kitchen, bathroom, bedroom, living room, hall.</li>
+      <li><strong>Furniture and objects:</strong> armchair, carpet, curtain, cupboard, fridge.</li>
+      <li><strong>Parts of a house:</strong> gate, roof, garden, backyard.</li>
+    </ul>
+    <p>In the listening tasks you practised identifying the main idea, names and relationships, times and addresses, feelings and opinions, and specific information such as food and drinks.</p>
+    <p>With these grammar patterns, vocabulary items, and listening strategies, you can describe your home, explain what people are doing, and understand simple conversations about everyday activities.</p>
+  </section>
+</main>
+
+<script>
+var REDUCE = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+/* ================= INTERACTIVE 1: PRESENT CONTINUOUS BUILDER ================= */
+/* ---- -ing engine, shared with Interactive 2 ---- */
+var VOWELS='aeiou';
+var DOUBLE_EXC={begin:1, forget:1, prefer:1, admit:1, permit:1, refer:1, occur:1, control:1, upset:1, regret:1};
+function isV(c){ return VOWELS.indexOf(c)>=0; }
+function syllables(w){
+  var n=0, prev=false;
+  for(var i=0;i<w.length;i++){
+    var v=isV(w[i])||w[i]==='y';
+    if(v && !prev) n++;
+    prev=v;
+  }
+  return Math.max(1,n);
+}
+function ingInfo(raw){
+  var v=(raw||'').toLowerCase().replace(/[^a-z]/g,'');
+  if(!v) return null;
+  if(v.length<2) return {base:v, ing:v+'ing', rule:'plain', why:'Just add <strong>-ing</strong>.'};
+
+  /* Rule 3: ends in "ie" -> y + ing */
+  if(v.slice(-2)==='ie'){
+    return {base:v, ing:v.slice(0,-2)+'ying', rule:'ie',
+      why:'The verb ends in <strong>ie</strong>. Change <strong>ie</strong> to <strong>y</strong>, then add <strong>-ing</strong>.'};
+  }
+  /* Rule 1: silent final e (but not "ee") */
+  if(v.slice(-1)==='e' && v.slice(-2)!=='ee'){
+    return {base:v, ing:v.slice(0,-1)+'ing', rule:'e',
+      why:'The verb ends in a silent <strong>e</strong>. Remove the <strong>e</strong>, then add <strong>-ing</strong>.'};
+  }
+  /* Rule 2: consonant-vowel-consonant, stressed last syllable */
+  var a=v.slice(-3,-2), b=v.slice(-2,-1), c=v.slice(-1);
+  var cvc = a && !isV(a) && a!=='y' && isV(b) && !isV(c) && 'wxy'.indexOf(c)<0;
+  if(cvc && (syllables(v)===1 || DOUBLE_EXC[v])){
+    return {base:v, ing:v+c+'ing', rule:'cvc',
+      why:'The verb ends in <strong>consonant–vowel–consonant</strong> and the stress falls on that syllable. Double the final <strong>'+c+'</strong>, then add <strong>-ing</strong>.'};
+  }
+  if(cvc){
+    return {base:v, ing:v+'ing', rule:'plain',
+      why:'It ends in consonant–vowel–consonant, but the stress is <strong>not</strong> on the last syllable — so we do <strong>not</strong> double the consonant. Just add <strong>-ing</strong>.'};
+  }
+  return {base:v, ing:v+'ing', rule:'plain', why:'This verb follows the normal pattern. Just add <strong>-ing</strong>.'};
+}
+
+(function(){
+  var wrap=document.getElementById('pc-subjects'); if(!wrap) return;
+  var verb=document.getElementById('pc-verb'), rest=document.getElementById('pc-rest');
+  var aff=document.getElementById('pc-aff'), neg=document.getElementById('pc-neg'),
+      inter=document.getElementById('pc-int'), shrt=document.getElementById('pc-short');
+
+  var SUBJECTS=[
+    {s:'I',    be:'am',  contr:"I'm not",     yes:'Yes, I am.',     no:"No, I'm not."},
+    {s:'You',  be:'are', contr:"You aren't",  yes:'Yes, I am.',     no:"No, I'm not."},
+    {s:'He',   be:'is',  contr:"He isn't",    yes:'Yes, he is.',    no:"No, he isn't."},
+    {s:'She',  be:'is',  contr:"She isn't",   yes:'Yes, she is.',   no:"No, she isn't."},
+    {s:'It',   be:'is',  contr:"It isn't",    yes:'Yes, it is.',    no:"No, it isn't."},
+    {s:'We',   be:'are', contr:"We aren't",   yes:'Yes, we are.',   no:"No, we aren't."},
+    {s:'They', be:'are', contr:"They aren't", yes:'Yes, they are.', no:"No, they aren't."}
+  ];
+  var current=2;   /* He */
+
+  function esc(t){ var d=document.createElement('div'); d.textContent=t; return d.innerHTML; }
+  function render(){
+    var S=SUBJECTS[current];
+    var info=ingInfo(verb.value) || {ing:'cooking'};
+    var v='<span class="ing">'+esc(info.ing)+'</span>';
+    var r=rest.value.trim();
+    var tail = r ? ' '+esc(r) : '';
+    var beTag='<em>'+S.be+'</em>';
+    aff.innerHTML=esc(S.s)+' '+beTag+' '+v+tail+'.';
+    neg.innerHTML=esc(S.s)+' '+beTag+' not '+v+tail+'.&nbsp; <span style="color:var(--ng-muted);font-weight:400">('+esc(S.contr)+' '+info.ing+tail+'.)</span>';
+    var subjQ = S.s.toLowerCase()==='i' ? 'I' : S.s.toLowerCase();
+    inter.innerHTML='<em>'+S.be.charAt(0).toUpperCase()+S.be.slice(1)+'</em> '+esc(subjQ)+' '+v+tail+'?';
+    shrt.innerHTML=esc(S.yes)+' &nbsp;/&nbsp; '+esc(S.no);
+  }
+  SUBJECTS.forEach(function(S,i){
+    var b=document.createElement('button');
+    b.type='button'; b.className='chip'; b.textContent=S.s;
+    b.setAttribute('aria-pressed', i===current?'true':'false');
+    b.addEventListener('click',function(){
+      current=i;
+      wrap.querySelectorAll('.chip').forEach(function(el,j){ el.setAttribute('aria-pressed', j===i?'true':'false'); });
+      render();
+    });
+    wrap.appendChild(b);
+  });
+  [verb,rest].forEach(function(el){ el.addEventListener('input',render); });
+  render();
+})();
+
+/* ================= INTERACTIVE 2: -ING SPELLING MACHINE ================= */
+(function(){
+  var input=document.getElementById('ing-in'); if(!input) return;
+  var out=document.getElementById('ing-out'), rule=document.getElementById('ing-rule');
+
+  var LABEL={
+    e:'Rule 1 · Silent e',
+    cvc:'Rule 2 · Double the consonant',
+    ie:'Rule 3 · ie → y',
+    plain:'No spelling change'
+  };
+  function render(){
+    var info=ingInfo(input.value);
+    if(!info){
+      out.innerHTML='';
+      rule.innerHTML='<b>Waiting</b>Type a verb to see how it becomes the <em>-ing</em> form.';
+      return;
+    }
+    out.innerHTML=
+      '<span class="ing-tile"><span class="tl">Base verb</span><span class="tv">'+info.base+'</span></span>'+
+      '<span class="ing-arrow">→</span>'+
+      '<span class="ing-tile"><span class="tl">-ing form</span><span class="tv">'+info.ing+'</span></span>';
+    rule.innerHTML='<b>'+LABEL[info.rule]+'</b>'+info.why;
+  }
+  input.addEventListener('input',render);
+  render();
+})();
+
+/* ================= INTERACTIVE 3: HOUSE EXPLORER ================= */
+(function(){
+  var grid=document.getElementById('house-rooms'); if(!grid) return;
+  var detail=document.getElementById('house-detail');
+
+  var ROOMS=[
+    {n:'01', name:'Living Room',
+     def:'The living room is a place where family members relax, talk, or watch television.',
+     objs:['sofa','armchair','television','carpet','curtain','lamp','coffee table'],
+     ex:'Father is sitting in an armchair. The family is watching television in the living room.'},
+    {n:'02', name:'Kitchen',
+     def:'The kitchen is a room where people prepare and cook food.',
+     objs:['fridge','cupboard','stove','sink','table','chair'],
+     ex:'Mother is cooking in the kitchen. The milk is in the fridge. The plates are in the cupboard.'},
+    {n:'03', name:'Bedroom',
+     def:'The bedroom is a room where people sleep and keep personal belongings.',
+     objs:['bed','pillow','blanket','wardrobe','desk','lamp'],
+     ex:'My sister is studying in her bedroom. Her clothes are in the wardrobe.'},
+    {n:'04', name:'Bathroom',
+     def:'The bathroom is a room where people wash, take a bath, or take a shower.',
+     objs:['shower','bathtub','sink','mirror','towel'],
+     ex:'The boy is washing his hands in the bathroom. The towel is beside the sink.'},
+    {n:'05', name:'Hall',
+     def:'A hall is usually the first area inside a house. It connects the entrance to other rooms.',
+     objs:['shoes','coats','hats','umbrella'],
+     ex:'Please leave your shoes in the hall. There is a coat near the front door.'}
+  ];
+  var current=0;
+
+  function show(i){
+    current=i;
+    var R=ROOMS[i];
+    grid.querySelectorAll('.house-room').forEach(function(el,j){
+      el.setAttribute('aria-pressed', j===i?'true':'false');
+    });
+    detail.innerHTML=
+      '<p class="hd-def">'+R.def+'</p>'+
+      '<div class="house-objs">'+R.objs.map(function(o){ return '<span>'+o+'</span>'; }).join('')+'</div>'+
+      '<p class="house-ex">'+R.ex+'</p>';
+  }
+  ROOMS.forEach(function(R,i){
+    var b=document.createElement('button');
+    b.type='button'; b.className='house-room';
+    b.innerHTML='<span class="rn">Room '+R.n+'</span><span class="rt">'+R.name+'</span>';
+    b.setAttribute('aria-pressed', i===0?'true':'false');
+    b.addEventListener('click',function(){ show(i); });
+    grid.appendChild(b);
+  });
+  show(0);
+})();
+
+/* ================= MEDIA: POPUP + GRADED ANSWERS ================= */
+(function(){
+  "use strict";
+  var opens=document.querySelectorAll('.media-open'); if(!opens.length) return;
+  var openModal=null, lastFocus=null;
+
+  function store(k,v){ try{ localStorage.setItem('eng-u5:'+k,v); }catch(_){} }
+  function load(k){ try{ return localStorage.getItem('eng-u5:'+k)||''; }catch(_){ return ''; } }
+
+  /* --- text answer checking --- */
+  function strip(s){ return s.toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g,''); }
+  function spaced(s){ return (' '+strip(s).replace(/[^a-z0-9]+/g,' ').trim()+' ').replace(/\s+/g,' '); }
+  function compact(s){ return strip(s).replace(/[^a-z0-9]+/g,''); }
+  function hasAlt(answer,alt){
+    var a=alt.trim(); if(!a) return false;
+    var sp=spaced(answer), cp=compact(answer);
+    if(a.length===1) return sp.indexOf(' '+a+' ')>=0;
+    return sp.indexOf(' '+spaced(a).trim()+' ')>=0 || cp.indexOf(compact(a))>=0;
+  }
+  function isCorrectText(answer,keys){
+    if(!answer.trim()) return false;
+    return keys.split(';;').every(function(group){
+      return group.split('|').some(function(alt){ return hasAlt(answer,alt); });
+    });
+  }
+
+  function fieldOf(li){ return li.querySelector('textarea, select'); }
+  function clearMark(li){
+    var f=fieldOf(li), mark=li.querySelector('.ans-mark'), hint=li.querySelector('.ans-hint');
+    if(f) f.classList.remove('is-correct','is-wrong');
+    if(mark){ mark.className='ans-mark'; mark.textContent=''; }
+    if(hint) hint.classList.remove('show');
+  }
+  function gradeItem(li){
+    var f=fieldOf(li), mark=li.querySelector('.ans-mark'), hint=li.querySelector('.ans-hint');
+    if(!f) return true;
+    var free=li.hasAttribute('data-free');
+    var ok;
+    if(free){
+      ok = f.value.trim()!=='';
+    } else if(li.hasAttribute('data-select')){
+      ok = f.value === li.getAttribute('data-select');
+    } else {
+      ok = isCorrectText(f.value, li.getAttribute('data-keys')||'');
+    }
+    f.classList.toggle('is-correct',ok);
+    f.classList.toggle('is-wrong',!ok);
+    if(mark){ mark.className='ans-mark '+(ok?'ok':'no'); mark.textContent=ok?'✓':'✕'; }
+    if(hint) hint.classList.toggle('show',!ok);
+    return ok;
+  }
+  function showDone(modal){
+    var d=modal.querySelector('.btn-done'); if(d) d.hidden=false;
+  }
+  function checkAll(modal){
+    var items=modal.querySelectorAll('.task-list li'), correct=0;
+    items.forEach(function(li){ if(gradeItem(li)) correct++; });
+    var total=items.length, res=modal.querySelector('[data-result]');
+    var all=correct===total;
+    res.className='media-result show'+(all?' all-ok':'');
+    res.textContent = all
+      ? '✓ All correct — '+correct+' out of '+total+'. Well done!'
+      : correct+' out of '+total+' correct. Read the hints in red and try again.';
+    if(all) showDone(modal);
+  }
+  function markDone(modal){
+    var card=document.querySelector('.media-open[data-target="'+modal.id+'"]');
+    if(!card) return;
+    var badge=card.closest('.media-block').querySelector('[data-done]');
+    var any=Array.prototype.some.call(modal.querySelectorAll('[data-save]'),function(f){ return f.value.trim()!==''; });
+    if(badge) badge.classList.toggle('show',any);
+  }
+  var closeTimer=null;
+  function close(modal){
+    var m=modal.querySelector('audio, video'); if(m) m.pause();
+    modal.classList.remove('open'); openModal=null;
+    document.body.style.overflow='';
+    markDone(modal);
+    if(closeTimer) clearTimeout(closeTimer);
+    var done=function(){ modal.hidden=true; };
+    if(REDUCE){ done(); } else { closeTimer=setTimeout(done,320); }
+    if(lastFocus) lastFocus.focus();
+  }
+  function open(modal,trigger){
+    lastFocus=trigger; openModal=modal;
+    if(closeTimer){ clearTimeout(closeTimer); closeTimer=null; }
+    modal.hidden=false;
+    /* force reflow so the .open transition runs from the closed state */
+    void modal.offsetWidth;
+    modal.classList.add('open');
+    document.body.style.overflow='hidden';
+    var first=modal.querySelector('.media-x'); if(first) first.focus();
+  }
+
+  document.querySelectorAll('.media-modal').forEach(function(modal){
+    modal.querySelectorAll('[data-save]').forEach(function(f){
+      var saved=load(f.id); if(saved) f.value=saved;
+      var ev = f.tagName==='SELECT' ? 'change' : 'input';
+      f.addEventListener(ev,function(){
+        store(f.id,f.value);
+        var note=modal.querySelector('[data-saved]');
+        if(note) note.textContent='Saved on this device.';
+        var li=f.closest('li'); if(li) clearMark(li);
+        var res=modal.querySelector('[data-result]'); if(res) res.className='media-result';
+      });
+    });
+    markDone(modal);
+
+    modal.querySelectorAll('[data-close]').forEach(function(el){
+      el.addEventListener('click',function(){ close(modal); });
+    });
+    var check=modal.querySelector('[data-check]');
+    if(check) check.addEventListener('click',function(){ checkAll(modal); });
+
+    var reveal=modal.querySelector('[data-reveal]');
+    if(reveal){
+      reveal.addEventListener('click',function(){
+        var keys=modal.querySelectorAll('.task-key');
+        var showing=reveal.getAttribute('data-shown')==='1';
+        keys.forEach(function(k){ k.classList.toggle('show',!showing); });
+        reveal.setAttribute('data-shown',showing?'0':'1');
+        reveal.textContent=showing?'Show answers':'Hide answers';
+        if(!showing) showDone(modal);
+      });
+    }
+    modal.addEventListener('keydown',function(e){
+      if(e.key!=='Tab') return;
+      var f=modal.querySelectorAll('button, textarea, select, audio, video, [href]');
+      if(!f.length) return;
+      var first=f[0], last=f[f.length-1];
+      if(e.shiftKey && document.activeElement===first){ e.preventDefault(); last.focus(); }
+      else if(!e.shiftKey && document.activeElement===last){ e.preventDefault(); first.focus(); }
+    });
+  });
+
+  opens.forEach(function(btn){
+    btn.addEventListener('click',function(){
+      var modal=document.getElementById(btn.getAttribute('data-target'));
+      if(modal) open(modal,btn);
+    });
+  });
+  document.addEventListener('keydown',function(e){ if(e.key==='Escape' && openModal) close(openModal); });
+})();
+
+/* ---- Quizzes (every .quiz container grades itself) ---- */
+(function(){
+  "use strict";
+  document.querySelectorAll('.quiz').forEach(function(quiz){
+    var qs=quiz.querySelectorAll('.q'), total=qs.length, answered=0, correct=0;
+    var scoreEl=quiz.querySelector('.quiz-score');
+    if(!total) return;
+    qs.forEach(function(q){
+      var corr=q.getAttribute('data-correct'), explain=q.getAttribute('data-explain')||'';
+      var opts=q.querySelectorAll('.opt'), fb=q.querySelector('.q-feedback'), done=false;
+      opts.forEach(function(opt){
+        opt.addEventListener('click',function(){
+          if(done)return; done=true; var chosen=opt.getAttribute('data-opt');
+          opts.forEach(function(o){ o.disabled=true; if(o.getAttribute('data-opt')===corr)o.classList.add('is-correct'); });
+          var ok=chosen===corr; if(!ok)opt.classList.add('is-wrong');
+          fb.className='q-feedback show '+(ok?'ok':'no');
+          fb.innerHTML=(ok?'<strong>Correct.</strong> ':'<strong>Not quite.</strong> The answer is '+corr+'. ')+explain;
+          answered++; if(ok)correct++;
+          if(answered===total && scoreEl){ scoreEl.className='quiz-score show'; scoreEl.textContent='Your score: '+correct+' out of '+total+' correct.'; }
+        });
+      });
+    });
+  });
+})();
+
+/* ---- Burger menu ---- */
+(function(){
+  "use strict";
+  var toggle=document.querySelector('.nav-toggle'), list=document.getElementById('nav-list');
+  if(!toggle||!list) return;
+  function setOpen(open){ list.hidden=!open; toggle.setAttribute('aria-expanded',open?'true':'false'); }
+  toggle.addEventListener('click',function(e){ e.stopPropagation(); setOpen(list.hidden); });
+  list.querySelectorAll('a').forEach(function(a){
+    a.addEventListener('click',function(e){
+      var href=a.getAttribute('href'), target=(href&&href.charAt(0)==='#')?document.getElementById(href.slice(1)):null;
+      if(target){
+        e.preventDefault();
+        target.scrollIntoView({ behavior:REDUCE?'auto':'smooth', block:'start' });
+        if(history.replaceState){ try{ history.replaceState(null,'',href); }catch(_){} }
+      }
+      setOpen(false);
+    });
+  });
+  document.addEventListener('click',function(e){ if(!list.hidden && !list.contains(e.target) && !toggle.contains(e.target)) setOpen(false); });
+  document.addEventListener('keydown',function(e){ if(e.key==='Escape') setOpen(false); });
+})();
+
+/* ---- Theme toggle ---- */
+(function(){
+  "use strict";
+  var btn=document.querySelector('.theme-toggle'); if(!btn) return;
+  function apply(mode){ document.documentElement.setAttribute('data-theme',mode); btn.setAttribute('aria-pressed', mode==='dark'?'true':'false'); }
+  btn.addEventListener('click',function(){ var cur=document.documentElement.getAttribute('data-theme')==='dark'?'dark':'light'; apply(cur==='dark'?'light':'dark'); });
+})();
+
+/* ---- "Start Learning" button ---- */
+(function(){
+  "use strict";
+  var cta=document.querySelector('.hero-inner .btn'); if(!cta) return;
+  cta.addEventListener('click',function(e){
+    var href=cta.getAttribute('href'), target=(href&&href.charAt(0)==='#')?document.getElementById(href.slice(1)):null;
+    if(target){ e.preventDefault(); target.scrollIntoView({ behavior:REDUCE?'auto':'smooth', block:'start' }); }
+  });
+})();
+</script>
+
+</body>
+</html>

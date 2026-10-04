@@ -1,0 +1,1649 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Modul Matematika SMA Kelas 11 - Bab 2 Lingkaran, Subbab A: Lingkaran dan Busur Lingkaran. Pengertian lingkaran dan unsur-unsurnya, jari-jari dan diameter, tali busur, busur minor dan busur mayor, besar busur, sudut pusat, sudut keliling, hubungan sudut pusat dan sudut keliling, sudut keliling yang menghadap busur sama, serta Teorema Thales dan Pythagoras. Dilengkapi 20 infografis, tiga simulasi interaktif, latihan 10 soal, dan pembahasan lengkap.">
+<title>Lingkaran dan Busur Lingkaran — Matematika SMA Kelas 11 Bab 2</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js" crossorigin="anonymous"></script>
+
+<!-- ====== Tailwind (utilities + design tokens) ====== -->
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = {
+    darkMode: ['selector', '[data-theme="dark"]'],
+    corePlugins: { preflight: false },
+    theme: { extend: {
+      colors: {
+        ink:'var(--ng-ink)', paper:'var(--ng-white)', yellow:'var(--ng-yellow)',
+        muted:'var(--ng-muted)', line:'var(--ng-border)', soft:'var(--ng-soft)',
+        okbd:'var(--ok-bd)', okbg:'var(--ok-bg)', warnbd:'var(--warn-bd)',
+        warnbg:'var(--warn-bg)', errbd:'var(--err-bd)', errbg:'var(--err-bg)'
+      },
+      fontFamily: {
+        sans:['"Plus Jakarta Sans"','"Helvetica Neue"','Arial','"Segoe UI Symbol"','system-ui','-apple-system','sans-serif'],
+        serif:['"Plus Jakarta Sans"','"Helvetica Neue"','Arial','"Segoe UI Symbol"','system-ui','-apple-system','sans-serif']
+      },
+      maxWidth: { content:'820px', measure:'772px', wide:'1296px' }
+    }}
+  }
+</script>
+
+<!-- ====== Design system (CSS asli css/modul.css, inline) ====== -->
+<style>
+  :root{
+    --ng-white:#ffffff; --ng-ink:#000000; --ng-yellow:#ffcc00;
+    --ng-muted:#000000; --ng-axis:#767676; --ng-border:#e2e2e2; --ng-soft:#f5f5f5;
+    --ng-link:#000000; --ng-link-hov:#000000;
+    --content:70%; --gutter:24px;
+    --wide:70%;
+    --measure:calc(var(--content) - 2 * var(--gutter));
+    --ok-bg:#eaf4ec; --ok-bd:#2e7d4f; --err-bg:#f9ecec; --err-bd:#c0473f;
+    --warn-bg:#fdf3d6; --warn-bd:#b8860b;
+    --btn-bg:#1a1a1a; --btn-fg:#ffffff;
+    --canvas-bg:#ffffff;
+    --sans:'Plus Jakarta Sans','Helvetica Neue',Arial,'Segoe UI Symbol','DejaVu Sans',system-ui,-apple-system,sans-serif;
+    --serif:'Plus Jakarta Sans','Helvetica Neue',Arial,'Segoe UI Symbol','DejaVu Sans',system-ui,-apple-system,sans-serif;
+  }
+  [data-theme="dark"]{
+    --ng-white:#141414; --ng-ink:#ededed; --ng-yellow:#ffcc00;
+    --ng-muted:#9a9a9a; --ng-axis:#9a9a9a; --ng-border:#333333; --ng-soft:#1f1f1f;
+    --ng-link:#ededed; --ng-link-hov:#bbbbbb;
+    --ok-bg:#15281c; --ok-bd:#4caf6e; --err-bg:#2a1716; --err-bd:#e06b62;
+    --warn-bg:#2a230f; --warn-bd:#e0b341;
+    --btn-bg:#ededed; --btn-fg:#141414;
+    --canvas-bg:#1b1b1b;
+  }
+  *{box-sizing:border-box;}
+  html{-webkit-text-size-adjust:100%; scroll-behavior:smooth;}
+  @media (prefers-reduced-motion:reduce){ html{ scroll-behavior:auto; } }
+  body{ margin:0; background:var(--ng-white); color:var(--ng-ink); font-family:var(--sans); font-size:20px; font-weight:400; line-height:1.65; -webkit-font-smoothing:antialiased; transition:background-color .25s ease, color .25s ease; }
+  ::selection{ background:var(--ng-yellow); color:#000000; }
+  h1,h2,h3{ font-family:var(--sans); }
+
+  .article>*{ max-width:var(--content); margin-left:auto; margin-right:auto; padding-left:var(--gutter); padding-right:var(--gutter); }
+  .article{ padding-bottom:clamp(96px,14vh,180px); }   /* ruang napas di ujung modul */
+  .article>.wide{ max-width:var(--wide); margin-top:40px; margin-bottom:40px; }
+  .article h2{ font-size:22px; font-weight:600; line-height:1.18; margin:0 0 18px; letter-spacing:-.01em; scroll-margin-top:90px; }
+  .h2-num{ display:block; font-family:var(--sans); font-size:20px; font-weight:400; text-transform:uppercase; letter-spacing:.08em; color:var(--ng-muted); margin:0 0 6px; }
+
+  .prose{ font-family:var(--serif); font-size:20px; font-weight:400; line-height:1.72; }
+  .prose p{ margin:0 0 22px; }
+  .prose strong{ font-weight:700; }
+  .prose h2{ margin-top:0; }
+  .prose h3{ font-family:var(--sans); font-size:22px; font-weight:600; margin:28px 0 12px; letter-spacing:-.01em; }
+  .article>section.prose{ margin-top:40px; }
+
+  .kicker{ display:inline-block; font-family:var(--sans); font-size:20px; font-weight:400; text-transform:uppercase; letter-spacing:.08em; color:var(--ng-muted); text-decoration:none; border-bottom:2px solid var(--ng-yellow); padding-bottom:2px; margin-bottom:22px; }
+  h1{ font-size:38px; font-weight:700; line-height:1.06; letter-spacing:-.02em; margin:0 0 18px; }
+  .dek{ font-family:var(--sans); font-size:20px; font-weight:400; line-height:1.45; color:var(--ng-ink); margin:0 auto; max-width:640px; }
+
+  .hero--full{ position:relative; width:100%; min-height:480px; height:100vh; height:100svh; display:flex; align-items:flex-end; justify-content:center; overflow:hidden; }
+  .hero--full .hero-bg{ position:absolute; inset:0; width:100%; height:100%; aspect-ratio:auto; }
+  .hero--full::after{ content:""; position:absolute; inset:0; z-index:1; background:linear-gradient(to top, rgba(0,0,0,.74) 0%, rgba(0,0,0,.34) 32%, rgba(0,0,0,0) 62%); }
+  .hero--full .hero-inner{ position:relative; z-index:2; width:100%; max-width:var(--content); padding:0 var(--gutter) clamp(40px,8vh,88px); text-align:center; color:#fff; }
+  .hero--full .kicker{ color:#fff; }
+  .hero--full h1{ color:#fff; margin-bottom:18px; }
+  .hero--full .dek{ color:rgba(255,255,255,.9); margin-left:auto; margin-right:auto; }
+  .hero--full .hero-inner .btn{ margin-top:26px; }
+  @media (max-width:600px){ .hero--full .hero-inner{ padding-left:16px; padding-right:16px; } }
+
+  .bagian-head{ text-align:center; margin-top:88px; scroll-margin-top:24px; }
+  .bagian-num{ display:inline-block; font-family:var(--sans); font-size:20px; font-weight:400; text-transform:uppercase; letter-spacing:.12em; color:var(--ng-muted); border-bottom:2px solid var(--ng-yellow); padding-bottom:3px; margin-bottom:16px; }
+  .bagian-head .bagian-title{ font-family:var(--sans); font-size:38px; font-weight:700; line-height:1.1; letter-spacing:-.02em; margin:0; }
+
+  .btn{ display:inline-flex; align-items:center; justify-content:center; gap:8px; font-family:var(--sans); font-size:20px; font-weight:400; line-height:1; letter-spacing:.02em; padding:13px 26px; border:1px solid transparent; background:none; color:var(--ng-ink); text-decoration:none; cursor:pointer; transition:opacity .15s, background-color .25s, border-color .12s, transform .12s; }
+  .btn:hover{ opacity:.85; }
+  .btn:focus-visible{ outline:3px solid var(--ng-yellow); outline-offset:2px; }
+  .btn-primary{ background:var(--ng-yellow); color:#000000; border-color:var(--ng-yellow); }
+  .btn-dark{ background:var(--btn-bg); color:var(--btn-fg); border-color:var(--btn-bg); }
+  .btn:disabled{ opacity:.4; cursor:default; }
+  .btn-ghost{ background:none; color:var(--ng-ink); border-color:var(--ng-border); }
+  .btn-ghost:hover{ opacity:1; border-color:var(--ng-ink); }
+  .btn-ghost.is-active{ background:var(--btn-bg); color:var(--btn-fg); border-color:var(--btn-bg); }
+  .btn-lg{ padding:15px 30px; font-weight:700; text-transform:uppercase; letter-spacing:.06em; }
+  .btn-lg:hover{ transform:translateY(-2px); }
+  .btn-sm{ padding:10px 16px; font-size:20px; font-weight:400; }
+  .btn-icon{ width:48px; height:48px; padding:0; gap:0; }
+  .btn-icon svg{ width:22px; height:22px; }
+
+  .navmenu{ position:fixed; top:24px; left:24px; z-index:90; display:flex; align-items:center; gap:8px; }
+  .theme-toggle .ic-sun{ display:none; }
+  [data-theme="dark"] .theme-toggle .ic-moon{ display:none; }
+  [data-theme="dark"] .theme-toggle .ic-sun{ display:block; }
+  .nav-list{ position:absolute; top:calc(100% + 8px); left:0; min-width:248px; max-height:min(80vh,620px); overflow-y:auto; background:var(--ng-white); border:1px solid var(--ng-border); padding:6px 0; box-shadow:0 10px 34px rgba(0,0,0,.14); }
+  .nav-list[hidden]{ display:none; }
+  .nav-list a{ display:block; padding:12px 18px; font-family:var(--sans); text-decoration:none; color:var(--ng-ink); }
+  .nav-list a:hover{ background:var(--ng-soft); }
+  .nav-list a .n{ display:block; font-size:20px; font-weight:400; text-transform:uppercase; letter-spacing:.06em; color:var(--ng-muted); margin-bottom:3px; }
+  .nav-list a .t{ font-size:20px; font-weight:400; }
+
+  .img-ph{ background-color:var(--ng-soft); background-size:cover; background-position:center; background-repeat:no-repeat; width:100%; aspect-ratio:4/3; }
+  .img-ph--wide{ aspect-ratio:16/9; }
+  .ng-img{ display:block; width:100%; height:auto; }
+  .figure-prose{ margin-top:40px; margin-bottom:40px; }
+  .media-cap, figcaption{ font-family:var(--sans); font-size:18px; font-weight:400; line-height:1.5; color:var(--ng-muted); position:relative; padding-left:16px; }
+  .media-cap::before, figcaption::before{ content:""; position:absolute; left:0; top:5px; width:3px; height:1.05em; background:var(--ng-yellow); }
+  /* Kapsi rata dengan tepi kiri gambarnya. max-width:var(--measure) membuat kapsi
+     menjorok ke dalam karena persentasenya dihitung terhadap <figure>, bukan
+     terhadap .article — jadi dilepas. */
+  figcaption{ max-width:none; margin:16px 0 0; }
+  figcaption .credit{ display:block; margin-bottom:6px; font-size:18px; font-weight:400; text-transform:uppercase; letter-spacing:.04em; }
+  .media-duo{ display:grid; grid-template-columns:1fr 1fr; gap:24px; }
+  @media(max-width:680px){ .media-duo{ grid-template-columns:1fr; } }
+
+  .eq{ background:var(--ng-soft); border-left:3px solid var(--ng-yellow); padding:18px 24px; margin:28px auto; max-width:var(--measure); }
+  .eq-label{ font-family:var(--sans); font-size:20px; font-weight:400; text-transform:uppercase; letter-spacing:.07em; color:var(--ng-muted); margin-bottom:8px; }
+  .eq-body{ font-family:var(--sans); font-size:20px; font-weight:400; line-height:1.7; overflow-x:auto; }
+  @media(max-width:600px){ .eq{ margin-left:16px; margin-right:16px; } }
+
+  .ket{ font-family:var(--sans); font-size:18px; font-weight:400; line-height:1.6; color:var(--ng-muted); max-width:var(--measure); margin:-12px auto 28px; }
+  .ket b, .ket strong{ color:var(--ng-ink); }
+  @media(max-width:600px){ .ket{ margin-left:16px; margin-right:16px; } }
+
+  .table-block{ margin-top:14px; }
+  .data-table{ width:100%; border-collapse:collapse; font-family:var(--sans); font-size:20px; font-weight:400; }
+  .data-table th{ text-align:left; font-size:20px; font-weight:400; text-transform:uppercase; letter-spacing:.05em; color:var(--ng-muted); padding:0 16px 10px; border-bottom:2px solid var(--ng-ink); }
+  .data-table td{ padding:13px 16px; border-bottom:1px solid var(--ng-border); vertical-align:top; }
+  .data-table td:first-child{ font-weight:600; }
+  .data-table tbody tr:last-child td{ border-bottom:none; }
+  .data-table.text-left th:not(:first-child), .data-table.text-left td:not(:first-child){ text-align:left; }
+
+  .example{ max-width:var(--measure); margin:24px auto 0; border:1px solid var(--ng-border); padding:6px 24px 14px; }
+  .example .panel-head{ margin:14px 0 2px; }
+  .ex-row{ padding:18px 0; border-bottom:1px solid var(--ng-border); }
+  .ex-row:last-child{ border-bottom:none; padding-bottom:4px; }
+  .ex-tag{ display:block; font-family:var(--sans); font-size:20px; font-weight:400; text-transform:uppercase; letter-spacing:.06em; color:var(--ng-muted); margin-bottom:8px; }
+  .ex-body{ font-family:var(--serif); font-size:20px; font-weight:400; line-height:1.6; }
+  .ex-body p{ margin:0 0 10px; } .ex-body p:last-child{ margin:0; }
+  .ex-answer{ background:var(--ng-soft); border-left:3px solid var(--ng-yellow); padding:12px 16px; font-family:var(--sans); font-size:20px; font-weight:400; line-height:1.5; margin-top:6px; }
+
+  .cardgrid{ display:grid; grid-template-columns:repeat(auto-fit,minmax(min(100%,180px),1fr)); gap:14px; max-width:var(--measure); margin:24px auto; }
+  .cardgrid--wide{ grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr)); }
+  .info-card{ background:var(--ng-soft); border-left:3px solid var(--ng-ink); padding:16px 18px; display:flex; flex-direction:column; }
+  .info-card .ic-title{ font-family:var(--sans); font-size:22px; font-weight:600; line-height:1.3; letter-spacing:-.01em; color:var(--ng-ink); }
+  .info-card p{ font-family:var(--serif); font-size:20px; font-weight:400; line-height:1.55; color:var(--ng-ink); margin:7px 0 0; }
+  .info-card p:first-child{ margin-top:0; }
+  .info-card ul{ list-style:none; margin:8px 0 0; padding:0; }
+  .info-card ul li{ position:relative; padding-left:16px; margin:0 0 5px; font-family:var(--serif); font-size:20px; font-weight:400; line-height:1.5; }
+  .info-card ul li::before{ content:""; position:absolute; left:0; top:.62em; width:5px; height:5px; background:var(--ng-ink); }
+
+  .panel-head{ margin-bottom:18px; }
+  .panel-label{ font-family:var(--sans); font-size:20px; font-weight:400; text-transform:uppercase; letter-spacing:.08em; color:var(--ng-muted); border-bottom:2px solid var(--ng-yellow); padding-bottom:2px; }
+  .panel-title{ font-family:var(--sans); font-size:22px; font-weight:600; line-height:1.18; letter-spacing:-.01em; margin:10px 0 0; }
+  figure{ margin:0; }
+
+  /* ---- Simulasi ---- */
+  .sim{ max-width:var(--measure); margin:36px auto 0; scroll-margin-top:24px; }
+  .sim-head{ margin-bottom:18px; max-width:var(--measure); margin-left:auto; margin-right:auto; text-align:center; }
+  .sim-canvas{ width:100%; display:block; border:1px solid var(--ng-border); background:var(--canvas-bg); touch-action:none; }
+  .sim-controls{ display:flex; flex-wrap:wrap; gap:20px; align-items:flex-end; margin-top:18px; }
+  .ctrl{ flex:1 1 200px; }
+  .ctrl label{ display:flex; justify-content:space-between; align-items:baseline; font-family:var(--sans); font-size:20px; font-weight:400; text-transform:uppercase; letter-spacing:.05em; color:var(--ng-muted); margin-bottom:8px; }
+  .ctrl output{ font-size:20px; font-weight:400; color:var(--ng-ink); letter-spacing:0; text-transform:none; }
+  .ctrl input[type=range]{ width:100%; accent-color:var(--ng-ink); height:24px; cursor:pointer; }
+  .ctrl input[type=range]:disabled{ opacity:.4; cursor:default; }
+  .sim-controls .btn{ flex:0 0 auto; }
+  .mode-btns{ display:flex; flex-wrap:wrap; gap:8px; margin-bottom:16px; align-items:center; }
+  .sim-readout{ display:grid; grid-template-columns:repeat(3,1fr); gap:1px; margin-top:18px; background:var(--ng-border); border:1px solid var(--ng-border); }
+  .sim-readout + .sim-readout{ margin-top:1px; border-top:none; }
+  .sim-readout>div{ background:var(--ng-white); padding:14px 16px; }
+  .ro-label{ display:block; font-family:var(--sans); font-size:20px; font-weight:400; text-transform:uppercase; letter-spacing:.05em; color:var(--ng-muted); }
+  .ro-val{ display:block; font-family:var(--sans); font-size:20px; font-weight:400; margin-top:4px; }
+  .ro-val .u{ font-size:20px; font-weight:400; color:var(--ng-muted); }
+  @media(max-width:600px){ .sim-readout{ grid-template-columns:1fr; } .ro-val{ font-size:20px; font-weight:400; } }
+
+  .calc-work{ font-family:var(--sans); font-size:20px; font-weight:400; line-height:1.9; color:var(--ng-muted); margin-top:14px; }
+  .calc-work .ln{ display:block; }
+  .calc-work b{ color:var(--ng-ink); font-weight:700; }
+  .calc-note{ font-family:var(--sans); font-size:18px; font-weight:400; line-height:1.6; color:var(--ng-muted); margin:0 0 12px; }
+  .sim-soal{ font-family:var(--sans); font-size:20px; font-weight:400; line-height:1.6; background:var(--ng-soft); border-left:3px solid var(--ng-yellow); padding:14px 18px; margin-top:18px; }
+  .sim-soal b{ font-weight:700; color:var(--ng-ink); }
+  .sim-steps{ margin-top:18px; border:1px solid var(--ng-border); padding:16px 20px; }
+  .sim-steps .calc-work{ margin-top:0; }
+  .calc-res{ font-family:var(--sans); font-size:20px; font-weight:400; letter-spacing:-.01em; margin-top:16px; padding:16px 20px; background:var(--ng-soft); border-left:3px solid var(--ng-yellow); word-break:break-word; }
+  .calc-res.is-ok{ border-left-color:var(--ok-bd); }
+  .calc-res.is-err{ border-left-color:var(--err-bd); }
+
+  .q{ padding:22px 0; border-bottom:1px solid var(--ng-border); }
+  .q:last-of-type{ border-bottom:none; }
+  .q-num{ display:block; font-family:var(--sans); font-weight:400; font-size:20px; text-transform:uppercase; letter-spacing:.05em; color:var(--ng-muted); margin-bottom:6px; }
+  .q-head{ display:flex; align-items:center; gap:10px; flex-wrap:wrap; margin-bottom:10px; }
+  .q-head .q-num{ margin-bottom:0; }
+  .q-level{ font-family:var(--sans); font-size:20px; font-weight:400; text-transform:uppercase; letter-spacing:.07em; padding:3px 10px; border-radius:999px; border:1px solid currentColor; }
+  .q-level.lvl-mudah{ color:var(--ng-ink); background:var(--ok-bg); }
+  .q-level.lvl-medium{ color:var(--ng-ink); background:var(--warn-bg); }
+  .q-level.lvl-susah{ color:var(--ng-ink); background:var(--err-bg); }
+  .quiz-group{ font-family:var(--sans); font-size:20px; font-weight:400; text-transform:uppercase; letter-spacing:.05em; color:var(--ng-ink); margin:38px 0 20px; padding-bottom:8px; border-bottom:2px solid var(--ng-ink); }
+  .quiz-group:first-of-type{ margin-top:8px; }
+  .quiz-group span{ color:var(--ng-muted); font-weight:600; text-transform:none; letter-spacing:0; }
+  .q-text{ font-family:var(--serif); font-size:20px; line-height:1.5; font-weight:400; margin:0 0 16px; }
+  .opt{ display:flex; align-items:center; gap:12px; width:100%; text-align:left; background:none; border:1px solid var(--ng-border); padding:12px 14px; margin-bottom:8px; cursor:pointer; font-family:var(--sans); font-size:20px; font-weight:400; color:var(--ng-ink); transition:border-color .12s, background .12s; }
+  .opt:hover:not(:disabled){ border-color:var(--ng-ink); }
+  .opt-l{ width:26px; height:26px; border-radius:50%; border:1px solid var(--ng-border); display:flex; align-items:center; justify-content:center; font-weight:400; font-size:20px; flex:0 0 auto; }
+  .opt:disabled{ cursor:default; }
+  .opt.is-correct{ border-color:var(--ok-bd); background:var(--ok-bg); }
+  .opt.is-correct .opt-l{ background:var(--ok-bd); color:#fff; border-color:var(--ok-bd); }
+  .opt.is-wrong{ border-color:var(--err-bd); background:var(--err-bg); }
+  .opt.is-wrong .opt-l{ background:var(--err-bd); color:#fff; border-color:var(--err-bd); }
+  .q-feedback{ display:none; font-family:var(--sans); font-size:18px; font-weight:400; line-height:1.55; margin-top:10px; padding-left:14px; border-left:3px solid var(--ng-border); color:var(--ng-muted); }
+  .q-feedback.show{ display:block; }
+  .q-feedback.show.ok{ border-left-color:var(--ok-bd); }
+  .q-feedback.show.no{ border-left-color:var(--err-bd); }
+  .q-feedback b, .q-feedback strong{ color:var(--ng-ink); font-weight:700; }
+  .quiz-score{ display:none; font-family:var(--sans); font-weight:400; font-size:20px; margin-top:24px; padding:16px 20px; background:var(--ng-soft); border-left:3px solid var(--ng-yellow); }
+  .quiz-score.show{ display:block; }
+
+  a:focus-visible{ outline:3px solid var(--ng-yellow); outline-offset:3px; }
+
+  .prose ol{ margin:0 0 22px; padding-left:1.5em; }
+  .prose ol li{ margin:0 0 10px; padding-left:4px; }
+  .prose ul{ list-style:none; margin:0 0 22px; padding-left:0; }
+  .prose ul li{ position:relative; padding-left:22px; margin:0 0 10px; }
+  .prose ul li::before{ content:""; position:absolute; left:0; top:.62em; width:6px; height:6px; background:var(--ng-ink); }
+  .prose i{ font-style:italic; }
+
+  /* ---- KaTeX ---- */
+  .katex{ font-size:1.05em; }
+  .eq-body .katex-display{ margin:.15em 0; text-align:left; }
+  .ket .katex, .q-text .katex, .ex-body .katex{ font-size:1.02em; }
+
+  @media (max-width:767px){ .media-duo{ grid-template-columns:1fr; } }
+  @media (max-width:600px){
+    body{ font-size:20px; font-weight:400; } .prose{ font-size:20px; font-weight:400; }
+    .article>*{ padding-left:16px; padding-right:16px; }
+    .article>.wide{ padding-left:16px; padding-right:16px; }
+    .bagian-head{ margin-top:64px; }
+    .navmenu{ top:16px; left:16px; }
+  }
+  /* ---- Komponen tambahan ---- */
+  .eq-body .line{ display:block; }
+  .eq-body .line + .line{ margin-top:8px; }
+  .eq-body .tag{ font-family:var(--sans); font-size:20px; font-weight:400; text-transform:none; color:var(--ng-muted); letter-spacing:0; margin-left:8px; }
+  .data-table tr.is-max td{ background:var(--ng-soft); }
+  .data-table tr.is-max td:first-child{ box-shadow:inset 3px 0 0 var(--ng-yellow); }
+  /* ---- Video: infografis diputar seperti GIF, video penjelasan pakai kontrol ---- */
+  .gifwrap{ max-width:var(--measure); margin:36px auto 0; }
+  .gifvid{ display:block; width:100%; height:auto; border:1px solid var(--ng-border); background:var(--ng-soft); pointer-events:none; }
+  .gifvid::-webkit-media-controls{ display:none !important; }
+  .ng-vid{ display:block; width:100%; height:auto; border:1px solid var(--ng-border); background:var(--ng-soft); aspect-ratio:16/9; }
+  .gif-cap{ font-family:var(--sans); font-size:18px; font-weight:400; line-height:1.5; color:var(--ng-muted); position:relative; padding-left:16px; margin:14px 0 0; }
+  .gif-cap::before{ content:""; position:absolute; left:0; top:5px; width:3px; height:1.05em; background:var(--ng-yellow); }
+  .gif-cap .credit{ display:block; margin-bottom:6px; font-size:18px; font-weight:400; text-transform:uppercase; letter-spacing:.04em; }
+  p.aside{ font-family:var(--sans); font-size:18px; font-weight:400; font-style:italic; color:var(--ng-muted); max-width:var(--measure); margin:18px auto 0; }
+
+  /* ---- Perataan teks bacaan: rata kiri-kanan ---- */
+  .prose p,
+  .prose ul li,
+  .prose ol li,
+  .ex-body p{ text-align:justify; text-justify:inter-word; }
+  /* Kolom isi 70% dengan margin 15% hanya masuk akal di layar lebar.
+     Di layar sempit margin sebesar itu memakan ruang baca dan blok lebar
+     (simulasi) ikut menyusut, jadi kolom dilebarkan bertahap. */
+  @media (max-width:1023px){ :root{ --content:90%; --wide:96%; } }
+  @media (max-width:600px){  :root{ --content:100%; --wide:100%; } }
+  /* ---- Penyesuaian layar sempit ---- */
+  .table-block{ overflow-x:auto; -webkit-overflow-scrolling:touch; }
+  .table-block > table{ min-width:min-content; }
+  @media (max-width:600px){
+    .data-table th{ padding:0 10px 8px; }
+    .data-table td{ padding:10px 10px; }
+    .example{ padding-left:16px; padding-right:16px; }
+    .eq{ padding-left:16px; padding-right:16px; }
+    .nav-list{ min-width:min(248px, calc(100vw - 32px)); }
+  }
+  /* ---- Simbol matematika (∞, ×, −) memakai font pengganti eksplisit,
+         sebab Plus Jakarta Sans tidak memuat glifnya. ---- */
+  body{ font-variant-emoji:text; }
+  .sym{ font-family:'Helvetica Neue',Arial,'Segoe UI Symbol','DejaVu Sans',sans-serif; font-variant-emoji:text; }
+</style>
+</head>
+<body>
+
+<!-- ============ NAV MENGAMBANG ============ -->
+<div class="navmenu">
+  <button class="btn btn-dark btn-icon nav-toggle" type="button" aria-label="Daftar isi" aria-haspopup="true" aria-expanded="false">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+  </button>
+  <button class="btn btn-dark btn-icon theme-toggle" type="button" aria-label="Ganti tema terang/gelap">
+    <svg class="ic-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+    <svg class="ic-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M2 12h2M20 12h2M5 5l1.4 1.4M17.6 17.6L19 19M19 5l-1.4 1.4M6.4 17.6L5 19"/></svg>
+  </button>
+  <nav class="nav-list" id="nav-list" hidden>
+    <a href="#lingkaran"><span class="n">Topik 1</span><span class="t">Lingkaran dan Unsur-Unsurnya</span></a>
+    <a href="#busur"><span class="n">Topik 2</span><span class="t">Busur Lingkaran</span></a>
+    <a href="#sim-busur"><span class="n">2 · Simulasi</span><span class="t">Penjelajah Busur Minor dan Mayor</span></a>
+    <a href="#sudut"><span class="n">Topik 3</span><span class="t">Sudut Pusat dan Sudut Keliling</span></a>
+    <a href="#hubungan"><span class="n">Topik 4</span><span class="t">Hubungan Sudut Pusat dan Sudut Keliling</span></a>
+    <a href="#sim-sudut"><span class="n">4 · Simulasi</span><span class="t">Penjelajah Sudut Pusat dan Sudut Keliling</span></a>
+    <a href="#sim-thales"><span class="n">4 · Simulasi</span><span class="t">Penjelajah Teorema Thales</span></a>
+    <a href="#sehari-hari"><span class="n">Topik 5</span><span class="t">Contoh dalam Kehidupan Sehari-hari</span></a>
+    <a href="#istilah"><span class="n">Topik 6</span><span class="t">Istilah Penting</span></a>
+    <a href="#penerapan"><span class="n">Topik 7</span><span class="t">Contoh Penerapan Konsep</span></a>
+    <a href="#latihan"><span class="n">Topik 8</span><span class="t">Latihan Soal</span></a>
+    <a href="#pembahasan"><span class="n">Topik 9</span><span class="t">Pembahasan Latihan Soal</span></a>
+    <a href="#rangkuman"><span class="n">Topik 10</span><span class="t">Rangkuman</span></a>
+    <a href="#refleksi-topik"><span class="n">Topik 11</span><span class="t">Refleksi Siswa</span></a>
+  </nav>
+</div>
+
+<!-- ============ HERO ============ -->
+<header class="hero--full">
+  <div class="img-ph hero-bg" style="background-image:url('https://scola-uploader.scolacdn.com/upload/462062c002ef8d2d81dd0e2d/Heroo.png')"></div>
+  <div class="hero-inner">
+    <span class="kicker">Matematika · SMA · Subbab 1</span>
+    <h1>Lingkaran dan Busur Lingkaran</h1>
+    <p class="dek">Satu titik, satu jarak tetap &mdash; dari aturan sesederhana itu lahir roda, tutup selokan, dan cara pelaut menebak posisi kapalnya di laut lepas.</p>
+    <a class="btn btn-primary btn-lg" href="#lingkaran">Mulai Belajar</a>
+  </div>
+</header>
+
+<main class="article">
+
+  <section class="prose">
+    <p>Bentuk lingkaran ada di mana-mana: roda sepeda yang kita kayuh, jam dinding di ruang kelas, piring di meja makan, koin di saku, sampai tutup lubang selokan di tepi jalan. Semuanya memakai satu aturan yang sama, dan aturan itu sangat sederhana.</p>
+    <p>Aturannya begini: pilih satu titik, lalu kumpulkan semua titik yang jaraknya sama terhadap titik itu. Hasilnya selalu berupa lingkaran. Seluruh materi pada subbab ini &mdash; jari-jari, diameter, tali busur, busur, sudut pusat, sudut keliling, sampai Teorema Thales &mdash; adalah akibat dari satu aturan tunggal tersebut.</p>
+    <p>Karena semua unsur itu berasal dari sumber yang sama, hubungan di antara mereka pun rapi dan dapat diramalkan. Sudut pusat selalu tepat dua kali sudut keliling yang menghadap busur sama. Sudut keliling yang menghadap diameter selalu tepat 90&deg;. Tidak ada perkecualian, dan itulah yang membuat lingkaran begitu berguna dalam perhitungan.</p>
+  </section>
+
+  <figure class="figure-prose">
+    <img class="ng-img" src="https://scola-uploader.scolacdn.com/upload/2dec870d39f3959ddf06bb7f/gambar-01-benda-berbentuk-lingkaran.png" alt="Enam benda berbentuk lingkaran tersusun dua baris: roda sepeda, jam dinding, piring, koin seribu rupiah, tutup selokan bertuliskan saluran, dan roda kemudi kapal. Setiap benda diberi nama dan keterangan singkat mengenai fungsinya.">
+    <figcaption><span class="credit">Benda berbentuk lingkaran</span>Enam benda yang tidak ada hubungannya satu sama lain, tetapi bentuknya sama. Roda kemudi harus dapat diputar ke segala arah, piring harus rata di segala sisi, koin harus lolos di setiap mesin &mdash; dan semuanya terpenuhi oleh satu aturan yang sama: jarak dari titik tengah ke tepi selalu sama.</figcaption>
+  </figure>
+
+  <!-- ============ TOPIK 1 — LINGKARAN DAN UNSUR-UNSURNYA ============ -->
+  <div class="bagian-head" id="lingkaran" data-nav="Lingkaran dan Unsur-Unsurnya">
+    <span class="bagian-num">Topik 1</span>
+    <h2 class="bagian-title">Lingkaran dan Unsur-Unsurnya</h2>
+  </div>
+
+  <figure class="figure-prose">
+    <img class="ng-img" src="https://scola-uploader.scolacdn.com/upload/1a423cf4ac0545575e111802/Lingkaran%20dan%20Unsur-Unsurnya.png" alt="Sehelai kertas gambar di atas meja kayu memuat lingkaran berpusat di O dengan ruas OP diberi label Radius r dan ruas AB mendatar diberi label Diameter. Di sekitarnya terdapat jangka, penggaris logam, dan pensil.">
+  </figure>
+
+  <section class="prose">
+    <h3>1.1 Pengertian Lingkaran</h3>
+    <p><strong>Lingkaran</strong> adalah kumpulan semua titik pada bidang yang memiliki jarak sama terhadap satu titik tertentu. Titik tertentu tersebut disebut <strong>pusat lingkaran</strong>, sedangkan jarak dari pusat lingkaran ke titik-titik pada lingkaran disebut <strong>jari-jari</strong>.</p>
+    <p>Daerah yang berada di dalam dan dibatasi oleh lingkaran disebut <strong>daerah lingkaran</strong>. Jadi, istilah lingkaran sebenarnya mengacu pada garis lengkungnya, sedangkan bagian yang berada di dalamnya disebut daerah lingkaran.</p>
+    <p>Misalkan titik \(O\) merupakan pusat lingkaran dan titik \(A\) terletak pada lingkaran. Ruas garis \(OA\) merupakan jari-jari lingkaran.</p>
+  </section>
+
+  <figure class="figure-prose">
+    <img class="ng-img" src="https://scola-uploader.scolacdn.com/upload/2dec870d39f3959ddf06bb7f/gambar-04-pengertian-lingkaran.png" alt="Lingkaran berpusat di titik O dengan empat titik A, B, C, dan D pada kelilingnya. Ruas OA, OB, OC, dan OD digambar kuning dan diberi tanda sama panjang, disertai kotak keterangan bahwa keempat ruas itu adalah jari-jari yang panjangnya sama.">
+    <figcaption><span class="credit">Pengertian lingkaran</span>Empat titik yang berbeda pada satu lingkaran, dan empat ruas garis yang sama panjang menuju pusatnya. Tanda garis pendek pada tiap ruas adalah cara baku menyatakan &ldquo;sama panjang&rdquo;. Justru kesamaan panjang inilah definisi lingkaran &mdash; bukan bentuk bulatnya.</figcaption>
+  </figure>
+
+  <figure class="figure-prose">
+    <img class="ng-img" src="https://scola-uploader.scolacdn.com/upload/2dec870d39f3959ddf06bb7f/gambar-05-lingkaran-dan-daerah.png" alt="Dua panel berdampingan. Panel kiri menampilkan lingkaran berupa garis lengkung kuning saja dengan label keliling lingkaran dan rumus K sama dengan 2 pi r. Panel kanan menampilkan lingkaran yang bagian dalamnya diarsir kuning dengan label luas lingkaran dan rumus L sama dengan pi r kuadrat.">
+    <figcaption><span class="credit">Lingkaran dan daerah lingkaran</span>Panel kiri hanya garisnya, panel kanan seluruh bagian dalamnya. Dalam percakapan sehari-hari keduanya sama-sama disebut &ldquo;lingkaran&rdquo;, tetapi dalam matematika hanya yang kiri yang bernama lingkaran; yang kanan adalah daerah lingkaran. <strong>Catatan:</strong> rumus \(K = 2\pi r\) dan \(L = \pi r^{2}\) pada kartu ini adalah bekal untuk subbab berikutnya, belum dibahas di sini.</figcaption>
+  </figure>
+
+  <section class="prose">
+    <p>Jika panjang jari-jari dinyatakan dengan \(r\), maka diameter lingkaran adalah:</p>
+  </section>
+
+  <div class="eq">
+    <div class="eq-label">Diameter dari jari-jari</div>
+    <div class="eq-body">
+      <span class="line">\(d = 2r\)</span>
+    </div>
+  </div>
+
+  <section class="prose">
+    <p>Sebaliknya, jari-jari dapat ditentukan dengan rumus:</p>
+  </section>
+
+  <div class="eq">
+    <div class="eq-label">Jari-jari dari diameter</div>
+    <div class="eq-body">
+      <span class="line">\(r = \dfrac{d}{2}\)</span>
+    </div>
+  </div>
+
+  <p class="ket"><b>\(r\)</b> = jari-jari lingkaran &nbsp;·&nbsp; <b>\(d\)</b> = diameter lingkaran</p>
+
+  <figure class="figure-prose">
+    <img class="ng-img" src="https://scola-uploader.scolacdn.com/upload/ab7b3fee0eb99d89f51d612c/gambar-07-jari-jari-diameter.png" alt="Lingkaran dengan diameter AB mendatar melalui pusat O. Ruas AO dan OB masing-masing dilabeli r dan diberi tanda sama panjang, sedangkan seluruh ruas AB diberi ukuran d. Di sisi kanan tertulis d sama dengan 2r.">
+    <figcaption><span class="credit">Hubungan jari-jari dan diameter</span>Diameter bukan ukuran baru, melainkan dua jari-jari yang kebetulan segaris. Dua tanda garis pendek pada \(AO\) dan \(OB\) menegaskan keduanya sama panjang &mdash; dari situlah \(d = 2r\) dan \(r = \tfrac{d}{2}\) berasal.</figcaption>
+  </figure>
+
+  <section class="prose">
+    <h3>1.2 Unsur-Unsur Lingkaran</h3>
+    <p>Beberapa unsur penting pada lingkaran adalah sebagai berikut.</p>
+  </section>
+
+  <div class="table-block">
+    <table class="data-table text-left">
+      <thead><tr><th>Istilah</th><th>Penjelasan</th></tr></thead>
+      <tbody>
+        <tr><td>Pusat lingkaran</td><td>Titik yang memiliki jarak sama ke setiap titik pada lingkaran.</td></tr>
+        <tr><td>Jari-jari</td><td>Ruas garis dari pusat lingkaran ke suatu titik pada lingkaran.</td></tr>
+        <tr><td>Diameter</td><td>Ruas garis yang melalui pusat dan menghubungkan dua titik pada lingkaran.</td></tr>
+        <tr><td>Tali busur</td><td>Ruas garis yang menghubungkan dua titik pada lingkaran.</td></tr>
+        <tr><td>Busur</td><td>Bagian dari keliling lingkaran yang terletak di antara dua titik.</td></tr>
+        <tr><td>Sudut pusat</td><td>Sudut yang titik sudutnya berada di pusat lingkaran.</td></tr>
+        <tr class="is-max"><td>Sudut keliling</td><td>Sudut yang titik sudutnya berada pada lingkaran.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <figure class="figure-prose">
+    <img class="ng-img" src="https://scola-uploader.scolacdn.com/upload/ab7b3fee0eb99d89f51d612c/gambar-06-unsur-unsur-lingkaran.png" alt="Satu lingkaran yang memuat seluruh unsur sekaligus beserta kotak keterangan berwarna: tali busur CD, jari-jari OC dan OE, diameter AB, busur CB, busur AEB, sudut pusat COB yang ditandai theta, dan sudut keliling ACB yang ditandai alfa.">
+    <figcaption><span class="credit">Unsur-unsur lingkaran</span>Seluruh unsur pada tabel di atas dikumpulkan dalam satu gambar, masing-masing dengan warnanya sendiri. Perhatikan pasangan yang paling mudah tertukar: \(AB\) dan \(CD\) sama-sama menghubungkan dua titik pada lingkaran, tetapi hanya \(AB\) yang melalui \(O\). Perhatikan pula \(\theta\) di titik \(O\) dan \(\alpha\) di titik \(C\) &mdash; hubungan keduanya baru dibahas pada Topik 4.</figcaption>
+  </figure>
+
+  <section class="prose">
+    <p>Setiap diameter merupakan tali busur. Namun, tidak semua tali busur merupakan diameter karena sebuah tali busur belum tentu melalui pusat lingkaran.</p>
+    <p>Diameter merupakan <strong>tali busur terpanjang</strong> pada sebuah lingkaran.</p>
+  </section>
+
+  <figure class="figure-prose">
+    <img class="ng-img" src="https://scola-uploader.scolacdn.com/upload/ab7b3fee0eb99d89f51d612c/gambar-08-tali-busur-diameter.png" alt="Lingkaran dengan diameter AB digambar tebal berwarna kuning melalui pusat O, dan tali busur CD digambar tipis di bagian atas tanpa melalui pusat. Di sisi kanan terdapat dua kartu pembanding beserta catatan bahwa AB lebih panjang daripada CD.">
+    <figcaption><span class="credit">Tali busur dan diameter</span>Dua ruas garis dengan ujung sama-sama di lingkaran. \(AB\) ditandai kuning karena melewati pusat, dan itulah satu-satunya syarat yang membedakan diameter dari tali busur biasa. Geser \(CD\) sedikit demi sedikit ke arah \(O\) dan panjangnya terus bertambah sampai maksimum tepat ketika ia melalui \(O\) &mdash; itulah alasan diameter menjadi tali busur terpanjang.</figcaption>
+  </figure>
+
+  <!-- ============ TOPIK 2 — BUSUR LINGKARAN ============ -->
+  <div class="bagian-head" id="busur" data-nav="Busur Lingkaran">
+    <span class="bagian-num">Topik 2</span>
+    <h2 class="bagian-title">Busur Lingkaran</h2>
+  </div>
+
+  <figure class="figure-prose">
+    <img class="ng-img" src="https://scola-uploader.scolacdn.com/upload/1a423cf4ac0545575e111802/Busur%20Lingkaran.png" alt="Sebuah papan tulis hitam bertuliskan kapur: lingkaran berpusat di O dengan dua jari-jari r menuju titik A dan titik B membentuk sudut theta. Busur pendek AB diberi warna kuning dengan label busur minor, sedangkan busur panjang AB diberi warna biru dengan label busur mayor.">
+  </figure>
+
+  <section class="prose">
+    <h3>2.1 Pengertian Busur</h3>
+    <p><strong>Busur lingkaran</strong> adalah bagian dari lingkaran yang terletak di antara dua titik pada lingkaran.</p>
+    <p>Misalkan titik \(B\) dan \(C\) terletak pada suatu lingkaran. Busur yang menghubungkan titik \(B\) dan \(C\) ditulis \(\overset{\frown}{BC}\).</p>
+    <p>Antara titik \(B\) dan \(C\) terdapat dua busur, yaitu <strong>busur minor</strong> dan <strong>busur mayor</strong>.</p>
+    <h3>2.2 Busur Minor</h3>
+    <p>Busur minor adalah busur yang panjangnya lebih kecil daripada setengah keliling lingkaran. Besar busur minor kurang dari \(180^\circ\).</p>
+    <p>Apabila hanya ditulis \(\overset{\frown}{BC}\) tanpa keterangan lain, biasanya yang dimaksud adalah busur minor \(BC\).</p>
+    <h3>2.3 Busur Mayor</h3>
+    <p>Busur mayor adalah busur yang panjangnya lebih besar daripada setengah keliling lingkaran. Besar busur mayor lebih dari \(180^\circ\).</p>
+    <p>Untuk membedakannya dari busur minor, busur mayor biasanya ditulis menggunakan tiga huruf. Contohnya, jika titik \(D\) berada pada busur mayor dari \(B\) ke \(C\), busur tersebut dapat ditulis \(\overset{\frown}{BDC}\).</p>
+    <p>Busur yang lebih kecil disebut busur minor, sedangkan bagian lingkaran yang lebih besar disebut busur mayor. Dalam buku referensi juga dijelaskan bahwa jika hanya disebutkan &ldquo;busur&rdquo;, busur yang dimaksud biasanya adalah busur minor.</p>
+  </section>
+
+  <figure class="figure-prose">
+    <img class="ng-img" src="https://scola-uploader.scolacdn.com/upload/ab7b3fee0eb99d89f51d612c/gambar-09-busur-minor-mayor.png" alt="Lingkaran dengan titik B dan C. Busur pendek dari B ke C ditandai biru sebagai busur minor BC, sedangkan busur panjang yang melewati titik D ditandai merah sebagai busur mayor BDC. Di sisi kanan terdapat dua kartu penjelasan dan satu catatan tentang penulisan tiga huruf.">
+    <figcaption><span class="credit">Busur minor dan busur mayor</span>Dua titik yang sama, \(B\) dan \(C\), tetapi dua busur yang berbeda. Yang biru adalah busur minor \(\overset{\frown}{BC}\), yang merah adalah busur mayor \(\overset{\frown}{BDC}\). Huruf ketiga \(D\) itulah penanda bahwa yang dimaksud adalah busur yang panjang &mdash; tanpa huruf itu, tulisan \(\overset{\frown}{BC}\) selalu berarti busur minor.</figcaption>
+  </figure>
+
+  <section class="prose">
+    <h3>2.4 Besar Busur</h3>
+    <p>Besar sebuah busur ditentukan oleh besar sudut pusat yang menghadap busur tersebut.</p>
+    <p>Jika \(\angle BOC\) merupakan sudut pusat yang menghadap \(\overset{\frown}{BC}\), maka:</p>
+  </section>
+
+  <div class="eq">
+    <div class="eq-label">Besar busur sama dengan sudut pusatnya</div>
+    <div class="eq-body">
+      <span class="line">\(m\,\overset{\frown}{BC} = m\angle BOC\)</span>
+    </div>
+  </div>
+
+  <section class="prose">
+    <p>Contoh: jika \(\angle BOC = 80^\circ\), maka besar busur minor \(BC\) adalah \(m\,\overset{\frown}{BC} = 80^\circ\).</p>
+    <p>Besar seluruh busur pada satu lingkaran adalah \(360^\circ\). Dengan demikian, besar busur mayor \(BC\) adalah:</p>
+  </section>
+
+  <div class="eq">
+    <div class="eq-label">Busur mayor dari busur minornya</div>
+    <div class="eq-body">
+      <span class="line">\(360^\circ - 80^\circ = 280^\circ\)</span>
+    </div>
+  </div>
+
+  <figure class="figure-prose">
+    <img class="ng-img" src="https://scola-uploader.scolacdn.com/upload/ab7b3fee0eb99d89f51d612c/gambar-10-busur-sudut-pusat.png" alt="Lingkaran besar berpusat di O dengan dua jari-jari OA dan OB. Sudut AOB di titik pusat diarsir kuning dan diberi angka 80 derajat, sedangkan busur AB di bagian bawah lingkaran diwarnai kuning dengan label busur AB busur minor. Di sisi kanan terdapat kotak keterangan dan penjelasan bahwa besar sudut pusat sama dengan besar busur yang dihadapinya.">
+    <figcaption><span class="credit">Besar busur dan sudut pusat</span>Contoh yang sama persis dengan hitungan di atas. Perhatikan bahwa warna kuning dipakai dua kali: sekali untuk sudut di titik \(O\), sekali untuk busur di tepi lingkaran. Itu disengaja &mdash; keduanya bernilai sama, yaitu 80&deg;, sehingga busur mayornya \(360^\circ - 80^\circ = 280^\circ\).</figcaption>
+  </figure>
+
+  <!-- ===== SIMULASI 1 ===== -->
+  <figure class="wide" id="sim-busur" data-nav="Simulasi 1 — Penjelajah Busur Minor dan Mayor">
+    <div class="sim-head panel-head">
+      <span class="panel-label">Simulasi 1</span>
+      <h3 class="panel-title">Penjelajah Busur Minor dan Mayor</h3>
+    </div>
+    <canvas class="sim-canvas" id="bs-canvas" aria-label="Simulasi busur: sebuah lingkaran dengan titik B tetap dan titik C yang dapat digeser. Busur dari B ke C searah jarum jam ditebalkan kuning, busur sisanya digambar abu-abu, dan sudut pusat di titik O ikut berubah."></canvas>
+    <div class="sim-controls">
+      <div class="ctrl">
+        <label for="bs-a">Sudut pusat &ang;BOC <output id="bs-out-a">120°</output></label>
+        <input id="bs-a" type="range" min="10" max="350" value="120" step="5">
+      </div>
+      <div class="ctrl">
+        <label for="bs-r">Jari-jari r (cm) <output id="bs-out-r">7</output></label>
+        <input id="bs-r" type="range" min="3" max="14" value="7" step="1">
+      </div>
+    </div>
+    <div class="sim-readout">
+      <div><span class="ro-label">Busur BC</span><span class="ro-val" id="bs-ro-min">&mdash;</span></div>
+      <div><span class="ro-label">Busur BDC</span><span class="ro-val" id="bs-ro-may">&mdash;</span></div>
+      <div><span class="ro-label">Sudut keliling</span><span class="ro-val" id="bs-ro-kel">&mdash;</span></div>
+    </div>
+    <div class="sim-steps">
+      <p class="calc-work" id="bs-langkah">&mdash;</p>
+    </div>
+    <div class="calc-res" id="bs-res">&mdash;</div>
+    <figcaption><span class="credit">Simulasi · dua busur yang selalu berjumlah 360°</span>Geser sudut pusatnya dan amati label mana yang berpindah. Selama \(\angle BOC\) di bawah 180&deg;, busur kuninglah yang menjadi busur minor; lewati 180&deg; dan peran keduanya bertukar. Perhatikan juga panjang busur di baris perhitungan: besar busur diukur dalam derajat, sedangkan panjangnya dalam sentimeter &mdash; dua hal yang berbeda dan sering tertukar.</figcaption>
+  </figure>
+
+  <!-- ============ TOPIK 3 — SUDUT PUSAT DAN SUDUT KELILING ============ -->
+  <div class="bagian-head" id="sudut" data-nav="Sudut Pusat dan Sudut Keliling">
+    <span class="bagian-num">Topik 3</span>
+    <h2 class="bagian-title">Sudut Pusat dan Sudut Keliling</h2>
+  </div>
+
+  <section class="prose">
+    <h3>3.1 Sudut Pusat</h3>
+    <p><strong>Sudut pusat</strong> adalah sudut yang titik sudutnya terletak di pusat lingkaran, sedangkan kedua sisinya berupa jari-jari lingkaran.</p>
+    <p>Misalkan \(O\) adalah pusat lingkaran. Titik \(B\) dan \(C\) terletak pada lingkaran. Sudut \(\angle BOC\) merupakan sudut pusat karena titik sudutnya berada di titik \(O\).</p>
+    <p>Sudut pusat \(\angle BOC\) menghadap busur \(BC\), sehingga \(m\angle BOC = m\,\overset{\frown}{BC}\).</p>
+    <p>Contoh: jika besar busur \(BC\) adalah \(110^\circ\), maka \(\angle BOC = 110^\circ\).</p>
+    <p>Sudut pusat didefinisikan sebagai sudut yang titik sudutnya berada pada pusat lingkaran dan kaki-kaki sudutnya merupakan jari-jari lingkaran.</p>
+    <h3>3.2 Sudut Keliling</h3>
+    <p><strong>Sudut keliling</strong> adalah sudut yang titik sudutnya terletak pada lingkaran dan kedua sisinya berupa tali busur.</p>
+    <p>Misalkan titik \(A\), \(B\), dan \(C\) terletak pada lingkaran. Sudut \(\angle BAC\) merupakan sudut keliling yang menghadap busur \(BC\).</p>
+    <p>Berbeda dengan sudut pusat, titik sudut pada sudut keliling tidak berada di pusat lingkaran, tetapi berada pada lingkaran.</p>
+    <p>Buku referensi menjelaskan bahwa sudut keliling memiliki titik sudut pada lingkaran dan kaki-kaki sudutnya berupa tali busur. Tali busur sendiri merupakan ruas garis yang menghubungkan dua titik pada lingkaran.</p>
+  </section>
+
+  <figure class="figure-prose">
+    <img class="ng-img" src="https://scola-uploader.scolacdn.com/upload/fe5fb31675e3bc29e7b45b09/gambar-11-sudut-pusat-keliling.png" alt="Satu lingkaran dengan titik B dan C di bawah serta titik A di puncak. Sudut BOC diarsir kuning di titik pusat O dan sudut BAC diarsir kuning di titik A pada lingkaran, keduanya menghadap busur BC yang diberi warna kuning. Di sisi kanan terdapat keterangan dan penjelasan hubungan kedua sudut.">
+    <figcaption><span class="credit">Perbandingan sudut pusat dan sudut keliling</span>Yang membedakan keduanya hanya letak titik sudutnya. Di \(O\) kaki-kakinya jari-jari, jadi \(\angle BOC\) sudut pusat; di \(A\) kaki-kakinya tali busur, jadi \(\angle BAC\) sudut keliling. Busur yang dihadapi sama persis, yaitu busur \(BC\) yang diwarnai kuning. Rumus \(\angle BAC = \tfrac{1}{2}\angle BOC\) pada kartu kanan baru kita buktikan pemakaiannya di Topik 4.</figcaption>
+  </figure>
+
+  <!-- ============ TOPIK 4 — HUBUNGAN SUDUT PUSAT DAN SUDUT KELILING ============ -->
+  <div class="bagian-head" id="hubungan" data-nav="Hubungan Sudut Pusat dan Sudut Keliling">
+    <span class="bagian-num">Topik 4</span>
+    <h2 class="bagian-title">Hubungan Sudut Pusat dan Sudut Keliling</h2>
+  </div>
+
+  <section class="prose">
+    <h3>4.1 Sudut Pusat Dua Kali Sudut Keliling</h3>
+    <p>Jika sudut pusat dan sudut keliling menghadap busur yang sama, maka besar sudut pusat adalah dua kali besar sudut keliling.</p>
+  </section>
+
+  <div class="eq">
+    <div class="eq-label">Hubungan kedua sudut</div>
+    <div class="eq-body">
+      <span class="line">\(\text{sudut pusat} = 2 \times \text{sudut keliling}\)</span>
+      <span class="line">\(\angle BOC = 2\,\angle BAC\) <span class="tag">bila keduanya menghadap busur BC</span></span>
+    </div>
+  </div>
+
+  <section class="prose">
+    <p>Sebaliknya, sudut keliling adalah setengah sudut pusat:</p>
+  </section>
+
+  <div class="eq">
+    <div class="eq-label">Bentuk kebalikannya</div>
+    <div class="eq-body">
+      <span class="line">\(\text{sudut keliling} = \tfrac{1}{2} \times \text{sudut pusat}\)</span>
+      <span class="line">\(\angle BAC = \tfrac{1}{2}\,\angle BOC\)</span>
+    </div>
+  </div>
+
+  <div class="example">
+    <div class="panel-head"><span class="panel-label">Contoh 1</span><h3 class="panel-title">Sudut pusat diketahui, sudut keliling dicari</h3></div>
+    <div class="ex-row">
+      <span class="ex-tag">Diketahui</span>
+      <div class="ex-body"><p>\(\angle BOC = 120^\circ\). Sudut \(\angle BOC\) merupakan sudut pusat, dan \(\angle BAC\) menghadap busur yang sama.</p></div>
+    </div>
+    <div class="ex-row">
+      <span class="ex-tag">Penyelesaian</span>
+      <div class="ex-body">
+        <p>\(\angle BAC = \tfrac{1}{2} \times 120^\circ\)</p>
+        <p>\(\angle BAC = 60^\circ\)</p>
+      </div>
+    </div>
+    <div class="ex-row">
+      <span class="ex-tag">Jawaban</span>
+      <div class="ex-body"><div class="ex-answer">Jadi, besar sudut keliling tersebut adalah \(60^\circ\).</div></div>
+    </div>
+  </div>
+
+  <div class="example">
+    <div class="panel-head"><span class="panel-label">Contoh 2</span><h3 class="panel-title">Sudut keliling diketahui, sudut pusat dicari</h3></div>
+    <div class="ex-row">
+      <span class="ex-tag">Diketahui</span>
+      <div class="ex-body"><p>Sudut keliling yang menghadap busur \(PQ\) adalah \(\angle PRQ = 38^\circ\).</p></div>
+    </div>
+    <div class="ex-row">
+      <span class="ex-tag">Penyelesaian</span>
+      <div class="ex-body">
+        <p>\(\angle POQ = 2 \times 38^\circ\)</p>
+        <p>\(\angle POQ = 76^\circ\)</p>
+      </div>
+    </div>
+    <div class="ex-row">
+      <span class="ex-tag">Jawaban</span>
+      <div class="ex-body"><div class="ex-answer">Jadi, besar sudut pusatnya adalah \(76^\circ\).</div></div>
+    </div>
+  </div>
+
+  <figure class="figure-prose">
+    <img class="ng-img" src="https://scola-uploader.scolacdn.com/upload/fe5fb31675e3bc29e7b45b09/gambar-12-hubungan-sudut-pusat-keliling.png" alt="Lingkaran dengan titik A di puncak serta titik B dan C di bawah. Sudut BAC di titik A diarsir kuning dan diberi angka 40 derajat, sedangkan sudut BOC di pusat O diarsir kuning dan diberi angka 80 derajat. Busur BC di bawah diwarnai kuning. Di sisi kanan terdapat tiga kartu keterangan dan kotak rumus sudut pusat sama dengan dua kali sudut keliling dengan contoh 80 derajat sama dengan dua kali 40 derajat.">
+    <figcaption><span class="credit">Hubungan sudut pusat dan sudut keliling</span>Satu gambar, dua angka, satu aturan. Sudut di \(A\) 40&deg;, sudut di \(O\) 80&deg;, dan keduanya menghadap busur \(BC\) yang sama. Contoh 1 dan Contoh 2 di atas hanyalah aturan ini dibaca dari dua arah: sekali dari sudut pusat ke sudut keliling, sekali sebaliknya.</figcaption>
+  </figure>
+
+  <!-- ===== SIMULASI 2 ===== -->
+  <figure class="wide" id="sim-sudut" data-nav="Simulasi 2 — Penjelajah Sudut Pusat dan Sudut Keliling">
+    <div class="sim-head panel-head">
+      <span class="panel-label">Simulasi 2</span>
+      <h3 class="panel-title">Penjelajah Sudut Pusat dan Sudut Keliling</h3>
+    </div>
+    <canvas class="sim-canvas" id="sk-canvas" aria-label="Simulasi hubungan sudut: titik B dan C tetap pada lingkaran dengan busur BC ditebalkan. Sudut pusat BOC digambar di titik O, sedangkan titik A dapat digeser sepanjang busur mayor sehingga sudut keliling BAC ikut berpindah tetapi besarnya tidak berubah."></canvas>
+    <div class="sim-controls">
+      <div class="ctrl">
+        <label for="sk-a">Busur BC <output id="sk-out-a">120°</output></label>
+        <input id="sk-a" type="range" min="20" max="170" value="120" step="2">
+      </div>
+      <div class="ctrl">
+        <label for="sk-p">Letak titik A <output id="sk-out-p">50%</output></label>
+        <input id="sk-p" type="range" min="8" max="92" value="50" step="1">
+      </div>
+    </div>
+    <div class="sim-readout">
+      <div><span class="ro-label">Busur BC</span><span class="ro-val" id="sk-ro-b">&mdash;</span></div>
+      <div><span class="ro-label">Sudut pusat &ang;BOC</span><span class="ro-val" id="sk-ro-o">&mdash;</span></div>
+      <div><span class="ro-label">Sudut keliling &ang;BAC</span><span class="ro-val" id="sk-ro-k">&mdash;</span></div>
+    </div>
+    <div class="sim-steps">
+      <p class="calc-work" id="sk-langkah">&mdash;</p>
+    </div>
+    <div class="calc-res" id="sk-res">&mdash;</div>
+    <figcaption><span class="credit">Simulasi · titik sudut berpindah, besarnya tetap</span>Geser dulu <em>Letak titik A</em> sendirian: \(A\) berjalan sepanjang busur mayor, bentuk segitiganya berubah total, tetapi angka \(\angle BAC\) tidak bergerak sedikit pun. Baru setelah itu geser <em>Busur BC</em> &mdash; keduanya berubah bersama-sama, dan perbandingan 2 banding 1 tetap terjaga.</figcaption>
+  </figure>
+
+  <section class="prose">
+    <h3>4.2 Sudut Keliling yang Menghadap Busur yang Sama</h3>
+    <p>Semua sudut keliling yang menghadap busur yang sama memiliki besar yang sama.</p>
+    <p>Misalkan \(\angle BAC\) dan \(\angle BDC\) sama-sama menghadap busur \(BC\). Oleh karena itu \(\angle BAC = \angle BDC\).</p>
+    <p>Sifat ini berlaku meskipun titik \(A\) dan titik \(D\) berada di tempat yang berbeda pada lingkaran.</p>
+    <p>Contoh: diketahui \(\angle BAC = 47^\circ\). Sudut \(\angle BDC\) menghadap busur yang sama, yaitu busur \(BC\). Dengan demikian \(\angle BDC = 47^\circ\).</p>
+  </section>
+
+  <figure class="figure-prose">
+    <img class="ng-img" src="https://scola-uploader.scolacdn.com/upload/fe5fb31675e3bc29e7b45b09/gambar-13-sudut-keliling-busur-sama.png" alt="Tiga panel lingkaran bernomor. Panel 1 menampilkan sudut BAC, panel 2 sudut BDC, dan panel 3 sudut BEC. Titik sudut A, D, dan E berada di posisi yang berbeda, tetapi ketiganya menghadap busur BC yang sama dan diberi warna kuning. Di bawahnya tertulis teorema sudut keliling dan kesimpulan bahwa ketiga sudut sama besar.">
+    <figcaption><span class="credit">Sudut keliling yang menghadap busur yang sama</span>Tiga titik sudut, tiga segitiga yang bentuknya jelas berbeda, satu besar sudut yang sama. Sebabnya sederhana: ketiganya menghadap busur \(BC\) yang sama, dan busur itu hanya punya satu sudut pusat. Karena setiap sudut keliling adalah setengah dari sudut pusat yang sama, ketiganya mau tidak mau bernilai sama.</figcaption>
+  </figure>
+
+  <section class="prose">
+    <h3>4.3 Sudut Keliling yang Menghadap Diameter</h3>
+    <p>Jika sebuah sudut keliling menghadap diameter lingkaran, besar sudut tersebut selalu \(90^\circ\).</p>
+    <p>Misalkan \(AB\) merupakan diameter dan titik \(C\) berada pada lingkaran. Sudut keliling \(\angle ACB\) menghadap diameter \(AB\), sehingga \(\angle ACB = 90^\circ\).</p>
+    <p>Sifat ini dikenal sebagai <strong>Teorema Thales</strong>: sudut keliling yang menghadap diameter adalah sudut siku-siku.</p>
+    <p>Dalam buku referensi, Teorema Thales dinyatakan sebagai berikut: jika titik \(A\), \(B\), dan \(C\) terletak pada lingkaran serta \(AB\) merupakan diameter, maka \(\angle ACB\) adalah sudut siku-siku.</p>
+  </section>
+
+  <figure class="figure-prose">
+    <img class="ng-img" src="https://scola-uploader.scolacdn.com/upload/fe5fb31675e3bc29e7b45b09/gambar-14-teorema-thales.png" alt="Lingkaran dengan diameter AB mendatar berwarna kuning melalui pusat O, dan titik C pada busur atas. Segitiga ABC terbentuk dengan tanda siku-siku di titik C. Di sisi kanan terdapat kartu konsep utama, penjelasan langkah demi langkah, dan catatan syarat berlakunya.">
+    <figcaption><span class="credit">Teorema Thales</span>Teorema Thales sebenarnya bukan aturan baru, melainkan kasus khusus dari aturan sebelumnya. Diameter \(AB\) membelah lingkaran menjadi dua, jadi busur yang dihadapi \(\angle ACB\) besarnya 180&deg;. Setengah dari 180&deg; adalah 90&deg; &mdash; berapa pun letak \(C\) pada busur itu. Perhatikan kartu <em>Catatan Penting</em>: syaratnya \(AB\) harus benar-benar diameter, bukan sekadar tali busur panjang.</figcaption>
+  </figure>
+
+  <section class="prose">
+    <p>Karena terbentuk segitiga siku-siku, panjang sisi-sisinya dapat ditentukan menggunakan Teorema Pythagoras:</p>
+  </section>
+
+  <div class="eq">
+    <div class="eq-label">Pythagoras pada segitiga Thales</div>
+    <div class="eq-body">
+      <span class="line">\(AB^{2} = AC^{2} + BC^{2}\)</span>
+    </div>
+  </div>
+
+  <p class="ket">dengan <b>\(AB\)</b> sebagai diameter sekaligus sisi miring segitiga.</p>
+
+  <figure class="figure-prose">
+    <img class="ng-img" src="https://scola-uploader.scolacdn.com/upload/fe5fb31675e3bc29e7b45b09/gambar-15-thales-pythagoras.png" alt="Segitiga ABC di dalam lingkaran dengan AB sebagai diameter sepanjang 10 sentimeter, AC sepanjang 6 sentimeter, dan BC yang ditanyakan. Tanda siku-siku berada di titik C. Di sisi kiri terdapat daftar informasi yang diketahui dan penyelesaian Pythagoras langkah demi langkah sampai BC sama dengan 8 sentimeter.">
+    <figcaption><span class="credit">Teorema Thales dan Pythagoras</span>Angka-angka pada gambar ini persis soal Contoh 4 di Topik 7. Begitu \(\angle ACB\) dipastikan siku-siku, segitiga di dalam lingkaran ini berubah menjadi soal Pythagoras biasa dengan diameter sebagai sisi miring &mdash; dan sisi miring selalu yang terpanjang, sesuai kedudukan diameter sebagai tali busur terpanjang.</figcaption>
+  </figure>
+
+  <!-- ===== SIMULASI 3 ===== -->
+  <figure class="wide" id="sim-thales" data-nav="Simulasi 3 — Penjelajah Teorema Thales">
+    <div class="sim-head panel-head">
+      <span class="panel-label">Simulasi 3</span>
+      <h3 class="panel-title">Penjelajah Teorema Thales</h3>
+    </div>
+    <canvas class="sim-canvas" id="th-canvas" aria-label="Simulasi Teorema Thales: diameter AB mendatar dan titik C yang dapat digeser sepanjang setengah lingkaran atas. Segitiga ABC selalu digambar dengan tanda siku-siku di titik C, sedangkan panjang AC dan BC berubah mengikuti letak C."></canvas>
+    <div class="sim-controls">
+      <div class="ctrl">
+        <label for="th-d">Diameter AB (cm) <output id="th-out-d">10</output></label>
+        <input id="th-d" type="range" min="6" max="26" value="10" step="1">
+      </div>
+      <div class="ctrl">
+        <label for="th-p">Letak titik C <output id="th-out-p">120°</output></label>
+        <input id="th-p" type="range" min="12" max="168" value="120" step="2">
+      </div>
+    </div>
+    <div class="sim-readout">
+      <div><span class="ro-label">Panjang AC</span><span class="ro-val" id="th-ro-ac">&mdash;</span></div>
+      <div><span class="ro-label">Panjang BC</span><span class="ro-val" id="th-ro-bc">&mdash;</span></div>
+      <div><span class="ro-label">Sudut &ang;ACB</span><span class="ro-val" id="th-ro-s">&mdash;</span></div>
+    </div>
+    <div class="sim-steps">
+      <p class="calc-work" id="th-langkah">&mdash;</p>
+    </div>
+    <div class="calc-res" id="th-res">&mdash;</div>
+    <figcaption><span class="credit">Simulasi · sudut siku-siku yang tidak pernah berubah</span>Geser titik \(C\) ke ujung mana pun: \(AC\) memanjang, \(BC\) memendek, bentuk segitiganya berubah drastis &mdash; tetapi \(\angle ACB\) menolak bergerak dari 90&deg;, dan baris Pythagoras di bawahnya selalu berimbang. Coba juga letakkan \(C\) tepat di puncak; di sana \(AC = BC\) dan segitiganya menjadi siku-siku sama kaki.</figcaption>
+  </figure>
+
+  <!-- ============ TOPIK 5 — CONTOH DALAM KEHIDUPAN SEHARI-HARI ============ -->
+  <div class="bagian-head" id="sehari-hari" data-nav="Contoh dalam Kehidupan Sehari-hari">
+    <span class="bagian-num">Topik 5</span>
+    <h2 class="bagian-title">Contoh dalam Kehidupan Sehari-hari</h2>
+  </div>
+
+  <figure class="figure-prose">
+    <img class="ng-img" src="https://scola-uploader.scolacdn.com/upload/7d85bfff15455934120f1c76/Contoh%20dalam%20Kehidupan%20Sehari-hari.png" alt="Seorang pemuda duduk mencatat di taman tepi laut saat senja. Enam benda di sekitarnya disorot lingkaran cahaya dan diberi label: jam dinding, lampu taman, mercusuar, roda sepeda, tutup got, dan kolam berbentuk lingkaran.">
+  </figure>
+
+  <section class="prose">
+    <h3>5.1 Roda Kendaraan</h3>
+    <p>Roda sepeda, sepeda motor, dan mobil berbentuk lingkaran. Setiap titik pada tepi roda memiliki jarak yang sama terhadap pusat roda. Hal tersebut membuat roda dapat berputar dengan stabil.</p>
+    <p>Jika roda tidak berbentuk lingkaran, jarak antara pusat roda dan permukaan jalan akan berubah-ubah. Akibatnya, kendaraan akan bergerak naik turun dan tidak nyaman digunakan.</p>
+    <p>Buku referensi menggunakan berbagai bentuk roda sepeda untuk mengajak siswa memikirkan alasan roda umumnya berbentuk lingkaran.</p>
+  </section>
+
+  <figure class="figure-prose">
+    <img class="ng-img" src="https://scola-uploader.scolacdn.com/upload/2dec870d39f3959ddf06bb7f/gambar-02-roda-sepeda-jari-jari.png" alt="Roda sepeda dilihat dari samping dengan titik pusat O di poros dan tiga garis kuning bertanda r ditarik dari poros ke tepi roda. Di sisi kanan terdapat kotak keterangan, penjelasan bahwa ketiga garis sama panjang, dan catatan bahwa semua jari-jari pada satu lingkaran selalu sama panjang.">
+    <figcaption><span class="credit">Roda sepeda dan jari-jari</span>Jeruji sepeda adalah jari-jari dalam wujud besi. Ketiga garis kuning ditarik ke arah yang berbeda, tetapi panjangnya sama &mdash; dan justru karena itulah jarak dari poros ke jalan tidak pernah berubah selama roda berputar.</figcaption>
+  </figure>
+
+  <section class="prose">
+    <h3>5.2 Tutup Lubang Selokan</h3>
+    <p>Tutup lubang selokan sering dibuat berbentuk lingkaran. Salah satu kelebihannya adalah tutup berbentuk lingkaran tidak dapat jatuh ke dalam lubangnya karena semua diameternya sama panjang.</p>
+    <p>Berbeda dengan tutup berbentuk persegi, tutup tersebut dapat masuk ke dalam lubang apabila diposisikan secara diagonal.</p>
+    <p>Contoh penutup lubang selokan berbentuk lingkaran juga digunakan dalam buku referensi untuk menghubungkan bentuk lingkaran dengan keselamatan pekerja.</p>
+  </section>
+
+  <figure class="figure-prose">
+    <img class="ng-img" src="https://scola-uploader.scolacdn.com/upload/2dec870d39f3959ddf06bb7f/gambar-03-tutup-selokan-lingkaran.png" alt="Foto tutup selokan berbentuk lingkaran di jalan dengan garis putus-putus kuning menyusuri tepinya, disertai tiga kartu keunggulan bentuk lingkaran. Di bawahnya panel perbandingan: tutup lingkaran diputar 0, 90, 180, dan 270 derajat tetap pas pada bukaan, sedangkan tutup persegi yang diputar 45 derajat tidak lagi sesuai dengan bukaan sehingga bisa jatuh.">
+    <figcaption><span class="credit">Tutup selokan berbentuk lingkaran</span>Panel bawah adalah inti persoalannya. Tutup lingkaran diputar ke sudut mana pun tetap pas, sebab lebarnya sama ke segala arah. Tutup persegi pada posisi 45&deg; tiba-tiba lebih sempit daripada bukaannya &mdash; sebab diagonalnya lebih panjang daripada sisinya &mdash; dan di situlah ia bisa terjatuh.</figcaption>
+  </figure>
+
+  <section class="prose">
+    <h3>5.3 Mercusuar</h3>
+    <p>Lampu mercusuar menyinari daerah di sekelilingnya. Daerah yang dapat dijangkau oleh cahaya mercusuar dapat dimodelkan sebagai daerah lingkaran dengan mercusuar sebagai pusatnya.</p>
+    <p>Arah datangnya cahaya dari dua mercusuar dapat membentuk sudut tertentu. Dengan memanfaatkan hubungan sudut pusat, sudut keliling, dan busur, pelaut dapat memperkirakan posisi kapal terhadap daerah berbahaya.</p>
+    <p>Dalam buku referensi, mercusuar digunakan sebagai contoh penerapan lingkaran dalam navigasi kapal sebelum penggunaan GPS.</p>
+  </section>
+
+  <div class="gifwrap">
+    <video class="gifvid" autoplay loop muted playsinline preload="auto" disablepictureinpicture
+           aria-label="Animasi mercusuar di tepi laut pada senja hari. Kamera bergerak perlahan sementara lampu di puncak mercusuar berpendar dan ombak bergerak. Dua berkas cahaya kuning memancar dari puncaknya sebagai batas atas dan batas bawah, membentuk sudut theta yang menaungi sebuah kapal di daerah penyinaran. Di bawahnya terdapat panel penjelasan, diagram sederhana juring penyinaran dengan titik sudut di mercusuar, dan catatan bahwa sudut theta adalah sudut pusat dari daerah yang disinari."
+           src="https://scola-uploader.scolacdn.com/upload/dcd9f276a8b1665e1b72727a/gambar-16-mercusuar-jangkauan-cahaya.mp4"></video>
+    <p class="gif-cap"><span class="credit">Mercusuar dan jangkauan cahaya</span>Buang latar fotonya dan yang tersisa adalah gambar geometri biasa &mdash; persis seperti panel <em>Representasi Sederhana</em> di bawahnya: satu titik pusat, dua jari-jari, dan sebuah sudut \(\theta\) di antaranya. Kapal yang berada di dalam daerah itu terkena cahaya, yang di luar tidak &mdash; dan pertanyaan &ldquo;apakah kapal saya aman?&rdquo; berubah menjadi pertanyaan tentang sudut.</p>
+  </div>
+
+  <section class="prose">
+    <h3>5.4 Kolam Berbentuk Lingkaran</h3>
+    <p>Pada sebuah kolam berbentuk lingkaran, lampu dapat ditempatkan pada titik tertentu untuk menerangi bagian tepi kolam. Bagian tepi yang diterangi dapat dianggap sebagai busur lingkaran.</p>
+    <p>Jika lampu diletakkan pada pusat kolam, sudut pencahayaan merupakan sudut pusat. Jika lampu diletakkan pada tepi kolam, sudut pencahayaan dapat dianggap sebagai sudut keliling. Hubungan keduanya adalah \(\text{sudut pusat} = 2 \times \text{sudut keliling}\).</p>
+    <p>Contoh kolam dan lampu digunakan dalam referensi untuk menyelidiki hubungan antara sudut pusat, sudut keliling, dan busur yang sama.</p>
+  </section>
+
+  <figure class="figure-prose">
+    <img class="ng-img" src="https://scola-uploader.scolacdn.com/upload/ccb98cf0cce04169588c537c/gambar-17-kolam-berbentuk-lingkaran.png" alt="Kolam berbentuk lingkaran dilihat dari atas, dikelilingi tanaman. Sebuah lampu berada di tepi kolam, satu penanda posisi berada tepat di pusat kolam yang diberi label O, dan sebagian tepi kolam antara titik B dan titik C ditandai garis putus-putus kuning sebagai busur BC.">
+    <figcaption><span class="credit">Kolam berbentuk lingkaran</span>Tepi kolam yang ditandai kuning di antara \(B\) dan \(C\) adalah busur, persis seperti yang dipelajari di Topik 2 &mdash; hanya saja kali ini terbuat dari batu dan tanaman. Titik \(O\) di tengah dan lampu di tepi adalah dua pilihan letak yang akan dibandingkan pada gambar berikutnya.</figcaption>
+  </figure>
+
+  <figure class="figure-prose">
+    <img class="ng-img" src="https://scola-uploader.scolacdn.com/upload/ccb98cf0cce04169588c537c/gambar-18-lampu-tepi-pusat-kolam.png" alt="Dua panel berdampingan. Panel kiri menampilkan lampu meja yang menyorot titik A di keliling lingkaran dengan sudut keliling 30 derajat menghadap busur BC. Panel kanan menampilkan lampu gantung yang menyorot titik O di pusat lingkaran dengan sudut pusat 60 derajat menghadap busur BC yang sama. Di bawahnya terdapat tiga kartu penjelasan dan rumus sudut BOC sama dengan dua kali sudut BAC.">
+    <figcaption><span class="credit">Lampu di tepi dan di pusat kolam</span>Kolam yang sama, tepi yang diterangi sama &mdash; hanya letak lampunya yang dipindahkan. Dari tepi kolam cukup bukaan 30&deg;; begitu lampu dipindahkan ke pusat, bukaannya harus 60&deg; untuk menerangi busur \(BC\) yang sama. Inilah wujud nyata aturan &ldquo;sudut pusat dua kali sudut keliling&rdquo;, dan sekaligus jawaban Soal 10 pada latihan.</figcaption>
+  </figure>
+
+  <!-- ============ TOPIK 6 — ISTILAH PENTING ============ -->
+  <div class="bagian-head" id="istilah" data-nav="Istilah Penting">
+    <span class="bagian-num">Topik 6</span>
+    <h2 class="bagian-title">Istilah Penting</h2>
+  </div>
+
+  <section class="prose">
+    <h3>6.1 Jari-Jari</h3>
+    <p>Jari-jari adalah ruas garis yang menghubungkan pusat lingkaran dengan satu titik pada lingkaran. Semua jari-jari pada lingkaran yang sama memiliki panjang yang sama. Jika \(OA\), \(OB\), dan \(OC\) merupakan jari-jari, maka \(OA = OB = OC\).</p>
+    <h3>6.2 Diameter</h3>
+    <p>Diameter adalah ruas garis yang menghubungkan dua titik pada lingkaran dan melalui pusat lingkaran. Hubungan diameter dan jari-jari adalah \(d = 2r\). Diameter membagi lingkaran menjadi dua bagian yang sama besar.</p>
+    <h3>6.3 Tali Busur</h3>
+    <p>Tali busur adalah ruas garis yang menghubungkan dua titik pada lingkaran. Diameter termasuk tali busur karena kedua ujungnya berada pada lingkaran. Namun, diameter memiliki sifat khusus, yaitu melalui pusat lingkaran.</p>
+    <h3>6.4 Busur Minor dan Busur Mayor</h3>
+    <p>Busur minor merupakan busur yang lebih pendek, sedangkan busur mayor merupakan busur yang lebih panjang. Jika besar busur minor adalah \(\alpha\), besar busur mayornya adalah \(360^\circ - \alpha\).</p>
+    <p>Contoh: untuk \(\alpha = 125^\circ\), besar busur mayornya adalah \(360^\circ - 125^\circ = 235^\circ\).</p>
+    <h3>6.5 Sudut Pusat</h3>
+    <p>Sudut pusat adalah sudut yang titik sudutnya terletak pada pusat lingkaran. Besar sudut pusat sama dengan besar busur yang dihadapinya, yaitu \(m\angle AOB = m\,\overset{\frown}{AB}\).</p>
+    <h3>6.6 Sudut Keliling</h3>
+    <p>Sudut keliling adalah sudut yang titik sudutnya berada pada lingkaran. Besar sudut keliling sama dengan setengah besar sudut pusat yang menghadap busur yang sama, yaitu \(m\angle ACB = \tfrac{1}{2}\,m\angle AOB\).</p>
+  </section>
+
+  <div class="table-block">
+    <table class="data-table text-left">
+      <thead><tr><th>Lambang</th><th>Istilah</th><th>Keterangan</th></tr></thead>
+      <tbody>
+        <tr><td>\(r\)</td><td>Jari-jari</td><td>Jarak dari pusat ke titik pada lingkaran.</td></tr>
+        <tr><td>\(d\)</td><td>Diameter</td><td>Tali busur yang melalui pusat; \(d = 2r\).</td></tr>
+        <tr><td>\(\overset{\frown}{AB}\)</td><td>Busur AB</td><td>Bagian lingkaran di antara titik \(A\) dan \(B\).</td></tr>
+        <tr><td>\(\angle AOB\)</td><td>Sudut pusat</td><td>Titik sudut di pusat; besarnya sama dengan busur yang dihadapi.</td></tr>
+        <tr class="is-max"><td>\(\angle ACB\)</td><td>Sudut keliling</td><td>Titik sudut pada lingkaran; besarnya setengah sudut pusat.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- ============ TOPIK 7 — CONTOH PENERAPAN KONSEP ============ -->
+  <div class="bagian-head" id="penerapan" data-nav="Contoh Penerapan Konsep">
+    <span class="bagian-num">Topik 7</span>
+    <h2 class="bagian-title">Contoh Penerapan Konsep</h2>
+  </div>
+
+  <div class="example">
+    <div class="panel-head"><span class="panel-label">Contoh 1</span><h3 class="panel-title">Menentukan busur mayor</h3></div>
+    <div class="ex-row">
+      <span class="ex-tag">Soal</span>
+      <div class="ex-body"><p>Diketahui sudut pusat \(\angle AOB = 95^\circ\). Tentukan besar busur minor dan busur mayor \(AB\).</p></div>
+    </div>
+    <div class="ex-row">
+      <span class="ex-tag">Busur minor</span>
+      <div class="ex-body">
+        <p>Besar busur minor sama dengan besar sudut pusat.</p>
+        <p>\(m\,\overset{\frown}{AB}_{\text{minor}} = 95^\circ\)</p>
+      </div>
+    </div>
+    <div class="ex-row">
+      <span class="ex-tag">Busur mayor</span>
+      <div class="ex-body">
+        <p>\(m\,\overset{\frown}{AB}_{\text{mayor}} = 360^\circ - 95^\circ\)</p>
+        <p>\(m\,\overset{\frown}{AB}_{\text{mayor}} = 265^\circ\)</p>
+      </div>
+    </div>
+    <div class="ex-row">
+      <span class="ex-tag">Jawaban</span>
+      <div class="ex-body"><div class="ex-answer">Busur minor \(= 95^\circ\) dan busur mayor \(= 265^\circ\).</div></div>
+    </div>
+  </div>
+
+  <div class="example">
+    <div class="panel-head"><span class="panel-label">Contoh 2</span><h3 class="panel-title">Menentukan sudut keliling</h3></div>
+    <div class="ex-row">
+      <span class="ex-tag">Soal</span>
+      <div class="ex-body"><p>Sudut pusat \(\angle POQ\) sebesar \(146^\circ\). Tentukan besar sudut keliling \(\angle PRQ\) yang menghadap busur \(PQ\).</p></div>
+    </div>
+    <div class="ex-row">
+      <span class="ex-tag">Penyelesaian</span>
+      <div class="ex-body">
+        <p>\(\angle PRQ = \tfrac{1}{2}\,\angle POQ\)</p>
+        <p>\(\angle PRQ = \tfrac{1}{2} \times 146^\circ\)</p>
+        <p>\(\angle PRQ = 73^\circ\)</p>
+      </div>
+    </div>
+    <div class="ex-row">
+      <span class="ex-tag">Jawaban</span>
+      <div class="ex-body"><div class="ex-answer">\(\angle PRQ = 73^\circ\)</div></div>
+    </div>
+  </div>
+
+  <div class="example">
+    <div class="panel-head"><span class="panel-label">Contoh 3</span><h3 class="panel-title">Menentukan sudut pusat</h3></div>
+    <div class="ex-row">
+      <span class="ex-tag">Soal</span>
+      <div class="ex-body"><p>Sudut keliling \(\angle ACB\) sebesar \(42^\circ\). Tentukan sudut pusat \(\angle AOB\) yang menghadap busur yang sama.</p></div>
+    </div>
+    <div class="ex-row">
+      <span class="ex-tag">Penyelesaian</span>
+      <div class="ex-body">
+        <p>\(\angle AOB = 2\,\angle ACB\)</p>
+        <p>\(\angle AOB = 2 \times 42^\circ\)</p>
+        <p>\(\angle AOB = 84^\circ\)</p>
+      </div>
+    </div>
+    <div class="ex-row">
+      <span class="ex-tag">Jawaban</span>
+      <div class="ex-body"><div class="ex-answer">\(\angle AOB = 84^\circ\)</div></div>
+    </div>
+  </div>
+
+  <div class="example">
+    <div class="panel-head"><span class="panel-label">Contoh 4</span><h3 class="panel-title">Menggunakan Teorema Thales</h3></div>
+    <div class="ex-row">
+      <span class="ex-tag">Soal</span>
+      <div class="ex-body"><p>Diketahui \(AB\) merupakan diameter sebuah lingkaran dengan panjang \(10\) cm. Titik \(C\) berada pada lingkaran dan panjang \(AC = 6\) cm. Tentukan panjang \(BC\).</p></div>
+    </div>
+    <div class="ex-row">
+      <span class="ex-tag">Langkah 1</span>
+      <div class="ex-body">
+        <p>Karena \(\angle ACB\) menghadap diameter \(AB\), maka \(\angle ACB = 90^\circ\).</p>
+        <p>Segitiga \(ABC\) merupakan segitiga siku-siku dengan \(AB\) sebagai sisi miring.</p>
+      </div>
+    </div>
+    <div class="ex-row">
+      <span class="ex-tag">Langkah 2</span>
+      <div class="ex-body">
+        <p>\(AB^{2} = AC^{2} + BC^{2}\)</p>
+        <p>\(10^{2} = 6^{2} + BC^{2}\)</p>
+        <p>\(100 = 36 + BC^{2}\)</p>
+        <p>\(BC^{2} = 64\)</p>
+        <p>\(BC = 8\)</p>
+      </div>
+    </div>
+    <div class="ex-row">
+      <span class="ex-tag">Jawaban</span>
+      <div class="ex-body"><div class="ex-answer">Jadi, panjang \(BC\) adalah \(8\) cm.</div></div>
+    </div>
+  </div>
+
+  <figure class="figure-prose">
+    <img class="ng-img" src="https://scola-uploader.scolacdn.com/upload/ccb98cf0cce04169588c537c/gambar-19-langkah-menentukan-sudut.png" alt="Diagram alur lima langkah menyelesaikan soal sudut pada lingkaran: tentukan busur, periksa posisi titik sudut, kenali jenis sudut, pilih hubungan yang sesuai, dan tuliskan hasil akhir. Setiap langkah disertai sketsa lingkaran dan kotak catatan, ditutup contoh perhitungan sudut ACB sama dengan setengah kali 120 derajat sama dengan 60 derajat.">
+    <figcaption><span class="credit">Langkah menentukan sudut pada lingkaran</span>Kebanyakan kekeliruan pada soal lingkaran bukan salah hitung, melainkan salah mengenali jenis sudutnya. Urutan lima langkah ini menutup celah itu: tentukan dulu busur yang dihadapi, baru periksa di mana titik sudutnya berdiri, dan rumus yang tepat akan mengikuti dengan sendirinya.</figcaption>
+  </figure>
+
+  <!-- ============ TOPIK 8 — LATIHAN SOAL ============ -->
+  <div class="bagian-head" id="latihan" data-nav="Latihan Soal">
+    <span class="bagian-num">Topik 8</span>
+    <h2 class="bagian-title">Latihan Soal</h2>
+  </div>
+
+  <section class="prose" data-quiz id="quiz-utama">
+    <div class="panel-head">
+      <span class="panel-label">10 soal · pilihan ganda</span>
+      <h2 class="panel-title">Pilih jawaban yang tepat</h2>
+    </div>
+
+    <div class="q" data-correct="C" data-explain="Diameter adalah dua kali jari-jari: d = 2r = 2 x 9 = 18 cm.">
+      <div class="q-head"><span class="q-num">Soal 1</span><span class="q-level lvl-mudah">Mudah</span></div>
+      <p class="q-text">Sebuah lingkaran memiliki jari-jari \(9\) cm. Diameternya adalah ....</p>
+      <button class="opt" data-opt="A"><span class="opt-l">A</span><span>4,5 cm</span></button>
+      <button class="opt" data-opt="B"><span class="opt-l">B</span><span>9 cm</span></button>
+      <button class="opt" data-opt="C"><span class="opt-l">C</span><span>18 cm</span></button>
+      <button class="opt" data-opt="D"><span class="opt-l">D</span><span>36 cm</span></button>
+      <div class="q-feedback"></div>
+    </div>
+
+    <div class="q" data-correct="A" data-explain="Jari-jari adalah setengah diameter: r = d dibagi 2 = 26 dibagi 2 = 13 cm.">
+      <div class="q-head"><span class="q-num">Soal 2</span><span class="q-level lvl-mudah">Mudah</span></div>
+      <p class="q-text">Diameter sebuah lingkaran adalah \(26\) cm. Panjang jari-jarinya adalah ....</p>
+      <button class="opt" data-opt="A"><span class="opt-l">A</span><span>13 cm</span></button>
+      <button class="opt" data-opt="B"><span class="opt-l">B</span><span>26 cm</span></button>
+      <button class="opt" data-opt="C"><span class="opt-l">C</span><span>52 cm</span></button>
+      <button class="opt" data-opt="D"><span class="opt-l">D</span><span>6,5 cm</span></button>
+      <div class="q-feedback"></div>
+    </div>
+
+    <div class="q" data-correct="A" data-explain="Besar busur minor sama dengan besar sudut pusatnya, yaitu 84 derajat. Busur mayornya adalah sisa satu putaran penuh: 360 kurang 84 sama dengan 276 derajat.">
+      <div class="q-head"><span class="q-num">Soal 3</span><span class="q-level lvl-mudah">Mudah</span></div>
+      <p class="q-text">Diketahui sudut pusat \(\angle AOB = 84^\circ\). Besar busur minor \(AB\) dan busur mayor \(AB\) berturut-turut adalah ....</p>
+      <button class="opt" data-opt="A"><span class="opt-l">A</span><span>84° dan 276°</span></button>
+      <button class="opt" data-opt="B"><span class="opt-l">B</span><span>42° dan 318°</span></button>
+      <button class="opt" data-opt="C"><span class="opt-l">C</span><span>84° dan 264°</span></button>
+      <button class="opt" data-opt="D"><span class="opt-l">D</span><span>168° dan 192°</span></button>
+      <div class="q-feedback"></div>
+    </div>
+
+    <div class="q" data-correct="B" data-explain="Sudut keliling adalah setengah sudut pusat yang menghadap busur sama: setengah dari 132 derajat sama dengan 66 derajat.">
+      <div class="q-head"><span class="q-num">Soal 4</span><span class="q-level lvl-medium">Medium</span></div>
+      <p class="q-text">Sudut pusat \(\angle POQ\) yang menghadap busur \(PQ\) sebesar \(132^\circ\). Besar sudut keliling \(\angle PRQ\) yang menghadap busur yang sama adalah ....</p>
+      <button class="opt" data-opt="A"><span class="opt-l">A</span><span>33°</span></button>
+      <button class="opt" data-opt="B"><span class="opt-l">B</span><span>66°</span></button>
+      <button class="opt" data-opt="C"><span class="opt-l">C</span><span>132°</span></button>
+      <button class="opt" data-opt="D"><span class="opt-l">D</span><span>264°</span></button>
+      <div class="q-feedback"></div>
+    </div>
+
+    <div class="q" data-correct="B" data-explain="Sudut pusat dua kali sudut keliling: 2 x 37 sama dengan 74 derajat. Karena besar busur sama dengan besar sudut pusatnya, busur minor AB juga 74 derajat.">
+      <div class="q-head"><span class="q-num">Soal 5</span><span class="q-level lvl-medium">Medium</span></div>
+      <p class="q-text">Sudut keliling \(\angle ACB\) yang menghadap busur \(AB\) sebesar \(37^\circ\). Besar sudut pusat \(\angle AOB\) dan busur minor \(AB\) berturut-turut adalah ....</p>
+      <button class="opt" data-opt="A"><span class="opt-l">A</span><span>18,5° dan 18,5°</span></button>
+      <button class="opt" data-opt="B"><span class="opt-l">B</span><span>74° dan 74°</span></button>
+      <button class="opt" data-opt="C"><span class="opt-l">C</span><span>74° dan 286°</span></button>
+      <button class="opt" data-opt="D"><span class="opt-l">D</span><span>37° dan 74°</span></button>
+      <div class="q-feedback"></div>
+    </div>
+
+    <div class="q" data-correct="B" data-explain="Sudut-sudut keliling yang menghadap busur yang sama besarnya sama, jadi sudut BDC sama dengan sudut BAC, yaitu 56 derajat. Letak titik D tidak berpengaruh.">
+      <div class="q-head"><span class="q-num">Soal 6</span><span class="q-level lvl-medium">Medium</span></div>
+      <p class="q-text">Pada sebuah lingkaran, \(\angle BAC\) dan \(\angle BDC\) menghadap busur \(BC\) yang sama. Jika \(\angle BAC = 56^\circ\), maka besar \(\angle BDC\) adalah ....</p>
+      <button class="opt" data-opt="A"><span class="opt-l">A</span><span>28°</span></button>
+      <button class="opt" data-opt="B"><span class="opt-l">B</span><span>56°</span></button>
+      <button class="opt" data-opt="C"><span class="opt-l">C</span><span>112°</span></button>
+      <button class="opt" data-opt="D"><span class="opt-l">D</span><span>124°</span></button>
+      <div class="q-feedback"></div>
+    </div>
+
+    <div class="q" data-correct="C" data-explain="Menurut Teorema Thales, sudut keliling yang menghadap diameter selalu siku-siku, yaitu 90 derajat.">
+      <div class="q-head"><span class="q-num">Soal 7</span><span class="q-level lvl-mudah">Mudah</span></div>
+      <p class="q-text">Diketahui \(AB\) merupakan diameter lingkaran dan titik \(C\) berada pada lingkaran. Besar \(\angle ACB\) adalah ....</p>
+      <button class="opt" data-opt="A"><span class="opt-l">A</span><span>45°</span></button>
+      <button class="opt" data-opt="B"><span class="opt-l">B</span><span>60°</span></button>
+      <button class="opt" data-opt="C"><span class="opt-l">C</span><span>90°</span></button>
+      <button class="opt" data-opt="D"><span class="opt-l">D</span><span>180°</span></button>
+      <div class="q-feedback"></div>
+    </div>
+
+    <div class="q" data-correct="B" data-explain="Karena AB diameter, sudut ACB siku-siku dan AB menjadi sisi miring. Pythagoras: 13 kuadrat sama dengan 5 kuadrat tambah BC kuadrat, jadi BC kuadrat sama dengan 169 kurang 25 sama dengan 144, sehingga BC sama dengan 12 cm.">
+      <div class="q-head"><span class="q-num">Soal 8</span><span class="q-level lvl-susah">Susah</span></div>
+      <p class="q-text">Diketahui \(AB\) merupakan diameter sebuah lingkaran. Panjang \(AB = 13\) cm dan \(AC = 5\) cm. Jika titik \(C\) berada pada lingkaran, panjang \(BC\) adalah ....</p>
+      <button class="opt" data-opt="A"><span class="opt-l">A</span><span>8 cm</span></button>
+      <button class="opt" data-opt="B"><span class="opt-l">B</span><span>12 cm</span></button>
+      <button class="opt" data-opt="C"><span class="opt-l">C</span><span>12,5 cm</span></button>
+      <button class="opt" data-opt="D"><span class="opt-l">D</span><span>18 cm</span></button>
+      <div class="q-feedback"></div>
+    </div>
+
+    <div class="q" data-correct="A" data-explain="Busur minor sama dengan sudut pusatnya, yaitu 150 derajat. Busur mayor sama dengan 360 kurang 150 sama dengan 210 derajat. Sudut kelilingnya setengah sudut pusat, yaitu 75 derajat.">
+      <div class="q-head"><span class="q-num">Soal 9</span><span class="q-level lvl-susah">Susah</span></div>
+      <p class="q-text">Sudut pusat yang menghadap busur minor \(KL\) adalah \(150^\circ\). Besar busur minor \(KL\), busur mayor \(KL\), dan sudut keliling yang menghadap busur minor \(KL\) berturut-turut adalah ....</p>
+      <button class="opt" data-opt="A"><span class="opt-l">A</span><span>150°, 210°, dan 75°</span></button>
+      <button class="opt" data-opt="B"><span class="opt-l">B</span><span>150°, 210°, dan 300°</span></button>
+      <button class="opt" data-opt="C"><span class="opt-l">C</span><span>210°, 150°, dan 75°</span></button>
+      <button class="opt" data-opt="D"><span class="opt-l">D</span><span>150°, 250°, dan 75°</span></button>
+      <div class="q-feedback"></div>
+    </div>
+
+    <div class="q" data-correct="C" data-explain="Lampu di tepi kolam berperan sebagai sudut keliling, sedangkan lampu di pusat kolam berperan sebagai sudut pusat. Sudut pusat sama dengan dua kali sudut keliling: 2 x 28 sama dengan 56 derajat. Bandingkan dengan diagram kolam pada Topik 5.">
+      <div class="q-head"><span class="q-num">Soal 10</span><span class="q-level lvl-susah">Susah</span></div>
+      <p class="q-text">Sebuah lampu diletakkan di tepi kolam berbentuk lingkaran. Sudut pencahayaan lampu yang menghadap suatu busur adalah \(28^\circ\). Jika lampu dipindahkan ke pusat kolam dan tetap menerangi busur yang sama, sudut pencahayaan yang diperlukan adalah ....</p>
+      <button class="opt" data-opt="A"><span class="opt-l">A</span><span>14°</span></button>
+      <button class="opt" data-opt="B"><span class="opt-l">B</span><span>28°</span></button>
+      <button class="opt" data-opt="C"><span class="opt-l">C</span><span>56°</span></button>
+      <button class="opt" data-opt="D"><span class="opt-l">D</span><span>112°</span></button>
+      <div class="q-feedback"></div>
+    </div>
+
+    <div class="quiz-score"></div>
+  </section>
+
+  <!-- ============ TOPIK 9 — PEMBAHASAN ============ -->
+  <div class="bagian-head" id="pembahasan" data-nav="Pembahasan Latihan Soal">
+    <span class="bagian-num">Topik 9</span>
+    <h2 class="bagian-title">Pembahasan Latihan Soal</h2>
+  </div>
+
+  <div class="example">
+    <div class="panel-head"><span class="panel-label">Pembahasan 1</span></div>
+    <div class="ex-row"><span class="ex-tag">Diketahui</span><div class="ex-body"><p>\(r = 9\) cm</p></div></div>
+    <div class="ex-row"><span class="ex-tag">Penyelesaian</span><div class="ex-body"><p>Diameter lingkaran adalah dua kali jari-jari.</p><p>\(d = 2r\)</p><p>\(d = 2 \times 9\)</p><p>\(d = 18\)</p></div></div>
+    <div class="ex-row"><span class="ex-tag">Jawaban</span><div class="ex-body"><div class="ex-answer">C. \(18\) cm</div></div></div>
+  </div>
+
+  <div class="example">
+    <div class="panel-head"><span class="panel-label">Pembahasan 2</span></div>
+    <div class="ex-row"><span class="ex-tag">Diketahui</span><div class="ex-body"><p>\(d = 26\) cm</p></div></div>
+    <div class="ex-row"><span class="ex-tag">Penyelesaian</span><div class="ex-body"><p>Jari-jari merupakan setengah dari diameter.</p><p>\(r = \dfrac{d}{2}\)</p><p>\(r = \dfrac{26}{2}\)</p><p>\(r = 13\)</p></div></div>
+    <div class="ex-row"><span class="ex-tag">Jawaban</span><div class="ex-body"><div class="ex-answer">A. \(13\) cm</div></div></div>
+  </div>
+
+  <div class="example">
+    <div class="panel-head"><span class="panel-label">Pembahasan 3</span></div>
+    <div class="ex-row"><span class="ex-tag">Diketahui</span><div class="ex-body"><p>\(\angle AOB = 84^\circ\)</p></div></div>
+    <div class="ex-row"><span class="ex-tag">a. Busur minor AB</span><div class="ex-body"><p>Besar busur minor sama dengan besar sudut pusat yang menghadapnya.</p><p>\(m\,\overset{\frown}{AB}_{\text{minor}} = 84^\circ\)</p></div></div>
+    <div class="ex-row"><span class="ex-tag">b. Busur mayor AB</span><div class="ex-body"><p>Jumlah besar busur dalam satu lingkaran adalah \(360^\circ\).</p><p>\(m\,\overset{\frown}{AB}_{\text{mayor}} = 360^\circ - 84^\circ\)</p><p>\(m\,\overset{\frown}{AB}_{\text{mayor}} = 276^\circ\)</p></div></div>
+    <div class="ex-row"><span class="ex-tag">Jawaban</span><div class="ex-body"><div class="ex-answer">A. Busur minor \(AB = 84^\circ\) dan busur mayor \(AB = 276^\circ\)</div></div></div>
+  </div>
+
+  <div class="example">
+    <div class="panel-head"><span class="panel-label">Pembahasan 4</span></div>
+    <div class="ex-row"><span class="ex-tag">Diketahui</span><div class="ex-body"><p>\(\angle POQ = 132^\circ\)</p></div></div>
+    <div class="ex-row"><span class="ex-tag">Penyelesaian</span><div class="ex-body"><p>Sudut keliling yang menghadap busur yang sama besarnya setengah sudut pusat.</p><p>\(\angle PRQ = \tfrac{1}{2}\,\angle POQ\)</p><p>\(\angle PRQ = \tfrac{1}{2} \times 132^\circ\)</p><p>\(\angle PRQ = 66^\circ\)</p></div></div>
+    <div class="ex-row"><span class="ex-tag">Jawaban</span><div class="ex-body"><div class="ex-answer">B. \(66^\circ\)</div></div></div>
+  </div>
+
+  <div class="example">
+    <div class="panel-head"><span class="panel-label">Pembahasan 5</span></div>
+    <div class="ex-row"><span class="ex-tag">Diketahui</span><div class="ex-body"><p>\(\angle ACB = 37^\circ\)</p></div></div>
+    <div class="ex-row"><span class="ex-tag">a. Sudut pusat AOB</span><div class="ex-body"><p>Sudut pusat adalah dua kali sudut keliling yang menghadap busur yang sama.</p><p>\(\angle AOB = 2\,\angle ACB\)</p><p>\(\angle AOB = 2 \times 37^\circ\)</p><p>\(\angle AOB = 74^\circ\)</p></div></div>
+    <div class="ex-row"><span class="ex-tag">b. Busur minor AB</span><div class="ex-body"><p>Besar busur minor sama dengan besar sudut pusatnya.</p><p>\(m\,\overset{\frown}{AB} = 74^\circ\)</p></div></div>
+    <div class="ex-row"><span class="ex-tag">Jawaban</span><div class="ex-body"><div class="ex-answer">B. \(\angle AOB = 74^\circ\) dan \(m\,\overset{\frown}{AB} = 74^\circ\)</div></div></div>
+  </div>
+
+  <div class="example">
+    <div class="panel-head"><span class="panel-label">Pembahasan 6</span></div>
+    <div class="ex-row"><span class="ex-tag">Penyelesaian</span><div class="ex-body"><p>Sudut \(\angle BAC\) dan \(\angle BDC\) sama-sama menghadap busur \(BC\).</p><p>Sudut-sudut keliling yang menghadap busur yang sama memiliki besar yang sama.</p><p>\(\angle BDC = \angle BAC\)</p><p>\(\angle BDC = 56^\circ\)</p></div></div>
+    <div class="ex-row"><span class="ex-tag">Jawaban</span><div class="ex-body"><div class="ex-answer">B. \(56^\circ\)</div></div></div>
+  </div>
+
+  <div class="example">
+    <div class="panel-head"><span class="panel-label">Pembahasan 7</span></div>
+    <div class="ex-row"><span class="ex-tag">Penyelesaian</span><div class="ex-body"><p>Diketahui \(AB\) merupakan diameter lingkaran. Sudut \(\angle ACB\) merupakan sudut keliling yang menghadap diameter \(AB\).</p><p>Berdasarkan Teorema Thales:</p><p>\(\angle ACB = 90^\circ\)</p></div></div>
+    <div class="ex-row"><span class="ex-tag">Jawaban</span><div class="ex-body"><div class="ex-answer">C. \(90^\circ\)</div></div></div>
+  </div>
+
+  <div class="example">
+    <div class="panel-head"><span class="panel-label">Pembahasan 8</span></div>
+    <div class="ex-row"><span class="ex-tag">Diketahui</span><div class="ex-body"><p>\(AB = 13\) cm dan \(AC = 5\) cm</p></div></div>
+    <div class="ex-row"><span class="ex-tag">Penyelesaian</span><div class="ex-body">
+      <p>Karena \(AB\) merupakan diameter, maka \(\angle ACB = 90^\circ\).</p>
+      <p>Dengan demikian, segitiga \(ABC\) adalah segitiga siku-siku dan \(AB\) merupakan sisi miring. Gunakan Teorema Pythagoras.</p>
+      <p>\(AB^{2} = AC^{2} + BC^{2}\)</p>
+      <p>\(13^{2} = 5^{2} + BC^{2}\)</p>
+      <p>\(169 = 25 + BC^{2}\)</p>
+      <p>\(BC^{2} = 144\)</p>
+      <p>\(BC = 12\)</p>
+    </div></div>
+    <div class="ex-row"><span class="ex-tag">Jawaban</span><div class="ex-body"><div class="ex-answer">B. \(12\) cm</div></div></div>
+  </div>
+
+  <div class="example">
+    <div class="panel-head"><span class="panel-label">Pembahasan 9</span></div>
+    <div class="ex-row"><span class="ex-tag">Diketahui</span><div class="ex-body"><p>\(\angle KOL = 150^\circ\)</p></div></div>
+    <div class="ex-row"><span class="ex-tag">a. Busur minor KL</span><div class="ex-body"><p>Besar busur minor sama dengan besar sudut pusat.</p><p>\(m\,\overset{\frown}{KL}_{\text{minor}} = 150^\circ\)</p></div></div>
+    <div class="ex-row"><span class="ex-tag">b. Busur mayor KL</span><div class="ex-body"><p>\(m\,\overset{\frown}{KL}_{\text{mayor}} = 360^\circ - 150^\circ\)</p><p>\(m\,\overset{\frown}{KL}_{\text{mayor}} = 210^\circ\)</p></div></div>
+    <div class="ex-row"><span class="ex-tag">c. Sudut keliling</span><div class="ex-body"><p>Sudut keliling yang menghadap busur minor \(KL\) adalah setengah sudut pusatnya.</p><p>\(\text{Sudut keliling} = \tfrac{1}{2} \times 150^\circ\)</p><p>\(\text{Sudut keliling} = 75^\circ\)</p></div></div>
+    <div class="ex-row"><span class="ex-tag">Jawaban</span><div class="ex-body"><div class="ex-answer">A. Busur minor \(KL = 150^\circ\), busur mayor \(KL = 210^\circ\), sudut keliling \(= 75^\circ\)</div></div></div>
+  </div>
+
+  <div class="example">
+    <div class="panel-head"><span class="panel-label">Pembahasan 10</span></div>
+    <div class="ex-row"><span class="ex-tag">Penyelesaian</span><div class="ex-body">
+      <p>Ketika lampu berada di tepi kolam, sudut pencahayaan dapat dipandang sebagai sudut keliling, yaitu \(28^\circ\).</p>
+      <p>Ketika lampu dipindahkan ke pusat kolam, sudut pencahayaan menjadi sudut pusat yang menghadap busur yang sama.</p>
+      <p>\(\text{sudut pusat} = 2 \times \text{sudut keliling}\)</p>
+      <p>\(\text{sudut pusat} = 2 \times 28^\circ\)</p>
+      <p>\(\text{sudut pusat} = 56^\circ\)</p>
+    </div></div>
+    <div class="ex-row"><span class="ex-tag">Jawaban</span><div class="ex-body"><div class="ex-answer">C. \(56^\circ\)</div></div></div>
+  </div>
+
+  <!-- ============ TOPIK 10 — RANGKUMAN ============ -->
+  <div class="bagian-head" id="rangkuman" data-nav="Rangkuman">
+    <span class="bagian-num">Topik 10</span>
+    <h2 class="bagian-title">Rangkuman</h2>
+  </div>
+
+  <section class="prose">
+    <ul>
+      <li>Lingkaran adalah kumpulan titik yang memiliki jarak sama terhadap suatu titik pusat.</li>
+      <li>Jarak dari pusat ke titik pada lingkaran disebut jari-jari.</li>
+      <li>Diameter merupakan dua kali jari-jari, yaitu \(d = 2r\).</li>
+      <li>Busur merupakan bagian dari lingkaran yang terletak di antara dua titik.</li>
+      <li>Busur minor lebih kecil dari \(180^\circ\), sedangkan busur mayor lebih besar dari \(180^\circ\).</li>
+      <li>Besar busur sama dengan besar sudut pusat yang menghadap busur tersebut.</li>
+      <li>Sudut pusat memiliki titik sudut di pusat lingkaran.</li>
+      <li>Sudut keliling memiliki titik sudut pada lingkaran.</li>
+      <li>Sudut pusat besarnya dua kali sudut keliling yang menghadap busur yang sama, yaitu \(\text{sudut pusat} = 2 \times \text{sudut keliling}\).</li>
+      <li>Sudut-sudut keliling yang menghadap busur yang sama memiliki besar yang sama.</li>
+      <li>Sudut keliling yang menghadap diameter adalah \(90^\circ\).</li>
+      <li>Ketiga sifat utama sudut pada lingkaran tersebut juga dicantumkan dalam rangkuman buku referensi.</li>
+    </ul>
+  </section>
+
+  <figure class="figure-prose">
+    <img class="ng-img" src="https://scola-uploader.scolacdn.com/upload/ccb98cf0cce04169588c537c/gambar-20-ringkasan-sifat-sudut.png" alt="Tiga panel ringkasan bernomor. Panel 1 hubungan sudut pusat dan sudut keliling dengan sudut AOB sama dengan dua kali sudut ACB. Panel 2 sudut keliling pada busur yang sama dengan sudut ACB sama dengan sudut AEB sama dengan sudut AFB. Panel 3 sudut keliling yang menghadap diameter dengan sudut ACB dan sudut ADB keduanya 90 derajat.">
+    <figcaption><span class="credit">Tiga sifat sudut pada lingkaran</span>Tiga sifat inilah yang paling sering dipakai dalam soal, dan ketiganya berasal dari satu aturan yang sama. Panel 3 sekadar panel 1 dengan busur 180&deg;, dan panel 2 adalah akibat langsung darinya: bila sudut pusatnya satu, sudut kelilingnya pun tidak punya pilihan lain.</figcaption>
+  </figure>
+
+  <section class="prose">
+    <p>Dengan memahami unsur-unsur lingkaran beserta hubungan antara busur, sudut pusat, dan sudut keliling, kamu dapat menyelesaikan berbagai persoalan geometri lingkaran &mdash; mulai dari menghitung besar busur, menentukan sudut yang belum diketahui, sampai mencari panjang sisi segitiga yang terbentuk di dalam lingkaran.</p>
+  </section>
+
+  <!-- ============ TOPIK 11 — REFLEKSI ============ -->
+  <div class="bagian-head" id="refleksi-topik" data-nav="Refleksi Siswa">
+    <span class="bagian-num">Topik 11</span>
+    <h2 class="bagian-title">Refleksi Siswa</h2>
+  </div>
+
+  <div class="sim" id="refleksi">
+    <div class="sim-head panel-head">
+      <h3 class="panel-title">Centang yang sudah kamu kuasai</h3>
+    </div>
+    <div class="mode-btns" id="rf-btns"></div>
+    <div class="calc-res" id="rf-res">Belum ada yang dicentang.</div>
+  </div>
+
+  <p class="aside">Subbab ini membuka Bab 2. Semua yang dipelajari di sini &mdash; jari-jari, busur, sudut pusat, dan sudut keliling &mdash; akan dipakai kembali pada subbab berikutnya untuk menghitung keliling, luas, panjang busur, dan luas juring.</p>
+
+</main>
+
+<script>
+(function(){
+  "use strict";
+  var root = document.documentElement;
+  var TAU = Math.PI * 2, RAD = Math.PI / 180;
+
+  /* ---------- helper bersama ---------- */
+  function simC(){
+    var s = getComputedStyle(root);
+    function g(n,f){ return (s.getPropertyValue(n)||'').trim() || f; }
+    return { INK:g('--ng-ink','#000000'), YEL:g('--ng-yellow','#ffcc00'), MUT:g('--ng-muted','#000000'),
+             AXIS:g('--ng-axis','#767676'), BRD:g('--ng-border','#e2e2e2'), SOFT:g('--ng-soft','#f5f5f5'),
+             BG:g('--canvas-bg','#ffffff'), OK:g('--ok-bd','#2e7d4f'), ERR:g('--err-bd','#c0473f'),
+             PAPER:g('--ng-white','#ffffff') };
+  }
+  function fitCanvas(cv, W, H){
+    var dpr = Math.min(window.devicePixelRatio || 1, 2);
+    cv.width = Math.round(W*dpr); cv.height = Math.round(H*dpr);
+    cv.style.aspectRatio = W + ' / ' + H;
+    var ctx = cv.getContext('2d');
+    ctx.setTransform(dpr,0,0,dpr,0,0);
+    return ctx;
+  }
+  function tag(ctx, txt, x, y, color, align, size, weight){
+    ctx.font = (weight||700) + ' ' + (size||12) + 'px "Plus Jakarta Sans", sans-serif';
+    ctx.textAlign = align || 'center'; ctx.textBaseline = 'middle';
+    ctx.fillStyle = color; ctx.fillText(txt, x, y);
+  }
+  /* Angka gaya Indonesia: pemisah ribuan titik, desimal koma. */
+  function num(v, desimal){
+    var neg = v < 0, x = Math.abs(v);
+    var d = (typeof desimal === 'number') ? desimal
+          : (Math.abs(x - Math.round(x)) < 1e-9 ? 0 : 2);
+    var s = x.toFixed(d);
+    if(d) s = s.replace(/0+$/,'').replace(/\.$/,'');
+    var bag = s.split('.');
+    bag[0] = bag[0].replace(/\B(?=(\d{3})+(?!\d))/g, '.');
+    return (neg ? '−' : '') + bag.join(',');
+  }
+  function drj(v, d){ return num(v, typeof d === 'number' ? d : 0) + '°'; }
+
+  /* Titik pada lingkaran untuk sudut matematis (derajat, berlawanan arah jarum jam). */
+  function P(cx, cy, R, deg){ return [ cx + R*Math.cos(deg*RAD), cy - R*Math.sin(deg*RAD) ]; }
+  /* Kanvas memakai sudut layar phi = -theta. */
+  function ph(deg){ return -deg * RAD; }
+
+  function busurPath(ctx, cx, cy, R, dari, sampai){
+    /* dari -> sampai searah menurun (searah jarum jam di layar) */
+    ctx.beginPath();
+    ctx.arc(cx, cy, R, ph(dari), ph(sampai), false);
+  }
+  function garis(ctx, a, b, warna, tebal){
+    ctx.strokeStyle = warna; ctx.lineWidth = tebal || 2; ctx.lineCap = 'round';
+    ctx.beginPath(); ctx.moveTo(a[0], a[1]); ctx.lineTo(b[0], b[1]); ctx.stroke();
+  }
+  function titik(ctx, p, isi, tepi, r){
+    ctx.fillStyle = isi; ctx.strokeStyle = tepi; ctx.lineWidth = 2;
+    ctx.beginPath(); ctx.arc(p[0], p[1], r || 5.5, 0, TAU); ctx.fill(); ctx.stroke();
+  }
+  /* Bidang sudut di titik pusat lingkaran. */
+  function juring(ctx, cx, cy, r, dari, sampai, warna){
+    ctx.fillStyle = warna;
+    ctx.beginPath(); ctx.moveTo(cx, cy);
+    ctx.arc(cx, cy, r, ph(dari), ph(sampai), false);
+    ctx.closePath(); ctx.fill();
+  }
+  /* Tanda sudut di titik sudut V yang dibentuk oleh arah ke U dan ke W. */
+  function tandaSudut(ctx, V, U, W, r, warna){
+    var a1 = Math.atan2(U[1]-V[1], U[0]-V[0]);
+    var a2 = Math.atan2(W[1]-V[1], W[0]-V[0]);
+    var d = a2 - a1;
+    while(d >  Math.PI) d -= TAU;
+    while(d < -Math.PI) d += TAU;
+    ctx.strokeStyle = warna; ctx.lineWidth = 2;
+    ctx.beginPath(); ctx.arc(V[0], V[1], r, a1, a1 + d, d < 0); ctx.stroke();
+  }
+  /* Tanda siku-siku di titik sudut V. */
+  function tandaSiku(ctx, V, U, W, s, warna){
+    var u = [U[0]-V[0], U[1]-V[1]], w = [W[0]-V[0], W[1]-V[1]];
+    var lu = Math.hypot(u[0],u[1]), lw = Math.hypot(w[0],w[1]);
+    u = [u[0]/lu*s, u[1]/lu*s]; w = [w[0]/lw*s, w[1]/lw*s];
+    ctx.strokeStyle = warna; ctx.lineWidth = 2; ctx.lineCap = 'butt';
+    ctx.beginPath();
+    ctx.moveTo(V[0]+u[0], V[1]+u[1]);
+    ctx.lineTo(V[0]+u[0]+w[0], V[1]+u[1]+w[1]);
+    ctx.lineTo(V[0]+w[0], V[1]+w[1]);
+    ctx.stroke();
+  }
+
+  /* =========================================================
+     SIMULASI 1 - PENJELAJAH BUSUR MINOR DAN MAYOR
+     ========================================================= */
+  (function(){
+    var cv = document.getElementById('bs-canvas'); if(!cv) return;
+    var W = 920, H = 420, ctx = fitCanvas(cv, W, H);
+    var iA = document.getElementById('bs-a'), iR = document.getElementById('bs-r');
+    var oA = document.getElementById('bs-out-a'), oR = document.getElementById('bs-out-r');
+    var roMin = document.getElementById('bs-ro-min'), roMay = document.getElementById('bs-ro-may'), roKel = document.getElementById('bs-ro-kel');
+    var step = document.getElementById('bs-langkah'), res = document.getElementById('bs-res');
+
+    function draw(){
+      var c = simC();
+      var a = +iA.value, r = +iR.value;
+      oA.textContent = drj(a); oR.textContent = String(r);
+
+      ctx.clearRect(0,0,W,H); ctx.fillStyle = c.BG; ctx.fillRect(0,0,W,H);
+      var cx = W/2, cy = H/2 + 6, R = 148;
+      var aB = 90, aC = 90 - a, aD = 90 - a - (360-a)/2;
+      var B = P(cx,cy,R,aB), C = P(cx,cy,R,aC), D = P(cx,cy,R,aD), O = [cx,cy];
+
+      /* lingkaran dasar */
+      ctx.strokeStyle = c.BRD; ctx.lineWidth = 2;
+      ctx.beginPath(); ctx.arc(cx,cy,R,0,TAU); ctx.stroke();
+
+      /* busur mayor lebih dulu, lalu busur BC di atasnya */
+      ctx.lineCap = 'round';
+      busurPath(ctx, cx, cy, R, aC, aB - 360); ctx.strokeStyle = c.AXIS; ctx.lineWidth = 7; ctx.stroke();
+      busurPath(ctx, cx, cy, R, aB, aC);       ctx.strokeStyle = c.YEL;  ctx.lineWidth = 9; ctx.stroke();
+
+      juring(ctx, cx, cy, 52, aB, aC, c.SOFT);
+      garis(ctx, O, B, c.INK, 2);
+      garis(ctx, O, C, c.INK, 2);
+
+      titik(ctx, O, c.INK, c.INK, 5);
+      titik(ctx, B, c.INK, c.INK, 6);
+      titik(ctx, C, c.INK, c.INK, 6);
+      titik(ctx, D, c.PAPER, c.INK, 6);
+
+      var LB = P(cx,cy,R+24,aB), LC = P(cx,cy,R+24,aC), LD = P(cx,cy,R+26,aD);
+      tag(ctx, 'B', LB[0], LB[1], c.INK, 'center', 14, 700);
+      tag(ctx, 'C', LC[0], LC[1], c.INK, 'center', 14, 700);
+      tag(ctx, 'D', LD[0], LD[1], c.INK, 'center', 14, 700);
+      tag(ctx, 'O', cx - 16, cy - 12, c.INK, 'center', 14, 700);
+
+      var LA = P(cx,cy,74,90 - a/2);
+      tag(ctx, drj(a), LA[0], LA[1], c.INK, 'center', 13, 700);
+
+      tag(ctx, 'kuning = busur BC', 24, 26, c.MUT, 'left', 12, 400);
+      tag(ctx, 'abu-abu = busur BDC', 24, 48, c.MUT, 'left', 12, 400);
+
+      var minor = Math.min(a, 360-a);
+      var pjBC = a/360 * TAU * r;
+
+      roMin.textContent = drj(a);
+      roMay.textContent = drj(360-a);
+      roKel.textContent = drj(a/2, 1);
+
+      step.innerHTML =
+        '<span class="ln">m busur BC = &ang;BOC = <b>' + drj(a) + '</b></span>' +
+        '<span class="ln">m busur BDC = 360° − ' + drj(a) + ' = <b>' + drj(360-a) + '</b></span>' +
+        '<span class="ln">Sudut keliling = ½ × ' + drj(a) + ' = <b>' + drj(a/2,1) + '</b></span>' +
+        '<span class="ln">Panjang busur BC = ' + num(a) + '/360 × 2π × ' + num(r) + ' = <b>' + num(pjBC,2) + ' cm</b></span>';
+
+      if(Math.abs(a - 180) < 1e-9){
+        res.className = 'calc-res';
+        res.textContent = 'Tepat 180°: kedua busur sama besar, jadi BC adalah diameter dan tidak ada busur minor maupun mayor.';
+      } else if(a < 180){
+        res.className = 'calc-res is-ok';
+        res.textContent = 'Busur BC (' + drj(a) + ') adalah busur minor sebab kurang dari 180°, sedangkan busur BDC (' + drj(360-a) + ') adalah busur mayor.';
+      } else {
+        res.className = 'calc-res is-ok';
+        res.textContent = 'Sekarang peran keduanya bertukar: busur BC (' + drj(a) + ') menjadi busur mayor, sedangkan busur BDC (' + drj(360-a) + ') menjadi busur minor. Busur minornya kini ' + drj(minor) + '.';
+      }
+    }
+    [iA, iR].forEach(function(el){
+      el.addEventListener('input', draw);
+      el.addEventListener('change', draw);
+    });
+    draw();
+    window.ngRedraw1 = draw;
+  })();
+
+  /* =========================================================
+     SIMULASI 2 - PENJELAJAH SUDUT PUSAT DAN SUDUT KELILING
+     ========================================================= */
+  (function(){
+    var cv = document.getElementById('sk-canvas'); if(!cv) return;
+    var W = 920, H = 420, ctx = fitCanvas(cv, W, H);
+    var iA = document.getElementById('sk-a'), iP = document.getElementById('sk-p');
+    var oA = document.getElementById('sk-out-a'), oP = document.getElementById('sk-out-p');
+    var roB = document.getElementById('sk-ro-b'), roO = document.getElementById('sk-ro-o'), roK = document.getElementById('sk-ro-k');
+    var step = document.getElementById('sk-langkah'), res = document.getElementById('sk-res');
+
+    function draw(){
+      var c = simC();
+      var a = +iA.value, p = +iP.value;
+      oA.textContent = drj(a); oP.textContent = p + '%';
+
+      ctx.clearRect(0,0,W,H); ctx.fillStyle = c.BG; ctx.fillRect(0,0,W,H);
+      var cx = W/2, cy = H/2 + 14, R = 142;
+      var aB = 270 - a/2, aC = 270 + a/2;
+      var aA = aC + (p/100) * (360 - a);
+      var B = P(cx,cy,R,aB), C = P(cx,cy,R,aC), A = P(cx,cy,R,aA), O = [cx,cy];
+
+      ctx.strokeStyle = c.BRD; ctx.lineWidth = 2;
+      ctx.beginPath(); ctx.arc(cx,cy,R,0,TAU); ctx.stroke();
+
+      ctx.lineCap = 'round';
+      busurPath(ctx, cx, cy, R, aC, aB); ctx.strokeStyle = c.YEL; ctx.lineWidth = 9; ctx.stroke();
+
+      juring(ctx, cx, cy, 50, aC, aB, c.SOFT);
+      garis(ctx, O, B, c.INK, 2);
+      garis(ctx, O, C, c.INK, 2);
+      garis(ctx, A, B, c.INK, 2.5);
+      garis(ctx, A, C, c.INK, 2.5);
+
+      tandaSudut(ctx, A, B, C, 46, c.INK);
+      tandaSudut(ctx, O, B, C, 50, c.INK);
+
+      titik(ctx, O, c.INK, c.INK, 5);
+      titik(ctx, B, c.INK, c.INK, 6);
+      titik(ctx, C, c.INK, c.INK, 6);
+      titik(ctx, A, c.YEL, c.INK, 8);
+
+      var LB = P(cx,cy,R+24,aB), LC = P(cx,cy,R+24,aC), LA = P(cx,cy,R+26,aA);
+      tag(ctx, 'B', LB[0], LB[1], c.INK, 'center', 14, 700);
+      tag(ctx, 'C', LC[0], LC[1], c.INK, 'center', 14, 700);
+      tag(ctx, 'A', LA[0], LA[1], c.INK, 'center', 14, 700);
+      tag(ctx, 'O', cx, cy - 18, c.INK, 'center', 14, 700);
+
+      var LO = P(cx,cy,84,270);
+      tag(ctx, drj(a), LO[0], LO[1], c.INK, 'center', 13, 700);
+      var mid = [ (B[0]+C[0])/2, (B[1]+C[1])/2 ];
+      var vx = mid[0]-A[0], vy = mid[1]-A[1], lv = Math.hypot(vx,vy);
+      tag(ctx, drj(a/2,1), A[0] + vx/lv*70, A[1] + vy/lv*70, c.INK, 'center', 13, 700);
+
+      tag(ctx, 'A boleh di mana saja pada busur mayor', 24, 26, c.MUT, 'left', 12, 400);
+
+      roB.textContent = drj(a);
+      roO.textContent = drj(a);
+      roK.textContent = drj(a/2, 1);
+
+      step.innerHTML =
+        '<span class="ln">m busur BC = <b>' + drj(a) + '</b></span>' +
+        '<span class="ln">&ang;BOC = m busur BC = <b>' + drj(a) + '</b></span>' +
+        '<span class="ln">&ang;BAC = ½ × &ang;BOC = ½ × ' + drj(a) + ' = <b>' + drj(a/2,1) + '</b></span>' +
+        '<span class="ln">Pemeriksaan: 2 × ' + drj(a/2,1) + ' = <b>' + drj(a) + '</b></span>';
+
+      res.className = 'calc-res is-ok';
+      res.textContent = 'Titik A berada di ' + p + '% panjang busur mayor, tetapi ∠BAC tetap ' + drj(a/2,1)
+                      + '. Yang menentukan besarnya bukan letak A, melainkan busur BC yang dihadapinya.';
+    }
+    [iA, iP].forEach(function(el){
+      el.addEventListener('input', draw);
+      el.addEventListener('change', draw);
+    });
+    draw();
+    window.ngRedraw2 = draw;
+  })();
+
+  /* =========================================================
+     SIMULASI 3 - PENJELAJAH TEOREMA THALES
+     ========================================================= */
+  (function(){
+    var cv = document.getElementById('th-canvas'); if(!cv) return;
+    var W = 920, H = 420, ctx = fitCanvas(cv, W, H);
+    var iD = document.getElementById('th-d'), iP = document.getElementById('th-p');
+    var oD = document.getElementById('th-out-d'), oP = document.getElementById('th-out-p');
+    var roAC = document.getElementById('th-ro-ac'), roBC = document.getElementById('th-ro-bc'), roS = document.getElementById('th-ro-s');
+    var step = document.getElementById('th-langkah'), res = document.getElementById('th-res');
+
+    function draw(){
+      var c = simC();
+      var d = +iD.value, t = +iP.value;
+      oD.textContent = String(d); oP.textContent = drj(t);
+
+      ctx.clearRect(0,0,W,H); ctx.fillStyle = c.BG; ctx.fillRect(0,0,W,H);
+      var cx = W/2, cy = H/2 + 34, R = 150;
+      var A = P(cx,cy,R,180), B = P(cx,cy,R,0), C = P(cx,cy,R,t), O = [cx,cy];
+
+      ctx.strokeStyle = c.BRD; ctx.lineWidth = 2;
+      ctx.beginPath(); ctx.arc(cx,cy,R,0,TAU); ctx.stroke();
+
+      ctx.lineCap = 'round';
+      busurPath(ctx, cx, cy, R, 180, 0); ctx.strokeStyle = c.YEL; ctx.lineWidth = 9; ctx.stroke();
+
+      garis(ctx, A, B, c.INK, 4);
+      garis(ctx, A, C, c.INK, 2.5);
+      garis(ctx, B, C, c.INK, 2.5);
+      tandaSiku(ctx, C, A, B, 22, c.INK);
+
+      titik(ctx, O, c.INK, c.INK, 5);
+      titik(ctx, A, c.INK, c.INK, 6);
+      titik(ctx, B, c.INK, c.INK, 6);
+      titik(ctx, C, c.YEL, c.INK, 8);
+
+      tag(ctx, 'A', A[0] - 22, A[1], c.INK, 'center', 14, 700);
+      tag(ctx, 'B', B[0] + 22, B[1], c.INK, 'center', 14, 700);
+      var LC = P(cx,cy,R+26,t);
+      tag(ctx, 'C', LC[0], LC[1], c.INK, 'center', 14, 700);
+      tag(ctx, 'O', cx, cy + 20, c.INK, 'center', 14, 700);
+
+      var AC = d * Math.cos(t/2 * RAD);
+      var BC = d * Math.sin(t/2 * RAD);
+
+      tag(ctx, num(AC,2) + ' cm', (A[0]+C[0])/2 - 16, (A[1]+C[1])/2 - 14, c.MUT, 'right', 12, 400);
+      tag(ctx, num(BC,2) + ' cm', (B[0]+C[0])/2 + 16, (B[1]+C[1])/2 - 14, c.MUT, 'left', 12, 400);
+      tag(ctx, 'AB = ' + num(d) + ' cm (diameter)', cx, cy + 44, c.MUT, 'center', 12, 400);
+      tag(ctx, 'C boleh di mana saja pada setengah lingkaran atas', 24, 26, c.MUT, 'left', 12, 400);
+
+      roAC.textContent = num(AC,2) + ' cm';
+      roBC.textContent = num(BC,2) + ' cm';
+      roS.textContent = drj(90);
+
+      var kiri = AC*AC + BC*BC;
+      step.innerHTML =
+        '<span class="ln">AB diameter → &ang;ACB = <b>90°</b> (Teorema Thales)</span>' +
+        '<span class="ln">AC² + BC² = ' + num(AC,2) + '² + ' + num(BC,2) + '² = <b>' + num(kiri,2) + '</b></span>' +
+        '<span class="ln">AB² = ' + num(d) + '² = <b>' + num(d*d) + '</b></span>' +
+        '<span class="ln">Keduanya sama → Pythagoras terpenuhi</span>';
+
+      if(Math.abs(t - 90) < 1e-9){
+        res.className = 'calc-res is-ok';
+        res.textContent = 'C tepat di puncak: AC = BC = ' + num(AC,2)
+                        + ' cm, sehingga segitiganya siku-siku sama kaki.';
+      } else {
+        res.className = 'calc-res is-ok';
+        res.textContent = 'Sisi terpanjang selalu AB = ' + num(d)
+                        + ' cm, yaitu diameternya sendiri. AC dan BC boleh berubah-ubah, tetapi jumlah kuadratnya tetap '
+                        + num(d*d) + '.';
+      }
+    }
+    [iD, iP].forEach(function(el){
+      el.addEventListener('input', draw);
+      el.addEventListener('change', draw);
+    });
+    draw();
+    window.ngRedraw3 = draw;
+  })();
+
+  /* =========================================================
+     REFLEKSI
+     ========================================================= */
+  (function(){
+    var host = document.getElementById('rf-btns'); if(!host) return;
+    var res = document.getElementById('rf-res');
+    var items = [
+      'Menjelaskan pengertian lingkaran',
+      'Menyebutkan unsur-unsur lingkaran',
+      'Menentukan hubungan jari-jari dan diameter',
+      'Membedakan tali busur dan diameter',
+      'Membedakan busur minor dan busur mayor',
+      'Membedakan sudut pusat dan sudut keliling',
+      'Menggunakan hubungan sudut pusat dan sudut keliling',
+      'Menggunakan Teorema Thales dan Pythagoras'
+    ];
+    host.innerHTML = items.map(function(t,i){
+      return '<button class="btn btn-ghost btn-sm" type="button" data-rf="' + i + '">' + t + '</button>';
+    }).join('');
+    function refresh(){
+      var on = host.querySelectorAll('[data-rf].is-active').length;
+      res.className = 'calc-res' + (on === items.length ? ' is-ok' : '');
+      res.textContent = on === 0 ? 'Belum ada yang dicentang.'
+                      : on + ' dari ' + items.length + ' sudah kamu kuasai.'
+                        + (on === items.length ? ' Subbab 1 selesai kamu pelajari.' : '');
+    }
+    host.querySelectorAll('[data-rf]').forEach(function(b){
+      b.addEventListener('click', function(){ b.classList.toggle('is-active'); refresh(); });
+    });
+    refresh();
+  })();
+
+  /* =========================================================
+     TEMA - NAV - KUIS
+     ========================================================= */
+  window.ngRedrawSims = function(){
+    if(window.ngRedraw1) window.ngRedraw1();
+    if(window.ngRedraw2) window.ngRedraw2();
+    if(window.ngRedraw3) window.ngRedraw3();
+  };
+
+  try{ var saved = localStorage.getItem('ng-theme'); if(saved === 'dark') root.setAttribute('data-theme','dark'); }catch(e){}
+  var tt = document.querySelector('.theme-toggle');
+  if(tt){ tt.addEventListener('click', function(){
+    var dark = root.getAttribute('data-theme') === 'dark';
+    if(dark) root.removeAttribute('data-theme'); else root.setAttribute('data-theme','dark');
+    try{ localStorage.setItem('ng-theme', dark ? 'light' : 'dark'); }catch(e){}
+    window.ngRedrawSims();
+  }); }
+
+  var burger = document.querySelector('.nav-toggle'), list = document.getElementById('nav-list');
+  if(burger && list){
+    burger.addEventListener('click', function(e){
+      e.stopPropagation();
+      var open = list.hidden; list.hidden = !open;
+      burger.setAttribute('aria-expanded', String(open));
+    });
+    document.addEventListener('click', function(e){
+      if(!list.hidden && !list.contains(e.target) && !burger.contains(e.target)){
+        list.hidden = true; burger.setAttribute('aria-expanded','false');
+      }
+    });
+    list.querySelectorAll('a').forEach(function(a){
+      a.addEventListener('click', function(){ list.hidden = true; burger.setAttribute('aria-expanded','false'); });
+    });
+  }
+
+  document.querySelectorAll('[data-quiz]').forEach(function(quiz){
+    var qs = [].slice.call(quiz.querySelectorAll('.q'));
+    var total = qs.length, answered = 0, correct = 0;
+    var scoreEl = quiz.querySelector('.quiz-score');
+    qs.forEach(function(q){
+      var ans = q.getAttribute('data-correct');
+      var explain = q.getAttribute('data-explain') || '';
+      var fb = q.querySelector('.q-feedback');
+      var opts = [].slice.call(q.querySelectorAll('.opt'));
+      opts.forEach(function(opt){
+        opt.addEventListener('click', function(){
+          if(q.dataset.done) return;
+          q.dataset.done = '1'; answered++;
+          var ok = opt.getAttribute('data-opt') === ans;
+          if(ok) correct++;
+          opts.forEach(function(o){
+            o.disabled = true;
+            if(o.getAttribute('data-opt') === ans) o.classList.add('is-correct');
+            else if(o === opt) o.classList.add('is-wrong');
+          });
+          if(fb){
+            fb.classList.add('show', ok ? 'ok' : 'no');
+            fb.innerHTML = (ok ? '<strong>Benar.</strong> ' : '<strong>Belum tepat.</strong> ') + explain;
+            if(window.ngTypeset) window.ngTypeset(fb);
+          }
+          if(answered === total && scoreEl){
+            scoreEl.classList.add('show');
+            scoreEl.textContent = 'Skor kamu: ' + correct + ' dari ' + total + ' benar.';
+          }
+        });
+      });
+    });
+  });
+
+  window.addEventListener('resize', function(){ window.ngRedrawSims(); });
+})();
+
+/* ---- KaTeX ---- */
+window.ngTypeset = function(el){
+  if(!window.renderMathInElement) return;
+  try{
+    renderMathInElement(el, {
+      delimiters: [ {left:'\\[',right:'\\]',display:true}, {left:'\\(',right:'\\)',display:false} ],
+      throwOnError:false
+    });
+  }catch(_){}
+};
+document.addEventListener('DOMContentLoaded', function(){ window.ngTypeset(document.body); });
+window.addEventListener('load', function(){ window.ngTypeset(document.body); });
+</script>
+</body>
+</html>

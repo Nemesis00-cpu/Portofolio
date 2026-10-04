@@ -1,0 +1,1330 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Modul Matematika SMA Kelas 10 - Bab 2 Barisan dan Deret, Subbab 3: Bunga. Konsep bunga simpanan dan bunga pinjaman, bunga tunggal dengan pertambahan tetap, bunga majemuk dengan pertumbuhan berlipat, rumus nilai akhir, istilah modal awal dan suku bunga, serta penerapannya pada tabungan, deposito, pinjaman, dan investasi. Dilengkapi tiga simulasi interaktif, latihan 10 soal, dan pembahasan lengkap.">
+<title>Bunga — Matematika SMA Kelas 10 Bab 2</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js" crossorigin="anonymous"></script>
+
+<!-- ====== Tailwind (utilities + design tokens) ====== -->
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = {
+    darkMode: ['selector', '[data-theme="dark"]'],
+    corePlugins: { preflight: false },
+    theme: { extend: {
+      colors: {
+        ink:'var(--ng-ink)', paper:'var(--ng-white)', yellow:'var(--ng-yellow)',
+        muted:'var(--ng-muted)', line:'var(--ng-border)', soft:'var(--ng-soft)',
+        okbd:'var(--ok-bd)', okbg:'var(--ok-bg)', warnbd:'var(--warn-bd)',
+        warnbg:'var(--warn-bg)', errbd:'var(--err-bd)', errbg:'var(--err-bg)'
+      },
+      fontFamily: {
+        sans:['"Plus Jakarta Sans"','"Helvetica Neue"','Arial','"Segoe UI Symbol"','system-ui','-apple-system','sans-serif'],
+        serif:['"Plus Jakarta Sans"','"Helvetica Neue"','Arial','"Segoe UI Symbol"','system-ui','-apple-system','sans-serif']
+      },
+      maxWidth: { content:'820px', measure:'772px', wide:'1296px' }
+    }}
+  }
+</script>
+
+<!-- ====== Design system (CSS asli css/modul.css, inline) ====== -->
+<style>
+  :root{
+    --ng-white:#ffffff; --ng-ink:#000000; --ng-yellow:#ffcc00;
+    --ng-muted:#000000; --ng-axis:#767676; --ng-border:#e2e2e2; --ng-soft:#f5f5f5;
+    --ng-link:#000000; --ng-link-hov:#000000;
+    --content:70%; --gutter:24px;
+    --wide:70%;
+    --measure:calc(var(--content) - 2 * var(--gutter));
+    --ok-bg:#eaf4ec; --ok-bd:#2e7d4f; --err-bg:#f9ecec; --err-bd:#c0473f;
+    --warn-bg:#fdf3d6; --warn-bd:#b8860b;
+    --btn-bg:#1a1a1a; --btn-fg:#ffffff;
+    --canvas-bg:#ffffff;
+    --sans:'Plus Jakarta Sans','Helvetica Neue',Arial,'Segoe UI Symbol','DejaVu Sans',system-ui,-apple-system,sans-serif;
+    --serif:'Plus Jakarta Sans','Helvetica Neue',Arial,'Segoe UI Symbol','DejaVu Sans',system-ui,-apple-system,sans-serif;
+  }
+  [data-theme="dark"]{
+    --ng-white:#141414; --ng-ink:#ededed; --ng-yellow:#ffcc00;
+    --ng-muted:#9a9a9a; --ng-axis:#9a9a9a; --ng-border:#333333; --ng-soft:#1f1f1f;
+    --ng-link:#ededed; --ng-link-hov:#bbbbbb;
+    --ok-bg:#15281c; --ok-bd:#4caf6e; --err-bg:#2a1716; --err-bd:#e06b62;
+    --warn-bg:#2a230f; --warn-bd:#e0b341;
+    --btn-bg:#ededed; --btn-fg:#141414;
+    --canvas-bg:#1b1b1b;
+  }
+  *{box-sizing:border-box;}
+  html{-webkit-text-size-adjust:100%; scroll-behavior:smooth;}
+  @media (prefers-reduced-motion:reduce){ html{ scroll-behavior:auto; } }
+  body{ margin:0; background:var(--ng-white); color:var(--ng-ink); font-family:var(--sans); font-size:20px; font-weight:400; line-height:1.65; -webkit-font-smoothing:antialiased; transition:background-color .25s ease, color .25s ease; }
+  ::selection{ background:var(--ng-yellow); color:#000000; }
+  h1,h2,h3{ font-family:var(--sans); }
+
+  .article>*{ max-width:var(--content); margin-left:auto; margin-right:auto; padding-left:var(--gutter); padding-right:var(--gutter); }
+  .article{ padding-bottom:clamp(72px,12vh,140px); }   /* ruang napas di ujung modul */
+  .article>.wide{ max-width:var(--wide); margin-top:40px; margin-bottom:40px; }
+  .article h2{ font-size:22px; font-weight:600; line-height:1.18; margin:0 0 18px; letter-spacing:-.01em; scroll-margin-top:90px; }
+  .h2-num{ display:block; font-family:var(--sans); font-size:20px; font-weight:400; text-transform:uppercase; letter-spacing:.08em; color:var(--ng-muted); margin:0 0 6px; }
+
+  .prose{ font-family:var(--serif); font-size:20px; font-weight:400; line-height:1.72; }
+  .prose p{ margin:0 0 22px; }
+  .prose strong{ font-weight:700; }
+  .prose h2{ margin-top:0; }
+  .prose h3{ font-family:var(--sans); font-size:22px; font-weight:600; margin:28px 0 12px; letter-spacing:-.01em; }
+  .article>section.prose{ margin-top:40px; }
+
+  .kicker{ display:inline-block; font-family:var(--sans); font-size:20px; font-weight:400; text-transform:uppercase; letter-spacing:.08em; color:var(--ng-muted); text-decoration:none; border-bottom:2px solid var(--ng-yellow); padding-bottom:2px; margin-bottom:22px; }
+  h1{ font-size:38px; font-weight:700; line-height:1.06; letter-spacing:-.02em; margin:0 0 18px; }
+  .dek{ font-family:var(--sans); font-size:20px; font-weight:400; line-height:1.45; color:var(--ng-ink); margin:0 auto; max-width:640px; }
+
+  .hero--full{ position:relative; width:100%; min-height:480px; height:100vh; height:100svh; display:flex; align-items:flex-end; justify-content:center; overflow:hidden; }
+  .hero--full .hero-bg{ position:absolute; inset:0; width:100%; height:100%; aspect-ratio:auto; }
+  .hero--full::after{ content:""; position:absolute; inset:0; z-index:1; background:linear-gradient(to top, rgba(0,0,0,.74) 0%, rgba(0,0,0,.34) 32%, rgba(0,0,0,0) 62%); }
+  .hero--full .hero-inner{ position:relative; z-index:2; width:100%; max-width:var(--content); padding:0 var(--gutter) clamp(40px,8vh,88px); text-align:center; color:#fff; }
+  .hero--full .kicker{ color:#fff; }
+  .hero--full h1{ color:#fff; margin-bottom:18px; }
+  .hero--full .dek{ color:rgba(255,255,255,.9); margin-left:auto; margin-right:auto; }
+  .hero--full .hero-inner .btn{ margin-top:26px; }
+  @media (max-width:600px){ .hero--full .hero-inner{ padding-left:16px; padding-right:16px; } }
+
+  .bagian-head{ text-align:center; margin-top:88px; scroll-margin-top:24px; }
+  .bagian-num{ display:inline-block; font-family:var(--sans); font-size:20px; font-weight:400; text-transform:uppercase; letter-spacing:.12em; color:var(--ng-muted); border-bottom:2px solid var(--ng-yellow); padding-bottom:3px; margin-bottom:16px; }
+  .bagian-head .bagian-title{ font-family:var(--sans); font-size:38px; font-weight:700; line-height:1.1; letter-spacing:-.02em; margin:0; }
+
+  .btn{ display:inline-flex; align-items:center; justify-content:center; gap:8px; font-family:var(--sans); font-size:20px; font-weight:400; line-height:1; letter-spacing:.02em; padding:13px 26px; border:1px solid transparent; background:none; color:var(--ng-ink); text-decoration:none; cursor:pointer; transition:opacity .15s, background-color .25s, border-color .12s, transform .12s; }
+  .btn:hover{ opacity:.85; }
+  .btn:focus-visible{ outline:3px solid var(--ng-yellow); outline-offset:2px; }
+  .btn-primary{ background:var(--ng-yellow); color:#000000; border-color:var(--ng-yellow); }
+  .btn-dark{ background:var(--btn-bg); color:var(--btn-fg); border-color:var(--btn-bg); }
+  .btn:disabled{ opacity:.4; cursor:default; }
+  .btn-ghost{ background:none; color:var(--ng-ink); border-color:var(--ng-border); }
+  .btn-ghost:hover{ opacity:1; border-color:var(--ng-ink); }
+  .btn-ghost.is-active{ background:var(--btn-bg); color:var(--btn-fg); border-color:var(--btn-bg); }
+  .btn-lg{ padding:15px 30px; font-weight:700; text-transform:uppercase; letter-spacing:.06em; }
+  .btn-lg:hover{ transform:translateY(-2px); }
+  .btn-sm{ padding:10px 16px; font-size:20px; font-weight:400; }
+  .btn-icon{ width:48px; height:48px; padding:0; gap:0; }
+  .btn-icon svg{ width:22px; height:22px; }
+
+  .navmenu{ position:fixed; top:24px; left:24px; z-index:90; display:flex; align-items:center; gap:8px; }
+  .theme-toggle .ic-sun{ display:none; }
+  [data-theme="dark"] .theme-toggle .ic-moon{ display:none; }
+  [data-theme="dark"] .theme-toggle .ic-sun{ display:block; }
+  .nav-list{ position:absolute; top:calc(100% + 8px); left:0; min-width:248px; max-height:min(80vh,620px); overflow-y:auto; background:var(--ng-white); border:1px solid var(--ng-border); padding:6px 0; box-shadow:0 10px 34px rgba(0,0,0,.14); }
+  .nav-list[hidden]{ display:none; }
+  .nav-list a{ display:block; padding:12px 18px; font-family:var(--sans); text-decoration:none; color:var(--ng-ink); }
+  .nav-list a:hover{ background:var(--ng-soft); }
+  .nav-list a .n{ display:block; font-size:20px; font-weight:400; text-transform:uppercase; letter-spacing:.06em; color:var(--ng-muted); margin-bottom:3px; }
+  .nav-list a .t{ font-size:20px; font-weight:400; }
+
+  .img-ph{ background-color:var(--ng-soft); background-size:cover; background-position:center; background-repeat:no-repeat; width:100%; aspect-ratio:4/3; }
+  .img-ph--wide{ aspect-ratio:16/9; }
+  .ng-img{ display:block; width:100%; height:auto; }
+  .figure-prose{ margin-top:40px; margin-bottom:40px; }
+  .media-cap, figcaption{ font-family:var(--sans); font-size:18px; font-weight:400; line-height:1.5; color:var(--ng-muted); position:relative; padding-left:16px; }
+  .media-cap::before, figcaption::before{ content:""; position:absolute; left:0; top:5px; width:3px; height:1.05em; background:var(--ng-yellow); }
+  /* Kapsi rata dengan tepi kiri gambarnya. max-width:var(--measure) membuat kapsi
+     menjorok ke dalam karena persentasenya dihitung terhadap <figure>, bukan
+     terhadap .article — jadi dilepas. */
+  figcaption{ max-width:none; margin:16px 0 0; }
+  figcaption .credit{ display:block; margin-bottom:6px; font-size:18px; font-weight:400; text-transform:uppercase; letter-spacing:.04em; }
+  .media-duo{ display:grid; grid-template-columns:1fr 1fr; gap:24px; }
+  @media(max-width:680px){ .media-duo{ grid-template-columns:1fr; } }
+
+  .eq{ background:var(--ng-soft); border-left:3px solid var(--ng-yellow); padding:18px 24px; margin:28px auto; max-width:var(--measure); }
+  .eq-label{ font-family:var(--sans); font-size:20px; font-weight:400; text-transform:uppercase; letter-spacing:.07em; color:var(--ng-muted); margin-bottom:8px; }
+  .eq-body{ font-family:var(--sans); font-size:20px; font-weight:400; line-height:1.7; overflow-x:auto; }
+  @media(max-width:600px){ .eq{ margin-left:16px; margin-right:16px; } }
+
+  .ket{ font-family:var(--sans); font-size:18px; font-weight:400; line-height:1.6; color:var(--ng-muted); max-width:var(--measure); margin:-12px auto 28px; }
+  .ket b, .ket strong{ color:var(--ng-ink); }
+  @media(max-width:600px){ .ket{ margin-left:16px; margin-right:16px; } }
+
+  .table-block{ margin-top:14px; }
+  .data-table{ width:100%; border-collapse:collapse; font-family:var(--sans); font-size:20px; font-weight:400; }
+  .data-table th{ text-align:left; font-size:20px; font-weight:400; text-transform:uppercase; letter-spacing:.05em; color:var(--ng-muted); padding:0 16px 10px; border-bottom:2px solid var(--ng-ink); }
+  .data-table td{ padding:13px 16px; border-bottom:1px solid var(--ng-border); vertical-align:top; }
+  .data-table td:first-child{ font-weight:600; }
+  .data-table tbody tr:last-child td{ border-bottom:none; }
+  .data-table.text-left th:not(:first-child), .data-table.text-left td:not(:first-child){ text-align:left; }
+
+  .example{ max-width:var(--measure); margin:24px auto 0; border:1px solid var(--ng-border); padding:6px 24px 14px; }
+  .example .panel-head{ margin:14px 0 2px; }
+  .ex-row{ padding:18px 0; border-bottom:1px solid var(--ng-border); }
+  .ex-row:last-child{ border-bottom:none; padding-bottom:4px; }
+  .ex-tag{ display:block; font-family:var(--sans); font-size:20px; font-weight:400; text-transform:uppercase; letter-spacing:.06em; color:var(--ng-muted); margin-bottom:8px; }
+  .ex-body{ font-family:var(--serif); font-size:20px; font-weight:400; line-height:1.6; }
+  .ex-body p{ margin:0 0 10px; } .ex-body p:last-child{ margin:0; }
+  .ex-answer{ background:var(--ng-soft); border-left:3px solid var(--ng-yellow); padding:12px 16px; font-family:var(--sans); font-size:20px; font-weight:400; line-height:1.5; margin-top:6px; }
+
+  .cardgrid{ display:grid; grid-template-columns:repeat(auto-fit,minmax(min(100%,180px),1fr)); gap:14px; max-width:var(--measure); margin:24px auto; }
+  .cardgrid--wide{ grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr)); }
+  .info-card{ background:var(--ng-soft); border-left:3px solid var(--ng-ink); padding:16px 18px; display:flex; flex-direction:column; }
+  .info-card .ic-title{ font-family:var(--sans); font-size:22px; font-weight:600; line-height:1.3; letter-spacing:-.01em; color:var(--ng-ink); }
+  .info-card p{ font-family:var(--serif); font-size:20px; font-weight:400; line-height:1.55; color:var(--ng-ink); margin:7px 0 0; }
+  .info-card p:first-child{ margin-top:0; }
+  .info-card ul{ list-style:none; margin:8px 0 0; padding:0; }
+  .info-card ul li{ position:relative; padding-left:16px; margin:0 0 5px; font-family:var(--serif); font-size:20px; font-weight:400; line-height:1.5; }
+  .info-card ul li::before{ content:""; position:absolute; left:0; top:.62em; width:5px; height:5px; background:var(--ng-ink); }
+
+  .panel-head{ margin-bottom:18px; }
+  .panel-label{ font-family:var(--sans); font-size:20px; font-weight:400; text-transform:uppercase; letter-spacing:.08em; color:var(--ng-muted); border-bottom:2px solid var(--ng-yellow); padding-bottom:2px; }
+  .panel-title{ font-family:var(--sans); font-size:22px; font-weight:600; line-height:1.18; letter-spacing:-.01em; margin:10px 0 0; }
+  figure{ margin:0; }
+
+  /* ---- Simulasi ---- */
+  .sim{ max-width:var(--measure); margin:36px auto 0; scroll-margin-top:24px; }
+  .sim-head{ margin-bottom:18px; max-width:var(--measure); margin-left:auto; margin-right:auto; text-align:center; }
+  .sim-canvas{ width:100%; display:block; border:1px solid var(--ng-border); background:var(--canvas-bg); touch-action:none; }
+  .sim-controls{ display:flex; flex-wrap:wrap; gap:20px; align-items:flex-end; margin-top:18px; }
+  .ctrl{ flex:1 1 200px; }
+  .ctrl label{ display:flex; justify-content:space-between; align-items:baseline; font-family:var(--sans); font-size:20px; font-weight:400; text-transform:uppercase; letter-spacing:.05em; color:var(--ng-muted); margin-bottom:8px; }
+  .ctrl output{ font-size:20px; font-weight:400; color:var(--ng-ink); letter-spacing:0; text-transform:none; }
+  .ctrl input[type=range]{ width:100%; accent-color:var(--ng-ink); height:24px; cursor:pointer; }
+  .ctrl input[type=range]:disabled{ opacity:.4; cursor:default; }
+  .sim-controls .btn{ flex:0 0 auto; }
+  .mode-btns{ display:flex; flex-wrap:wrap; gap:8px; margin-bottom:16px; align-items:center; }
+  .sim-readout{ display:grid; grid-template-columns:repeat(3,1fr); gap:1px; margin-top:18px; background:var(--ng-border); border:1px solid var(--ng-border); }
+  .sim-readout + .sim-readout{ margin-top:1px; border-top:none; }
+  .sim-readout>div{ background:var(--ng-white); padding:14px 16px; }
+  .ro-label{ display:block; font-family:var(--sans); font-size:20px; font-weight:400; text-transform:uppercase; letter-spacing:.05em; color:var(--ng-muted); }
+  .ro-val{ display:block; font-family:var(--sans); font-size:20px; font-weight:400; margin-top:4px; }
+  .ro-val .u{ font-size:20px; font-weight:400; color:var(--ng-muted); }
+  @media(max-width:600px){ .sim-readout{ grid-template-columns:1fr; } .ro-val{ font-size:20px; font-weight:400; } }
+
+  .calc-work{ font-family:var(--sans); font-size:20px; font-weight:400; line-height:1.9; color:var(--ng-muted); margin-top:14px; }
+  .calc-work .ln{ display:block; }
+  .calc-work b{ color:var(--ng-ink); font-weight:700; }
+  .calc-note{ font-family:var(--sans); font-size:18px; font-weight:400; line-height:1.6; color:var(--ng-muted); margin:0 0 12px; }
+  .sim-soal{ font-family:var(--sans); font-size:20px; font-weight:400; line-height:1.6; background:var(--ng-soft); border-left:3px solid var(--ng-yellow); padding:14px 18px; margin-top:18px; }
+  .sim-soal b{ font-weight:700; color:var(--ng-ink); }
+  .sim-steps{ margin-top:18px; border:1px solid var(--ng-border); padding:16px 20px; }
+  .sim-steps .calc-work{ margin-top:0; }
+  .calc-res{ font-family:var(--sans); font-size:20px; font-weight:400; letter-spacing:-.01em; margin-top:16px; padding:16px 20px; background:var(--ng-soft); border-left:3px solid var(--ng-yellow); word-break:break-word; }
+  .calc-res.is-ok{ border-left-color:var(--ok-bd); }
+  .calc-res.is-err{ border-left-color:var(--err-bd); }
+
+  .q{ padding:22px 0; border-bottom:1px solid var(--ng-border); }
+  .q:last-of-type{ border-bottom:none; }
+  .q-num{ display:block; font-family:var(--sans); font-weight:400; font-size:20px; text-transform:uppercase; letter-spacing:.05em; color:var(--ng-muted); margin-bottom:6px; }
+  .q-head{ display:flex; align-items:center; gap:10px; flex-wrap:wrap; margin-bottom:10px; }
+  .q-head .q-num{ margin-bottom:0; }
+  .q-level{ font-family:var(--sans); font-size:20px; font-weight:400; text-transform:uppercase; letter-spacing:.07em; padding:3px 10px; border-radius:999px; border:1px solid currentColor; }
+  .q-level.lvl-mudah{ color:var(--ng-ink); background:var(--ok-bg); }
+  .q-level.lvl-medium{ color:var(--ng-ink); background:var(--warn-bg); }
+  .q-level.lvl-susah{ color:var(--ng-ink); background:var(--err-bg); }
+  .quiz-group{ font-family:var(--sans); font-size:20px; font-weight:400; text-transform:uppercase; letter-spacing:.05em; color:var(--ng-ink); margin:38px 0 20px; padding-bottom:8px; border-bottom:2px solid var(--ng-ink); }
+  .quiz-group:first-of-type{ margin-top:8px; }
+  .quiz-group span{ color:var(--ng-muted); font-weight:600; text-transform:none; letter-spacing:0; }
+  .q-text{ font-family:var(--serif); font-size:20px; line-height:1.5; font-weight:400; margin:0 0 16px; }
+  .opt{ display:flex; align-items:center; gap:12px; width:100%; text-align:left; background:none; border:1px solid var(--ng-border); padding:12px 14px; margin-bottom:8px; cursor:pointer; font-family:var(--sans); font-size:20px; font-weight:400; color:var(--ng-ink); transition:border-color .12s, background .12s; }
+  .opt:hover:not(:disabled){ border-color:var(--ng-ink); }
+  .opt-l{ width:26px; height:26px; border-radius:50%; border:1px solid var(--ng-border); display:flex; align-items:center; justify-content:center; font-weight:400; font-size:20px; flex:0 0 auto; }
+  .opt:disabled{ cursor:default; }
+  .opt.is-correct{ border-color:var(--ok-bd); background:var(--ok-bg); }
+  .opt.is-correct .opt-l{ background:var(--ok-bd); color:#fff; border-color:var(--ok-bd); }
+  .opt.is-wrong{ border-color:var(--err-bd); background:var(--err-bg); }
+  .opt.is-wrong .opt-l{ background:var(--err-bd); color:#fff; border-color:var(--err-bd); }
+  .q-feedback{ display:none; font-family:var(--sans); font-size:18px; font-weight:400; line-height:1.55; margin-top:10px; padding-left:14px; border-left:3px solid var(--ng-border); color:var(--ng-muted); }
+  .q-feedback.show{ display:block; }
+  .q-feedback.show.ok{ border-left-color:var(--ok-bd); }
+  .q-feedback.show.no{ border-left-color:var(--err-bd); }
+  .q-feedback b, .q-feedback strong{ color:var(--ng-ink); font-weight:700; }
+  .quiz-score{ display:none; font-family:var(--sans); font-weight:400; font-size:20px; margin-top:24px; padding:16px 20px; background:var(--ng-soft); border-left:3px solid var(--ng-yellow); }
+  .quiz-score.show{ display:block; }
+
+  a:focus-visible{ outline:3px solid var(--ng-yellow); outline-offset:3px; }
+
+  .prose ol{ margin:0 0 22px; padding-left:1.5em; }
+  .prose ol li{ margin:0 0 10px; padding-left:4px; }
+  .prose ul{ list-style:none; margin:0 0 22px; padding-left:0; }
+  .prose ul li{ position:relative; padding-left:22px; margin:0 0 10px; }
+  .prose ul li::before{ content:""; position:absolute; left:0; top:.62em; width:6px; height:6px; background:var(--ng-ink); }
+  .prose i{ font-style:italic; }
+
+  /* ---- KaTeX ---- */
+  .katex{ font-size:1.05em; }
+  .eq-body .katex-display{ margin:.15em 0; text-align:left; }
+  .ket .katex, .q-text .katex, .ex-body .katex{ font-size:1.02em; }
+
+  @media (max-width:767px){ .media-duo{ grid-template-columns:1fr; } }
+  @media (max-width:600px){
+    body{ font-size:20px; font-weight:400; } .prose{ font-size:20px; font-weight:400; }
+    .article>*{ padding-left:16px; padding-right:16px; }
+    .article>.wide{ padding-left:16px; padding-right:16px; }
+    .bagian-head{ margin-top:64px; }
+    .navmenu{ top:16px; left:16px; }
+  }
+  /* ---- Komponen tambahan ---- */
+  .eq-body .line{ display:block; }
+  .eq-body .line + .line{ margin-top:8px; }
+  .eq-body .tag{ font-family:var(--sans); font-size:20px; font-weight:400; text-transform:none; color:var(--ng-muted); letter-spacing:0; margin-left:8px; }
+  .data-table tr.is-max td{ background:var(--ng-soft); }
+  .data-table tr.is-max td:first-child{ box-shadow:inset 3px 0 0 var(--ng-yellow); }
+  /* ---- Video: infografis diputar seperti GIF, video penjelasan pakai kontrol ---- */
+  .gifwrap{ max-width:var(--measure); margin:36px auto 0; }
+  .gifvid{ display:block; width:100%; height:auto; border:1px solid var(--ng-border); background:var(--ng-soft); pointer-events:none; }
+  .gifvid::-webkit-media-controls{ display:none !important; }
+  .ng-vid{ display:block; width:100%; height:auto; border:1px solid var(--ng-border); background:var(--ng-soft); aspect-ratio:16/9; }
+  .gif-cap{ font-family:var(--sans); font-size:18px; font-weight:400; line-height:1.5; color:var(--ng-muted); position:relative; padding-left:16px; margin:14px 0 0; }
+  .gif-cap::before{ content:""; position:absolute; left:0; top:5px; width:3px; height:1.05em; background:var(--ng-yellow); }
+  .gif-cap .credit{ display:block; margin-bottom:6px; font-size:18px; font-weight:400; text-transform:uppercase; letter-spacing:.04em; }
+  p.aside{ font-family:var(--sans); font-size:18px; font-weight:400; font-style:italic; color:var(--ng-muted); max-width:var(--measure); margin:18px auto 0; }
+
+  /* ---- Perataan teks bacaan: rata kiri-kanan ---- */
+  .prose p,
+  .prose ul li,
+  .prose ol li,
+  .ex-body p{ text-align:justify; text-justify:inter-word; }
+  /* Kolom isi 70% dengan margin 15% hanya masuk akal di layar lebar.
+     Di layar sempit margin sebesar itu memakan ruang baca dan blok lebar
+     (simulasi) ikut menyusut, jadi kolom dilebarkan bertahap. */
+  @media (max-width:1023px){ :root{ --content:90%; --wide:96%; } }
+  @media (max-width:600px){  :root{ --content:100%; --wide:100%; } }
+  /* ---- Penyesuaian layar sempit ---- */
+  .table-block{ overflow-x:auto; -webkit-overflow-scrolling:touch; }
+  .table-block > table{ min-width:min-content; }
+  @media (max-width:600px){
+    .data-table th{ padding:0 10px 8px; }
+    .data-table td{ padding:10px 10px; }
+    .example{ padding-left:16px; padding-right:16px; }
+    .eq{ padding-left:16px; padding-right:16px; }
+    .nav-list{ min-width:min(248px, calc(100vw - 32px)); }
+  }
+  /* ---- Simbol matematika (∞, ×, −) memakai font pengganti eksplisit,
+         sebab Plus Jakarta Sans tidak memuat glifnya. ---- */
+  body{ font-variant-emoji:text; }
+  .sym{ font-family:'Helvetica Neue',Arial,'Segoe UI Symbol','DejaVu Sans',sans-serif; font-variant-emoji:text; }
+</style>
+</head>
+<body>
+
+<!-- ============ NAV MENGAMBANG ============ -->
+<div class="navmenu">
+  <button class="btn btn-dark btn-icon nav-toggle" type="button" aria-label="Daftar isi" aria-haspopup="true" aria-expanded="false">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+  </button>
+  <button class="btn btn-dark btn-icon theme-toggle" type="button" aria-label="Ganti tema terang/gelap">
+    <svg class="ic-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+    <svg class="ic-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M2 12h2M20 12h2M5 5l1.4 1.4M17.6 17.6L19 19M19 5l-1.4 1.4M6.4 17.6L5 19"/></svg>
+  </button>
+  <nav class="nav-list" id="nav-list" hidden>
+    <a href="#bunga-tunggal"><span class="n">Topik 1</span><span class="t">Bunga Tunggal</span></a>
+    <a href="#sim-tunggal"><span class="n">1 · Simulasi</span><span class="t">Penjelajah Bunga Tunggal</span></a>
+    <a href="#bunga-majemuk"><span class="n">Topik 2</span><span class="t">Bunga Majemuk</span></a>
+    <a href="#sim-majemuk"><span class="n">2 · Simulasi</span><span class="t">Penjelajah Bunga Majemuk</span></a>
+    <a href="#istilah"><span class="n">Topik 3</span><span class="t">Istilah Penting</span></a>
+    <a href="#perbedaan"><span class="n">Topik 4</span><span class="t">Perbedaan Bunga Tunggal dan Bunga Majemuk</span></a>
+    <a href="#sim-adu"><span class="n">4 · Simulasi</span><span class="t">Adu Tunggal Lawan Majemuk</span></a>
+    <a href="#penerapan"><span class="n">Topik 5</span><span class="t">Contoh Penerapan dalam Kehidupan</span></a>
+    <a href="#latihan"><span class="n">Topik 6</span><span class="t">Latihan Soal</span></a>
+    <a href="#pembahasan"><span class="n">Topik 7</span><span class="t">Pembahasan Latihan Soal</span></a>
+    <a href="#ringkasan"><span class="n">Topik 8</span><span class="t">Ringkasan Konsep Subbab Bunga</span></a>
+    <a href="#refleksi-topik"><span class="n">Topik 9</span><span class="t">Refleksi Siswa</span></a>
+  </nav>
+</div>
+
+<!-- ============ HERO ============ -->
+<header class="hero--full">
+  <div class="img-ph hero-bg" style="background-image:url('https://scola-uploader.scolacdn.com/upload/45fd0c4b5f524858e9321093/Bunga.png')"></div>
+  <div class="hero-inner">
+    <span class="kicker">Matematika · SMA · Subbab 3</span>
+    <h1>Bunga</h1>
+    <p class="dek">Uang yang disimpan di bank bertambah sendiri. Pertanyaannya: bertambah dengan pola yang mana &mdash; barisan aritmetika, atau barisan geometri?</p>
+    <a class="btn btn-primary btn-lg" href="#bunga-tunggal">Mulai Belajar</a>
+  </div>
+</header>
+
+<main class="article">
+
+  <section class="prose">
+    <p>Dalam kehidupan sehari-hari, konsep bunga sering dijumpai dalam kegiatan perbankan, seperti menabung, deposito, atau pinjaman. Ketika seseorang menyimpan uang di bank, bank memberikan tambahan uang sebagai bentuk imbalan yang disebut <strong>bunga simpanan</strong>. Sebaliknya, ketika seseorang meminjam uang dari bank, peminjam harus membayar tambahan biaya yang disebut <strong>bunga pinjaman</strong>.</p>
+    <p>Menurut Otoritas Jasa Keuangan (OJK), bunga simpanan merupakan balas jasa dari bank kepada nasabah karena telah menyimpan uangnya di bank, sedangkan bunga pinjaman merupakan balas jasa yang diberikan peminjam kepada bank atas penggunaan dana pinjaman.</p>
+    <p>Secara umum, terdapat dua jenis bunga yang dipelajari dalam matematika, yaitu <strong>bunga tunggal</strong> dan <strong>bunga majemuk</strong>. Keduanya adalah lanjutan langsung dari dua subbab sebelumnya: bunga tunggal tumbuh mengikuti barisan aritmetika, bunga majemuk mengikuti barisan geometri.</p>
+  </section>
+
+  <div class="gifwrap">
+    <video class="gifvid" autoplay loop muted playsinline preload="auto" disablepictureinpicture
+           aria-label="Animasi seorang siswa berseragam putih menerima buku tabungan berwarna kuning dari petugas bank di meja layanan, dilanjutkan diagram lima langkah membuka rekening: isi formulir, serahkan dokumen, setoran awal, terima buku tabungan, dan simpan dengan aman, disertai daftar manfaat menabung."
+           src="https://scola-uploader.scolacdn.com/upload/3347f5578076f43f7a0b3318/Pembuka%20Subbab%20Bunga.mp4"></video>
+    <p class="gif-cap"><span class="credit">Infografis · Pembuka subbab bunga</span>Bunga bermula dari hal sesederhana membuka rekening tabungan. Setoran awal yang kita serahkan di langkah ketiga itulah yang dalam matematika disebut <strong>modal awal</strong>, dan bank menambahinya secara berkala sebagai bunga.</p>
+  </div>
+
+  <!-- ============ TOPIK 1 — BUNGA TUNGGAL ============ -->
+  <div class="bagian-head" id="bunga-tunggal" data-nav="Bunga Tunggal">
+    <span class="bagian-num">Topik 1</span>
+    <h2 class="bagian-title">Bunga Tunggal</h2>
+  </div>
+
+  <section class="prose">
+    <h3>1.1 Pengertian Bunga Tunggal</h3>
+    <p><strong>Bunga tunggal</strong> adalah bunga yang jumlahnya selalu dihitung berdasarkan modal awal (pokok) dan tidak mengalami perubahan meskipun waktu penyimpanan bertambah. Artinya, setiap periode bunga yang diperoleh selalu memiliki nilai yang sama.</p>
+    <p>Contohnya, seseorang menyimpan uang Rp1.000.000,00 dengan bunga 5% per tahun. Bunga setiap tahun adalah \(5\% \times 1.000.000 = 50.000\), sehingga setiap tahun tambahan uang yang diperoleh tetap Rp50.000,00.</p>
+    <p>Sehingga jumlah uangnya:</p>
+    <ul>
+      <li>Tahun ke-1: Rp1.000.000 + Rp50.000 = Rp1.050.000</li>
+      <li>Tahun ke-2: Rp1.050.000 + Rp50.000 = Rp1.100.000</li>
+      <li>Tahun ke-3: Rp1.100.000 + Rp50.000 = Rp1.150.000</li>
+    </ul>
+    <p>Nilai uang tersebut membentuk <strong>barisan aritmetika</strong> karena memiliki selisih yang tetap.</p>
+  </section>
+
+  <figure class="figure-prose">
+    <img class="ng-img" src="https://scola-uploader.scolacdn.com/upload/7e3b28cbb082b9657ef7b205/Bunga%20Tunggal.png" alt="Infografis bunga tetap: toples berisi uang kertas rupiah, tabel periode 0 sampai 5 dengan uang awal Rp1.000.000 yang tetap, tambahan bunga Rp0, Rp50.000, Rp100.000 sampai Rp250.000, jumlah uang Rp1.000.000 sampai Rp1.250.000, serta grafik enam tumpuk koin yang naik lurus.">
+    <figcaption><span class="credit">Infografis · Bunga tunggal</span>Contoh yang sama persis dengan di atas. Perhatikan kolom <em>Uang Awal</em>: nilainya tidak pernah berubah dari Rp1.000.000 &mdash; itulah inti bunga tunggal. Yang bertambah hanya kolom tambahan bunga, dan selalu sebesar Rp50.000 tiap periode. Kartu rumusnya menulis \(U_n = U_0 + n \times b\), yaitu bentuk barisan aritmetika dari rumus yang kita pakai di modul ini.</figcaption>
+  </figure>
+
+  <section class="prose">
+    <h3>1.2 Rumus Bunga Tunggal</h3>
+    <p>Besar bunga yang diperoleh dihitung dengan rumus berikut.</p>
+  </section>
+
+  <div class="eq">
+    <div class="eq-label">Besar bunga</div>
+    <div class="eq-body">
+      <span class="line">\(B = M \times i \times t\)</span>
+    </div>
+  </div>
+
+  <p class="ket"><b>\(B\)</b> = besar bunga &nbsp;·&nbsp; <b>\(M\)</b> = modal awal &nbsp;·&nbsp; <b>\(i\)</b> = persentase bunga per periode &nbsp;·&nbsp; <b>\(t\)</b> = lama waktu penyimpanan</p>
+
+  <section class="prose">
+    <p>Sedangkan jumlah uang setelah mendapatkan bunga dihitung dengan rumus berikut. Bentuk kedua adalah bentuk pertama yang sudah disederhanakan, jadi hasilnya sama.</p>
+  </section>
+
+  <div class="eq">
+    <div class="eq-label">Jumlah uang setelah berbunga</div>
+    <div class="eq-body">
+      <span class="line">\(A = M + B\) <span class="tag">bila besar bunga sudah dihitung</span></span>
+      <span class="line">\(A = M(1 + i \times t)\) <span class="tag">langsung dari modal awal</span></span>
+    </div>
+  </div>
+
+  <p class="ket"><b>\(A\)</b> = jumlah akhir uang &nbsp;·&nbsp; <b>\(M\)</b> = modal awal &nbsp;·&nbsp; <b>\(i\)</b> = tingkat bunga &nbsp;·&nbsp; <b>\(t\)</b> = waktu</p>
+
+  <figure class="figure-prose">
+    <img class="ng-img" src="https://scola-uploader.scolacdn.com/upload/7e3b28cbb082b9657ef7b205/Grafik%20Bunga%20Tunggal.png" alt="Grafik garis jumlah tabungan dari tahun 2020 sampai 2024 dengan nilai Rp500.000, Rp1.000.000, Rp1.500.000, Rp2.000.000, dan Rp2.500.000, membentuk garis lurus naik, disertai kotak keterangan besar selisih setiap tahun Rp500.000.">
+    <figcaption><span class="credit">Infografis · Grafik pertumbuhan berselisih tetap</span>Ciri khas bunga tunggal terlihat dari bentuk grafiknya: <strong>garis lurus</strong>. Karena tambahannya sama besar setiap tahun, titik-titiknya selalu naik dengan jarak yang sama, persis seperti barisan aritmetika pada Subbab 1.</figcaption>
+  </figure>
+
+  <div class="example">
+    <div class="panel-head"><span class="panel-label">Contoh 1</span><h3 class="panel-title">Menghitung uang setelah 3 tahun</h3></div>
+    <div class="ex-row">
+      <span class="ex-tag">Soal</span>
+      <div class="ex-body"><p>Rina menabung Rp5.000.000,00 di bank dengan bunga tunggal 4% per tahun. Berapa uang Rina setelah 3 tahun?</p></div>
+    </div>
+    <div class="ex-row">
+      <span class="ex-tag">Diketahui</span>
+      <div class="ex-body"><p>\(M = 5.000.000\), \(i = 4\% = 0{,}04\), \(t = 3\) tahun</p></div>
+    </div>
+    <div class="ex-row">
+      <span class="ex-tag">Besar bunga</span>
+      <div class="ex-body">
+        <p>\(B = M \times i \times t\)</p>
+        <p>\(B = 5.000.000 \times 0{,}04 \times 3\)</p>
+        <p>\(B = 600.000\)</p>
+      </div>
+    </div>
+    <div class="ex-row">
+      <span class="ex-tag">Jumlah uang</span>
+      <div class="ex-body">
+        <p>\(A = M + B\)</p>
+        <p>\(A = 5.000.000 + 600.000 = 5.600.000\)</p>
+      </div>
+    </div>
+    <div class="ex-row">
+      <span class="ex-tag">Jawaban</span>
+      <div class="ex-body"><div class="ex-answer">Jadi, uang Rina setelah 3 tahun adalah Rp5.600.000,00.</div></div>
+    </div>
+  </div>
+
+  <!-- ===== SIMULASI 1 ===== -->
+  <figure class="wide" id="sim-tunggal" data-nav="Simulasi 1 — Penjelajah Bunga Tunggal">
+    <div class="sim-head panel-head">
+      <span class="panel-label">Simulasi 1</span>
+      <h3 class="panel-title">Penjelajah Bunga Tunggal</h3>
+    </div>
+    <canvas class="sim-canvas" id="bt-canvas" aria-label="Simulasi bunga tunggal: batang jumlah uang dari tahun ke-0 sampai tahun ke-t. Bagian bawah tiap batang adalah modal awal, bagian kuning di atasnya adalah bunga yang sudah terkumpul."></canvas>
+    <div class="sim-controls">
+      <div class="ctrl">
+        <label for="bt-m">Modal awal M <output id="bt-out-m">1.000.000</output></label>
+        <input id="bt-m" type="range" min="500000" max="10000000" value="1000000" step="500000">
+      </div>
+      <div class="ctrl">
+        <label for="bt-i">Bunga per tahun i <output id="bt-out-i">5%</output></label>
+        <input id="bt-i" type="range" min="1" max="15" value="5" step="1">
+      </div>
+      <div class="ctrl">
+        <label for="bt-t">Lama menyimpan t <output id="bt-out-t">5</output></label>
+        <input id="bt-t" type="range" min="1" max="10" value="5" step="1">
+      </div>
+    </div>
+    <div class="sim-readout">
+      <div><span class="ro-label">Bunga tiap tahun</span><span class="ro-val" id="bt-ro-per">&mdash;</span></div>
+      <div><span class="ro-label">Total bunga</span><span class="ro-val" id="bt-ro-b">&mdash;</span></div>
+      <div><span class="ro-label">Jumlah akhir</span><span class="ro-val" id="bt-ro-a">&mdash;</span></div>
+    </div>
+    <div class="sim-steps">
+      <p class="calc-work" id="bt-langkah">&mdash;</p>
+    </div>
+    <figcaption><span class="credit">Simulasi · bunga tetap tiap periode</span>Potongan kuning yang bertambah di puncak tiap batang selalu setinggi sama besar, berapa pun \(t\) digeser. Itulah sebabnya puncak batangnya membentuk garis lurus &mdash; bunga tunggal selalu dihitung dari modal awal yang tidak pernah berubah.</figcaption>
+  </figure>
+
+  <!-- ============ TOPIK 2 — BUNGA MAJEMUK ============ -->
+  <div class="bagian-head" id="bunga-majemuk" data-nav="Bunga Majemuk">
+    <span class="bagian-num">Topik 2</span>
+    <h2 class="bagian-title">Bunga Majemuk</h2>
+  </div>
+
+  <section class="prose">
+    <h3>2.1 Pengertian Bunga Majemuk</h3>
+    <p><strong>Bunga majemuk</strong> adalah bunga yang dihitung berdasarkan jumlah uang terakhir, yaitu modal awal ditambah bunga yang diperoleh pada periode sebelumnya. Pada bunga majemuk, bunga yang diperoleh akan ditambahkan ke modal sehingga menjadi dasar perhitungan bunga pada periode berikutnya.</p>
+    <p>Contoh dengan modal awal Rp1.000.000 dan bunga 5% per tahun:</p>
+    <ul>
+      <li><strong>Tahun pertama.</strong> Bunga \(5\% \times 1.000.000 = 50.000\), sehingga jumlah uang menjadi \(1.000.000 + 50.000 = 1.050.000\).</li>
+      <li><strong>Tahun kedua.</strong> Bunga dihitung dari Rp1.050.000, yaitu \(5\% \times 1.050.000 = 52.500\), sehingga jumlah uang menjadi \(1.050.000 + 52.500 = 1.102.500\).</li>
+    </ul>
+    <p>Bandingkan dengan contoh bunga tunggal pada Topik 1 yang modalnya sama: di sana bunga tahun kedua tetap Rp50.000, di sini sudah menjadi Rp52.500. Selisih Rp2.500 itu adalah bunga dari bunga tahun pertama.</p>
+    <p>Karena bunga selalu dikalikan dengan nilai sebelumnya, pertumbuhan uang membentuk <strong>barisan geometri</strong>.</p>
+  </section>
+
+  <figure class="figure-prose">
+    <img class="ng-img" src="https://scola-uploader.scolacdn.com/upload/7e3b28cbb082b9657ef7b205/Bunga%20Majemuk.png" alt="Lima tumpuk koin bertunas berjajar dari periode 1 sampai periode 5, tingginya makin bertambah, masing-masing diberi label nilai uang dan gelembung besar bunga yang diperoleh. Di bawahnya tiga keterangan: bunga majemuk bekerja, waktu adalah kunci, konsistensi menghasilkan perbedaan, disertai rumus nilai akhir A sama dengan P kurung 1 tambah r pangkat n.">
+    <figcaption><span class="credit">Infografis · Bunga majemuk</span>Perhatikan gelembung <em>bunga diperoleh</em> di antara tiap tumpukan: nilainya terus membesar, sebab bunga yang tidak diambil ikut dibungakan pada periode berikutnya. Kartu ini melambangkan modal awal dengan \(P\), suku bunga dengan \(r\), dan periode dengan \(n\); di modul kita lambangnya \(M\), \(i\), dan \(t\). <strong>Catatan angka:</strong> dengan bunga 10% seperti yang tertulis pada kartu, nilai yang benar adalah Rp1.000.000, Rp1.100.000, Rp1.210.000, Rp1.331.000, dan Rp1.464.100 &mdash; bandingkan dengan Simulasi 2 di bawah untuk memastikannya.</figcaption>
+  </figure>
+
+  <section class="prose">
+    <h3>2.2 Rumus Bunga Majemuk</h3>
+    <p>Karena setiap periode nilainya dikalikan dengan faktor yang sama, yaitu \((1+i)\), maka nilai akhir setelah \(t\) periode dihitung dengan rumus berikut.</p>
+  </section>
+
+  <div class="eq">
+    <div class="eq-label">Nilai akhir bunga majemuk</div>
+    <div class="eq-body">
+      <span class="line">\(A = M(1 + i)^{\,t}\)</span>
+    </div>
+  </div>
+
+  <p class="ket"><b>\(A\)</b> = jumlah akhir uang &nbsp;·&nbsp; <b>\(M\)</b> = modal awal &nbsp;·&nbsp; <b>\(i\)</b> = tingkat bunga per periode &nbsp;·&nbsp; <b>\(t\)</b> = jumlah periode</p>
+
+  <p class="aside">Perhatikan letak \(t\): pada bunga tunggal \(t\) mengalikan, pada bunga majemuk \(t\) menjadi pangkat. Satu perbedaan kecil di tulisan, tetapi itulah yang membuat hasilnya berbeda jauh dalam jangka panjang.</p>
+
+  <div class="example">
+    <div class="panel-head"><span class="panel-label">Contoh 2</span><h3 class="panel-title">Menghitung nilai akhir bunga majemuk</h3></div>
+    <div class="ex-row">
+      <span class="ex-tag">Soal</span>
+      <div class="ex-body"><p>Andi menabung Rp2.000.000,00 dengan bunga majemuk 10% per tahun selama 2 tahun.</p></div>
+    </div>
+    <div class="ex-row">
+      <span class="ex-tag">Diketahui</span>
+      <div class="ex-body"><p>\(M = 2.000.000\), \(i = 10\% = 0{,}1\), \(t = 2\)</p></div>
+    </div>
+    <div class="ex-row">
+      <span class="ex-tag">Penyelesaian</span>
+      <div class="ex-body">
+        <p>\(A = M(1 + i)^{\,t}\)</p>
+        <p>\(A = 2.000.000\,(1 + 0{,}1)^{2}\)</p>
+        <p>\(A = 2.000.000\,(1{,}1)^{2}\)</p>
+        <p>\(A = 2.000.000 \times 1{,}21\)</p>
+        <p>\(A = 2.420.000\)</p>
+      </div>
+    </div>
+    <div class="ex-row">
+      <span class="ex-tag">Jawaban</span>
+      <div class="ex-body"><div class="ex-answer">Jadi, jumlah uang Andi setelah 2 tahun adalah Rp2.420.000,00.</div></div>
+    </div>
+  </div>
+
+  <!-- ===== SIMULASI 2 ===== -->
+  <figure class="wide" id="sim-majemuk" data-nav="Simulasi 2 — Penjelajah Bunga Majemuk">
+    <div class="sim-head panel-head">
+      <span class="panel-label">Simulasi 2</span>
+      <h3 class="panel-title">Penjelajah Bunga Majemuk</h3>
+    </div>
+    <canvas class="sim-canvas" id="bm-canvas" aria-label="Simulasi bunga majemuk: batang jumlah uang dari tahun ke-0 sampai tahun ke-t. Potongan kuning di puncak tiap batang adalah bunga tahun itu, yang makin lama makin tinggi."></canvas>
+    <div class="sim-controls">
+      <div class="ctrl">
+        <label for="bm-m">Modal awal M <output id="bm-out-m">1.000.000</output></label>
+        <input id="bm-m" type="range" min="500000" max="10000000" value="1000000" step="500000">
+      </div>
+      <div class="ctrl">
+        <label for="bm-i">Bunga per tahun i <output id="bm-out-i">5%</output></label>
+        <input id="bm-i" type="range" min="1" max="15" value="5" step="1">
+      </div>
+      <div class="ctrl">
+        <label for="bm-t">Lama menyimpan t <output id="bm-out-t">5</output></label>
+        <input id="bm-t" type="range" min="1" max="10" value="5" step="1">
+      </div>
+    </div>
+    <div class="sim-readout">
+      <div><span class="ro-label">Bunga tahun terakhir</span><span class="ro-val" id="bm-ro-per">&mdash;</span></div>
+      <div><span class="ro-label">Total bunga</span><span class="ro-val" id="bm-ro-b">&mdash;</span></div>
+      <div><span class="ro-label">Jumlah akhir</span><span class="ro-val" id="bm-ro-a">&mdash;</span></div>
+    </div>
+    <div class="sim-steps">
+      <p class="calc-work" id="bm-langkah">&mdash;</p>
+    </div>
+    <figcaption><span class="credit">Simulasi · bunga berbunga</span>Bandingkan dengan Simulasi 1 memakai angka yang sama. Di sana potongan kuningnya seragam; di sini setiap potongan lebih tinggi daripada potongan sebelumnya, sebab bunga tahun ini dihitung dari saldo yang sudah memuat bunga tahun lalu.</figcaption>
+  </figure>
+
+  <!-- ============ TOPIK 3 — ISTILAH PENTING ============ -->
+  <div class="bagian-head" id="istilah" data-nav="Istilah Penting">
+    <span class="bagian-num">Topik 3</span>
+    <h2 class="bagian-title">Istilah Penting</h2>
+  </div>
+
+  <section class="prose">
+    <h3>3.1 Modal Awal (Pokok)</h3>
+    <p>Jumlah uang yang pertama kali disimpan atau dipinjam. Contoh: jika seseorang menabung Rp3.000.000,00 maka modal awalnya adalah Rp3.000.000,00.</p>
+    <h3>3.2 Suku Bunga</h3>
+    <p>Persentase tambahan uang yang diberikan atau dibayarkan dalam periode tertentu. Contoh: bunga 5% per tahun berarti setiap tahun terdapat tambahan sebesar 5% dari nilai tertentu.</p>
+    <h3>3.3 Periode</h3>
+    <p>Jangka waktu perhitungan bunga, misalnya per bulan atau per tahun.</p>
+    <h3>3.4 Nilai Akhir</h3>
+    <p>Jumlah uang setelah ditambah bunga, yang terdiri atas modal awal ditambah bunga.</p>
+  </section>
+
+  <div class="table-block">
+    <table class="data-table text-left">
+      <thead><tr><th>Lambang</th><th>Istilah</th><th>Keterangan</th></tr></thead>
+      <tbody>
+        <tr><td>\(M\)</td><td>Modal awal</td><td>Uang yang pertama kali disimpan atau dipinjam.</td></tr>
+        <tr><td>\(i\)</td><td>Suku bunga</td><td>Persentase tambahan per periode.</td></tr>
+        <tr><td>\(t\)</td><td>Periode</td><td>Banyaknya jangka waktu perhitungan bunga.</td></tr>
+        <tr><td>\(B\)</td><td>Besar bunga</td><td>Tambahan uang yang diperoleh atau dibayarkan.</td></tr>
+        <tr class="is-max"><td>\(A\)</td><td>Nilai akhir</td><td>Modal awal ditambah bunga.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- ============ TOPIK 4 — PERBEDAAN ============ -->
+  <div class="bagian-head" id="perbedaan" data-nav="Perbedaan Bunga Tunggal dan Bunga Majemuk">
+    <span class="bagian-num">Topik 4</span>
+    <h2 class="bagian-title">Perbedaan Bunga Tunggal dan Bunga Majemuk</h2>
+  </div>
+
+  <figure class="figure-prose">
+    <img class="ng-img" src="https://scola-uploader.scolacdn.com/upload/45fd0c4b5f524858e9321093/Perbedaan%20Bunga%20Tunggal%20dan%20Bunga%20Majemuk.png" alt="Dua toples kaca berisi koin berdampingan di atas meja kayu. Toples kiri berlabel bunga tunggal dengan keterangan bunga dihitung dari modal awal setiap periode dan tunas kecil. Toples kanan berlabel bunga majemuk dengan keterangan bunga dihitung dari modal awal ditambah bunga sebelumnya, isinya jauh lebih penuh dan tunasnya lebih besar.">
+  </figure>
+
+  <div class="table-block">
+    <table class="data-table text-left">
+      <thead><tr><th>Aspek</th><th>Bunga tunggal</th><th>Bunga majemuk</th></tr></thead>
+      <tbody>
+        <tr><td>Dasar perhitungan</td><td>Modal awal</td><td>Modal awal + bunga sebelumnya</td></tr>
+        <tr><td>Besar bunga</td><td>Tetap setiap periode</td><td>Bertambah setiap periode</td></tr>
+        <tr><td>Pola bilangan</td><td>Barisan aritmetika</td><td>Barisan geometri</td></tr>
+        <tr><td>Pertumbuhan uang</td><td>Lebih lambat</td><td>Lebih cepat</td></tr>
+        <tr class="is-max"><td>Rumus nilai akhir</td><td>\(A = M(1 + i \times t)\)</td><td>\(A = M(1 + i)^{\,t}\)</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <figure class="figure-prose">
+    <img class="ng-img" src="https://scola-uploader.scolacdn.com/upload/7e3b28cbb082b9657ef7b205/Bunga%20Tunggal%20dan%20Majemuk.png" alt="Dua panel berdampingan. Panel kiri bunga tunggal: grafik garis lurus dengan nilai Rp1.000.000, Rp1.100.000, Rp1.200.000, Rp1.300.000 dan rumus A sama dengan P dikali kurung 1 tambah r kali t. Panel kanan bunga majemuk: grafik melengkung naik dengan nilai Rp1.000.000, Rp1.100.000, Rp1.210.000, Rp1.331.000 dan rumus A sama dengan P kurung 1 tambah r pangkat t.">
+    <figcaption><span class="credit">Infografis · Perbandingan bunga tunggal dan majemuk</span>Modal Rp1.000.000 dengan bunga 10% per tahun, dihitung dua cara. Kiri naik lurus &mdash; Rp1.100.000, Rp1.200.000, Rp1.300.000. Kanan melengkung &mdash; Rp1.100.000, Rp1.210.000, Rp1.331.000. Setelah tiga tahun selisihnya baru Rp31.000, tetapi jarak itu melebar makin cepat seiring waktu. Kartu ini melambangkan modal awal dengan \(P\) dan suku bunga dengan \(r\); di modul kita lambangnya \(M\) dan \(i\).</figcaption>
+  </figure>
+
+  <!-- ===== SIMULASI 3 ===== -->
+  <figure class="wide" id="sim-adu" data-nav="Simulasi 3 — Adu Tunggal Lawan Majemuk">
+    <div class="sim-head panel-head">
+      <span class="panel-label">Simulasi 3</span>
+      <h3 class="panel-title">Adu Tunggal Lawan Majemuk</h3>
+    </div>
+    <canvas class="sim-canvas" id="ad-canvas" aria-label="Simulasi perbandingan: dua garis pada satu grafik. Garis lurus menunjukkan pertumbuhan bunga tunggal, garis melengkung menunjukkan pertumbuhan bunga majemuk, dengan daerah selisih di antara keduanya."></canvas>
+    <div class="sim-controls">
+      <div class="ctrl">
+        <label for="ad-m">Modal awal M <output id="ad-out-m">1.000.000</output></label>
+        <input id="ad-m" type="range" min="500000" max="10000000" value="1000000" step="500000">
+      </div>
+      <div class="ctrl">
+        <label for="ad-i">Bunga per tahun i <output id="ad-out-i">10%</output></label>
+        <input id="ad-i" type="range" min="1" max="15" value="10" step="1">
+      </div>
+      <div class="ctrl">
+        <label for="ad-t">Lama menyimpan t <output id="ad-out-t">10</output></label>
+        <input id="ad-t" type="range" min="1" max="25" value="10" step="1">
+      </div>
+    </div>
+    <div class="sim-readout">
+      <div><span class="ro-label">Bunga tunggal</span><span class="ro-val" id="ad-ro-t">&mdash;</span></div>
+      <div><span class="ro-label">Bunga majemuk</span><span class="ro-val" id="ad-ro-m">&mdash;</span></div>
+      <div><span class="ro-label">Selisih</span><span class="ro-val" id="ad-ro-s">&mdash;</span></div>
+    </div>
+    <div class="sim-steps">
+      <p class="calc-work" id="ad-langkah">&mdash;</p>
+    </div>
+    <div class="calc-res" id="ad-res">&mdash;</div>
+    <figcaption><span class="credit">Simulasi · jawaban Soal 10</span>Pada tahun-tahun awal kedua garis nyaris berimpit, sehingga bunga majemuk terasa tidak istimewa. Geser \(t\) ke kanan dan daerah abu-abu di antara kedua garis melebar cepat. Inilah alasan Soal 10 menjawab Tabungan B: keunggulan bunga majemuk baru terasa bila uang disimpan lama.</figcaption>
+  </figure>
+
+  <!-- ============ TOPIK 5 — CONTOH PENERAPAN ============ -->
+  <div class="bagian-head" id="penerapan" data-nav="Contoh Penerapan dalam Kehidupan">
+    <span class="bagian-num">Topik 5</span>
+    <h2 class="bagian-title">Contoh Penerapan dalam Kehidupan</h2>
+  </div>
+
+  <section class="prose">
+    <h3>5.1 Tabungan Bank</h3>
+    <p>Jika seseorang menyimpan uang di bank, bunga dapat menjadi tambahan nilai tabungan.</p>
+    <h3>5.2 Deposito</h3>
+    <p>Deposito biasanya menggunakan sistem bunga tertentu dengan jangka waktu yang telah disepakati.</p>
+    <h3>5.3 Pinjaman</h3>
+    <p>Ketika seseorang meminjam uang, bunga menjadi biaya tambahan yang harus dibayar.</p>
+    <h3>5.4 Investasi</h3>
+    <p>Bunga majemuk sering digunakan untuk menggambarkan pertumbuhan nilai investasi dalam jangka panjang.</p>
+  </section>
+
+  <figure class="figure-prose">
+    <img class="ng-img" src="https://scola-uploader.scolacdn.com/upload/45fd0c4b5f524858e9321093/Contoh%20Penerapan%20dalam%20Kehidupan.png" alt="Seorang nasabah laki-laki menandatangani berkas di meja bank sambil didampingi petugas perempuan yang menunjuk dokumen, dengan papan nama bertuliskan Layanan Pinjaman dan kalkulator di atas meja.">
+  </figure>
+
+  <!-- ============ TOPIK 6 — LATIHAN SOAL ============ -->
+  <div class="bagian-head" id="latihan" data-nav="Latihan Soal">
+    <span class="bagian-num">Topik 6</span>
+    <h2 class="bagian-title">Latihan Soal</h2>
+  </div>
+
+  <section class="prose" data-quiz id="quiz-utama">
+    <div class="panel-head">
+      <span class="panel-label">10 soal · pilihan ganda</span>
+      <h2 class="panel-title">Pilih jawaban yang tepat</h2>
+    </div>
+
+    <div class="q" data-correct="C" data-explain="Bunga satu tahun dihitung dari modal awal: B = 4.000.000 x 5% = 200.000.">
+      <div class="q-head"><span class="q-num">Soal 1</span></div>
+      <p class="q-text">Raka menabung uang sebesar Rp4.000.000,00 di bank dengan bunga tunggal 5% per tahun. Besar bunga yang diterima Raka setiap tahun adalah ....</p>
+      <button class="opt" data-opt="A"><span class="opt-l">A</span><span>Rp100.000,00</span></button>
+      <button class="opt" data-opt="B"><span class="opt-l">B</span><span>Rp150.000,00</span></button>
+      <button class="opt" data-opt="C"><span class="opt-l">C</span><span>Rp200.000,00</span></button>
+      <button class="opt" data-opt="D"><span class="opt-l">D</span><span>Rp250.000,00</span></button>
+      <div class="q-feedback"></div>
+    </div>
+
+    <div class="q" data-correct="C" data-explain="B = 6.000.000 x 0,04 x 3 = 720.000, sehingga A = 6.000.000 + 720.000 = 6.720.000.">
+      <div class="q-head"><span class="q-num">Soal 2</span></div>
+      <p class="q-text">Dina menyimpan uang Rp6.000.000,00 dengan bunga tunggal 4% per tahun selama 3 tahun. Jumlah uang Dina setelah 3 tahun adalah ....</p>
+      <button class="opt" data-opt="A"><span class="opt-l">A</span><span>Rp6.240.000,00</span></button>
+      <button class="opt" data-opt="B"><span class="opt-l">B</span><span>Rp6.480.000,00</span></button>
+      <button class="opt" data-opt="C"><span class="opt-l">C</span><span>Rp6.720.000,00</span></button>
+      <button class="opt" data-opt="D"><span class="opt-l">D</span><span>Rp7.200.000,00</span></button>
+      <div class="q-feedback"></div>
+    </div>
+
+    <div class="q" data-correct="C" data-explain="Yang ditanyakan besar bunganya saja, bukan jumlah akhir: B = 8.000.000 x 0,06 x 2 = 960.000.">
+      <div class="q-head"><span class="q-num">Soal 3</span></div>
+      <p class="q-text">Sebuah tabungan sebesar Rp8.000.000,00 mendapat bunga tunggal 6% per tahun. Besar bunga setelah 2 tahun adalah ....</p>
+      <button class="opt" data-opt="A"><span class="opt-l">A</span><span>Rp480.000,00</span></button>
+      <button class="opt" data-opt="B"><span class="opt-l">B</span><span>Rp720.000,00</span></button>
+      <button class="opt" data-opt="C"><span class="opt-l">C</span><span>Rp960.000,00</span></button>
+      <button class="opt" data-opt="D"><span class="opt-l">D</span><span>Rp1.200.000,00</span></button>
+      <div class="q-feedback"></div>
+    </div>
+
+    <div class="q" data-correct="C" data-explain="B = 10.000.000 x 0,03 x 5 = 1.500.000, sehingga A = 10.000.000 + 1.500.000 = 11.500.000.">
+      <div class="q-head"><span class="q-num">Soal 4</span></div>
+      <p class="q-text">Andi menabung Rp10.000.000,00 dengan bunga tunggal 3% per tahun. Setelah 5 tahun jumlah uang Andi menjadi ....</p>
+      <button class="opt" data-opt="A"><span class="opt-l">A</span><span>Rp10.500.000,00</span></button>
+      <button class="opt" data-opt="B"><span class="opt-l">B</span><span>Rp11.000.000,00</span></button>
+      <button class="opt" data-opt="C"><span class="opt-l">C</span><span>Rp11.500.000,00</span></button>
+      <button class="opt" data-opt="D"><span class="opt-l">D</span><span>Rp12.000.000,00</span></button>
+      <div class="q-feedback"></div>
+    </div>
+
+    <div class="q" data-correct="C" data-explain="Pakai rumus bunga majemuk: A = 5.000.000 x 1,1 pangkat 2 = 5.000.000 x 1,21 = 6.050.000. Kalau dihitung sebagai bunga tunggal hasilnya hanya 6.000.000, itu jebakan pada pilihan B.">
+      <div class="q-head"><span class="q-num">Soal 5</span></div>
+      <p class="q-text">Modal Rp5.000.000,00 disimpan dengan bunga majemuk 10% per tahun selama 2 tahun. Jumlah uang setelah 2 tahun adalah ....</p>
+      <button class="opt" data-opt="A"><span class="opt-l">A</span><span>Rp5.500.000,00</span></button>
+      <button class="opt" data-opt="B"><span class="opt-l">B</span><span>Rp6.000.000,00</span></button>
+      <button class="opt" data-opt="C"><span class="opt-l">C</span><span>Rp6.050.000,00</span></button>
+      <button class="opt" data-opt="D"><span class="opt-l">D</span><span>Rp6.500.000,00</span></button>
+      <div class="q-feedback"></div>
+    </div>
+
+    <div class="q" data-correct="C" data-explain="A = 3.000.000 x 1,05 pangkat 3 = 3.000.000 x 1,157625 = 3.472.875.">
+      <div class="q-head"><span class="q-num">Soal 6</span></div>
+      <p class="q-text">Uang sebesar Rp3.000.000,00 disimpan dengan bunga majemuk 5% per tahun. Jumlah uang setelah 3 tahun adalah ....</p>
+      <button class="opt" data-opt="A"><span class="opt-l">A</span><span>Rp3.150.000,00</span></button>
+      <button class="opt" data-opt="B"><span class="opt-l">B</span><span>Rp3.315.000,00</span></button>
+      <button class="opt" data-opt="C"><span class="opt-l">C</span><span>Rp3.472.875,00</span></button>
+      <button class="opt" data-opt="D"><span class="opt-l">D</span><span>Rp3.500.000,00</span></button>
+      <div class="q-feedback"></div>
+    </div>
+
+    <div class="q" data-correct="C" data-explain="Pada bunga tunggal, bunga selalu dihitung dari modal awal. Pada bunga majemuk, bunga periode berikutnya dihitung dari jumlah uang yang sudah bertambah.">
+      <div class="q-head"><span class="q-num">Soal 7</span></div>
+      <p class="q-text">Perbedaan utama antara bunga tunggal dan bunga majemuk adalah ....</p>
+      <button class="opt" data-opt="A"><span class="opt-l">A</span><span>Bunga tunggal hanya digunakan untuk pinjaman</span></button>
+      <button class="opt" data-opt="B"><span class="opt-l">B</span><span>Bunga majemuk tidak menggunakan persentase</span></button>
+      <button class="opt" data-opt="C"><span class="opt-l">C</span><span>Bunga tunggal dihitung dari modal awal, sedangkan bunga majemuk dari jumlah sebelumnya</span></button>
+      <button class="opt" data-opt="D"><span class="opt-l">D</span><span>Bunga tunggal selalu lebih besar daripada bunga majemuk</span></button>
+      <div class="q-feedback"></div>
+    </div>
+
+    <div class="q" data-correct="B" data-explain="A = 2.500.000 x 1,08 pangkat 2 = 2.500.000 x 1,1664 = 2.916.000.">
+      <div class="q-head"><span class="q-num">Soal 8</span></div>
+      <p class="q-text">Seseorang menyimpan uang Rp2.500.000,00 dengan bunga majemuk 8% per tahun. Nilai uang setelah 2 tahun adalah ....</p>
+      <button class="opt" data-opt="A"><span class="opt-l">A</span><span>Rp2.700.000,00</span></button>
+      <button class="opt" data-opt="B"><span class="opt-l">B</span><span>Rp2.916.000,00</span></button>
+      <button class="opt" data-opt="C"><span class="opt-l">C</span><span>Rp3.000.000,00</span></button>
+      <button class="opt" data-opt="D"><span class="opt-l">D</span><span>Rp3.240.000,00</span></button>
+      <div class="q-feedback"></div>
+    </div>
+
+    <div class="q" data-correct="B" data-explain="B = 12.000.000 x 0,02 x 4 = 960.000, sehingga A = 12.000.000 + 960.000 = 12.960.000.">
+      <div class="q-head"><span class="q-num">Soal 9</span></div>
+      <p class="q-text">Sebuah deposito sebesar Rp12.000.000,00 mendapat bunga tunggal 2% per tahun. Setelah 4 tahun jumlah deposito tersebut adalah ....</p>
+      <button class="opt" data-opt="A"><span class="opt-l">A</span><span>Rp12.480.000,00</span></button>
+      <button class="opt" data-opt="B"><span class="opt-l">B</span><span>Rp12.960.000,00</span></button>
+      <button class="opt" data-opt="C"><span class="opt-l">C</span><span>Rp13.200.000,00</span></button>
+      <button class="opt" data-opt="D"><span class="opt-l">D</span><span>Rp13.500.000,00</span></button>
+      <div class="q-feedback"></div>
+    </div>
+
+    <div class="q" data-correct="B" data-explain="Pada bunga majemuk, bunga yang diperoleh ditambahkan ke modal sehingga perhitungan bunga berikutnya memakai jumlah uang yang lebih besar. Karena itu, dalam waktu lama hasilnya lebih besar. Coba buktikan sendiri pada Simulasi 3.">
+      <div class="q-head"><span class="q-num">Soal 10</span></div>
+      <p class="q-text">Seseorang memiliki dua pilihan. Tabungan A menggunakan bunga tunggal 10% per tahun, sedangkan Tabungan B menggunakan bunga majemuk 10% per tahun. Jika uang disimpan dalam waktu lama, tabungan yang memberikan hasil lebih besar adalah ....</p>
+      <button class="opt" data-opt="A"><span class="opt-l">A</span><span>Tabungan A karena bunganya tetap</span></button>
+      <button class="opt" data-opt="B"><span class="opt-l">B</span><span>Tabungan B karena bunga dihitung dari jumlah yang terus bertambah</span></button>
+      <button class="opt" data-opt="C"><span class="opt-l">C</span><span>Keduanya selalu menghasilkan nilai yang sama</span></button>
+      <button class="opt" data-opt="D"><span class="opt-l">D</span><span>Tabungan A karena tidak mengalami perubahan</span></button>
+      <div class="q-feedback"></div>
+    </div>
+
+    <div class="quiz-score"></div>
+  </section>
+
+  <!-- ============ TOPIK 7 — PEMBAHASAN ============ -->
+  <div class="bagian-head" id="pembahasan" data-nav="Pembahasan Latihan Soal">
+    <span class="bagian-num">Topik 7</span>
+    <h2 class="bagian-title">Pembahasan Latihan Soal</h2>
+  </div>
+
+  <div class="example">
+    <div class="panel-head"><span class="panel-label">Pembahasan 1</span></div>
+    <div class="ex-row"><span class="ex-tag">Diketahui</span><div class="ex-body"><p>\(M = 4.000.000\), \(i = 5\%\)</p></div></div>
+    <div class="ex-row"><span class="ex-tag">Penyelesaian</span><div class="ex-body"><p>\(B = M \times i\)</p><p>\(B = 4.000.000 \times 5\% = 200.000\)</p><p>Jadi bunga setiap tahun adalah Rp200.000,00.</p></div></div>
+    <div class="ex-row"><span class="ex-tag">Jawaban</span><div class="ex-body"><div class="ex-answer">C. Rp200.000,00</div></div></div>
+  </div>
+
+  <div class="example">
+    <div class="panel-head"><span class="panel-label">Pembahasan 2</span></div>
+    <div class="ex-row"><span class="ex-tag">Diketahui</span><div class="ex-body"><p>\(M = 6.000.000\), \(i = 4\%\), \(t = 3\) tahun</p></div></div>
+    <div class="ex-row"><span class="ex-tag">Penyelesaian</span><div class="ex-body"><p>\(B = 6.000.000 \times 0{,}04 \times 3 = 720.000\)</p><p>\(A = 6.000.000 + 720.000 = 6.720.000\)</p></div></div>
+    <div class="ex-row"><span class="ex-tag">Jawaban</span><div class="ex-body"><div class="ex-answer">C. Rp6.720.000,00</div></div></div>
+  </div>
+
+  <div class="example">
+    <div class="panel-head"><span class="panel-label">Pembahasan 3</span></div>
+    <div class="ex-row"><span class="ex-tag">Diketahui</span><div class="ex-body"><p>\(M = 8.000.000\), \(i = 6\%\), \(t = 2\)</p></div></div>
+    <div class="ex-row"><span class="ex-tag">Penyelesaian</span><div class="ex-body"><p>\(B = 8.000.000 \times 0{,}06 \times 2 = 960.000\)</p><p>Jadi bunga selama 2 tahun adalah Rp960.000,00.</p></div></div>
+    <div class="ex-row"><span class="ex-tag">Jawaban</span><div class="ex-body"><div class="ex-answer">C. Rp960.000,00</div></div></div>
+  </div>
+
+  <div class="example">
+    <div class="panel-head"><span class="panel-label">Pembahasan 4</span></div>
+    <div class="ex-row"><span class="ex-tag">Diketahui</span><div class="ex-body"><p>\(M = 10.000.000\), \(i = 3\%\), \(t = 5\)</p></div></div>
+    <div class="ex-row"><span class="ex-tag">Penyelesaian</span><div class="ex-body"><p>\(B = 10.000.000 \times 0{,}03 \times 5 = 1.500.000\)</p><p>\(A = 10.000.000 + 1.500.000 = 11.500.000\)</p></div></div>
+    <div class="ex-row"><span class="ex-tag">Jawaban</span><div class="ex-body"><div class="ex-answer">C. Rp11.500.000,00</div></div></div>
+  </div>
+
+  <div class="example">
+    <div class="panel-head"><span class="panel-label">Pembahasan 5</span></div>
+    <div class="ex-row"><span class="ex-tag">Diketahui</span><div class="ex-body"><p>\(M = 5.000.000\), \(i = 10\%\), \(t = 2\)</p></div></div>
+    <div class="ex-row"><span class="ex-tag">Penyelesaian</span><div class="ex-body">
+      <p>Gunakan rumus bunga majemuk.</p>
+      <p>\(A = M(1 + i)^{\,t}\)</p>
+      <p>\(A = 5.000.000\,(1 + 0{,}1)^{2} = 5.000.000\,(1{,}1)^{2}\)</p>
+      <p>\(A = 5.000.000 \times 1{,}21 = 6.050.000\)</p>
+    </div></div>
+    <div class="ex-row"><span class="ex-tag">Jawaban</span><div class="ex-body"><div class="ex-answer">C. Rp6.050.000,00</div></div></div>
+  </div>
+
+  <div class="example">
+    <div class="panel-head"><span class="panel-label">Pembahasan 6</span></div>
+    <div class="ex-row"><span class="ex-tag">Diketahui</span><div class="ex-body"><p>\(M = 3.000.000\), \(i = 5\%\), \(t = 3\)</p></div></div>
+    <div class="ex-row"><span class="ex-tag">Penyelesaian</span><div class="ex-body">
+      <p>\(A = 3.000.000\,(1 + 0{,}05)^{3} = 3.000.000\,(1{,}05)^{3}\)</p>
+      <p>\(A = 3.000.000 \times 1{,}157625\)</p>
+      <p>\(A = 3.472.875\)</p>
+    </div></div>
+    <div class="ex-row"><span class="ex-tag">Jawaban</span><div class="ex-body"><div class="ex-answer">C. Rp3.472.875,00</div></div></div>
+  </div>
+
+  <div class="example">
+    <div class="panel-head"><span class="panel-label">Pembahasan 7</span></div>
+    <div class="ex-row"><span class="ex-tag">Penyelesaian</span><div class="ex-body"><p>Pada bunga tunggal, bunga selalu dihitung dari modal awal.</p><p>Pada bunga majemuk, bunga periode berikutnya dihitung dari jumlah uang yang sudah bertambah.</p></div></div>
+    <div class="ex-row"><span class="ex-tag">Jawaban</span><div class="ex-body"><div class="ex-answer">C</div></div></div>
+  </div>
+
+  <div class="example">
+    <div class="panel-head"><span class="panel-label">Pembahasan 8</span></div>
+    <div class="ex-row"><span class="ex-tag">Diketahui</span><div class="ex-body"><p>\(M = 2.500.000\), \(i = 8\%\), \(t = 2\)</p></div></div>
+    <div class="ex-row"><span class="ex-tag">Penyelesaian</span><div class="ex-body">
+      <p>\(A = 2.500.000\,(1 + 0{,}08)^{2} = 2.500.000\,(1{,}08)^{2}\)</p>
+      <p>\(A = 2.500.000 \times 1{,}1664\)</p>
+      <p>\(A = 2.916.000\)</p>
+    </div></div>
+    <div class="ex-row"><span class="ex-tag">Jawaban</span><div class="ex-body"><div class="ex-answer">B. Rp2.916.000,00</div></div></div>
+  </div>
+
+  <div class="example">
+    <div class="panel-head"><span class="panel-label">Pembahasan 9</span></div>
+    <div class="ex-row"><span class="ex-tag">Diketahui</span><div class="ex-body"><p>\(M = 12.000.000\), \(i = 2\%\), \(t = 4\)</p></div></div>
+    <div class="ex-row"><span class="ex-tag">Penyelesaian</span><div class="ex-body"><p>\(B = 12.000.000 \times 0{,}02 \times 4 = 960.000\)</p><p>\(A = 12.000.000 + 960.000 = 12.960.000\)</p></div></div>
+    <div class="ex-row"><span class="ex-tag">Jawaban</span><div class="ex-body"><div class="ex-answer">B. Rp12.960.000,00</div></div></div>
+  </div>
+
+  <div class="example">
+    <div class="panel-head"><span class="panel-label">Pembahasan 10</span></div>
+    <div class="ex-row"><span class="ex-tag">Penyelesaian</span><div class="ex-body">
+      <p>Pada bunga majemuk, bunga yang diperoleh akan ditambahkan ke modal sehingga perhitungan bunga berikutnya menggunakan jumlah uang yang lebih besar.</p>
+      <p>Karena itu, dalam waktu lama bunga majemuk menghasilkan nilai akhir lebih besar.</p>
+    </div></div>
+    <div class="ex-row"><span class="ex-tag">Jawaban</span><div class="ex-body"><div class="ex-answer">B</div></div></div>
+  </div>
+
+  <!-- ============ TOPIK 8 — RINGKASAN KONSEP ============ -->
+  <div class="bagian-head" id="ringkasan" data-nav="Ringkasan Konsep Subbab Bunga">
+    <span class="bagian-num">Topik 8</span>
+    <h2 class="bagian-title">Ringkasan Konsep Subbab Bunga</h2>
+  </div>
+
+  <section class="prose">
+    <ul>
+      <li>Bunga adalah tambahan nilai uang akibat kegiatan menyimpan atau meminjam uang.</li>
+      <li>Bunga tunggal dihitung berdasarkan modal awal, dengan rumus \(A = M(1 + i \times t)\).</li>
+      <li>Bunga majemuk dihitung berdasarkan jumlah uang pada periode sebelumnya, dengan rumus \(A = M(1 + i)^{\,t}\).</li>
+      <li>Bunga tunggal berkaitan dengan barisan aritmetika.</li>
+      <li>Bunga majemuk berkaitan dengan barisan geometri.</li>
+    </ul>
+  </section>
+
+  <figure class="figure-prose">
+    <img class="ng-img" src="https://scola-uploader.scolacdn.com/upload/7e3b28cbb082b9657ef7b205/Ringkasan%20Materi.png" alt="Kartu ringkasan dua kolom. Kartu 01 bunga tunggal dengan rumus A sama dengan M kurung 1 tambah i kali t dan keterangan nilai akhir bertambah secara linear. Kartu 02 bunga majemuk dengan rumus A sama dengan M kurung 1 tambah i pangkat t dan keterangan nilai akhir bertambah bertahap karena bunga berbunga. Di bawahnya daftar lambang A, M, persen, dan waktu.">
+    <figcaption><span class="credit">Infografis · Rumus bunga</span>Kedua rumus berdampingan beserta arti tiap lambangnya. Bedanya hanya pada letak \(t\) &mdash; sebagai pengali pada bunga tunggal, sebagai pangkat pada bunga majemuk.</figcaption>
+  </figure>
+
+  <section class="prose">
+    <p>Dengan memahami konsep bunga, siswa dapat menghitung pertumbuhan tabungan, deposito, maupun biaya pinjaman dalam kehidupan sehari-hari.</p>
+  </section>
+
+  <!-- ============ TOPIK 9 — REFLEKSI ============ -->
+  <div class="bagian-head" id="refleksi-topik" data-nav="Refleksi Siswa">
+    <span class="bagian-num">Topik 9</span>
+    <h2 class="bagian-title">Refleksi Siswa</h2>
+  </div>
+
+  <div class="sim" id="refleksi">
+    <div class="sim-head panel-head">
+      <h3 class="panel-title">Centang yang sudah kamu kuasai</h3>
+    </div>
+    <div class="mode-btns" id="rf-btns"></div>
+    <div class="calc-res" id="rf-res">Belum ada yang dicentang.</div>
+  </div>
+
+  <p class="aside">Subbab ini menutup Bab 2. Barisan mengajarkan pola bilangannya, deret mengajarkan cara menjumlahkannya, dan bunga menunjukkan bahwa keduanya bekerja pada uang yang kita simpan sendiri.</p>
+
+</main>
+
+<script>
+(function(){
+  "use strict";
+  var root = document.documentElement;
+
+  /* ---------- helper bersama ---------- */
+  function simC(){
+    var s = getComputedStyle(root);
+    function g(n,f){ return (s.getPropertyValue(n)||'').trim() || f; }
+    return { INK:g('--ng-ink','#000000'), YEL:g('--ng-yellow','#ffcc00'), MUT:g('--ng-muted','#000000'),
+             AXIS:g('--ng-axis','#767676'), BRD:g('--ng-border','#e2e2e2'), SOFT:g('--ng-soft','#f5f5f5'),
+             BG:g('--canvas-bg','#ffffff'), OK:g('--ok-bd','#2e7d4f'), ERR:g('--err-bd','#c0473f'),
+             PAPER:g('--ng-white','#ffffff') };
+  }
+  function fitCanvas(cv, W, H){
+    var dpr = Math.min(window.devicePixelRatio || 1, 2);
+    cv.width = Math.round(W*dpr); cv.height = Math.round(H*dpr);
+    cv.style.aspectRatio = W + ' / ' + H;
+    var ctx = cv.getContext('2d');
+    ctx.setTransform(dpr,0,0,dpr,0,0);
+    return ctx;
+  }
+  function tag(ctx, txt, x, y, color, align, size, weight){
+    ctx.font = (weight||700) + ' ' + (size||12) + 'px "Plus Jakarta Sans", sans-serif';
+    ctx.textAlign = align || 'center'; ctx.textBaseline = 'middle';
+    ctx.fillStyle = color; ctx.fillText(txt, x, y);
+  }
+  /* Angka gaya Indonesia: pemisah ribuan titik, desimal koma. */
+  function num(v, desimal){
+    var neg = v < 0, x = Math.abs(v);
+    var d = (typeof desimal === 'number') ? desimal
+          : (Math.abs(x - Math.round(x)) < 1e-9 ? 0 : 2);
+    var s = x.toFixed(d);
+    if(d) s = s.replace(/0+$/,'').replace(/\.$/,'');
+    var bag = s.split('.');
+    bag[0] = bag[0].replace(/\B(?=(\d{3})+(?!\d))/g, '.');
+    return (neg ? '−' : '') + bag.join(',');
+  }
+  function rp(v){ return 'Rp' + num(Math.round(v)); }
+  /* Bentuk ringkas untuk label di dalam kanvas, supaya angka jutaan tetap terbaca. */
+  function ringkas(v){
+    var x = Math.abs(v);
+    if(x >= 1e6) return num(v/1e6, 2) + ' jt';
+    if(x >= 1e3) return num(v/1e3, 0) + ' rb';
+    return num(v);
+  }
+
+  /* Batang nilai uang per tahun; potongan kuning di puncak = bunga tahun itu. */
+  function drawNilai(ctx, W, H, nilai, c){
+    ctx.clearRect(0,0,W,H);
+    ctx.fillStyle = c.BG; ctx.fillRect(0,0,W,H);
+
+    var padL = 30, padR = 30, padT = 54, padB = 48;
+    var plotW = W - padL - padR, plotH = H - padT - padB;
+    var n = nilai.length;
+    var vmax = Math.max.apply(null, nilai) * 1.02;
+    function y(v){ return padT + (vmax - v)/vmax * plotH; }
+
+    var slot = plotW / n, bw = Math.min(slot*0.62, 70);
+    var y0 = y(0);
+
+    ctx.strokeStyle = c.BRD; ctx.lineWidth = 1;
+    ctx.beginPath(); ctx.moveTo(padL, y0); ctx.lineTo(W - padR, y0); ctx.stroke();
+
+    for(var i=0; i<n; i++){
+      var cx = padL + slot*i + slot/2;
+      var prev = i === 0 ? nilai[0] : nilai[i-1];
+      var cur  = nilai[i];
+      var yPrev = y(prev), yCur = y(cur);
+
+      /* modal + bunga tahun-tahun sebelumnya */
+      ctx.fillStyle = c.SOFT;
+      ctx.fillRect(cx - bw/2, yPrev, bw, y0 - yPrev);
+      /* bunga tahun ini */
+      ctx.fillStyle = c.YEL;
+      ctx.fillRect(cx - bw/2, yCur, bw, yPrev - yCur);
+
+      ctx.strokeStyle = (i === n-1) ? c.INK : c.BRD;
+      ctx.lineWidth = (i === n-1) ? 2 : 1;
+      ctx.strokeRect(cx - bw/2, yCur, bw, y0 - yCur);
+
+      tag(ctx, ringkas(cur), cx, yCur - 14, c.INK, 'center', 13, (i === n-1) ? 700 : 400);
+      tag(ctx, 'Th ' + i, cx, y0 + 22, c.MUT, 'center', 12, 400);
+    }
+
+    tag(ctx, 'kuning = bunga tahun itu', padL, padT - 30, c.MUT, 'left', 12, 400);
+  }
+
+  /* Dua kurva pertumbuhan pada satu sumbu, dengan daerah selisih. */
+  function drawAdu(ctx, W, H, M, i, t, c){
+    ctx.clearRect(0,0,W,H);
+    ctx.fillStyle = c.BG; ctx.fillRect(0,0,W,H);
+
+    var tunggal = [], majemuk = [];
+    for(var k=0; k<=t; k++){
+      tunggal.push(M * (1 + i*k));
+      majemuk.push(M * Math.pow(1+i, k));
+    }
+    var padL = 62, padR = 26, padT = 52, padB = 48;
+    var plotW = W - padL - padR, plotH = H - padT - padB;
+    var vmax = majemuk[t] * 1.06;
+    function y(v){ return padT + (vmax - v)/vmax * plotH; }
+    function x(k){ return padL + (plotW / Math.max(t,1)) * k; }
+
+    /* sumbu */
+    ctx.strokeStyle = c.BRD; ctx.lineWidth = 1;
+    ctx.beginPath(); ctx.moveTo(padL, y(0)); ctx.lineTo(W - padR, y(0)); ctx.stroke();
+    ctx.beginPath(); ctx.moveTo(padL, padT - 10); ctx.lineTo(padL, y(0)); ctx.stroke();
+    tag(ctx, ringkas(M), padL - 8, y(M), c.MUT, 'right', 12, 400);
+    tag(ctx, ringkas(majemuk[t]), padL - 8, y(majemuk[t]), c.MUT, 'right', 12, 400);
+
+    /* daerah selisih */
+    ctx.fillStyle = c.SOFT;
+    ctx.beginPath();
+    ctx.moveTo(x(0), y(majemuk[0]));
+    for(var a=1; a<=t; a++) ctx.lineTo(x(a), y(majemuk[a]));
+    for(var b=t; b>=0; b--) ctx.lineTo(x(b), y(tunggal[b]));
+    ctx.closePath(); ctx.fill();
+
+    /* garis bunga tunggal */
+    ctx.strokeStyle = c.AXIS; ctx.lineWidth = 2;
+    ctx.beginPath();
+    for(var p=0; p<=t; p++){ if(p===0) ctx.moveTo(x(p), y(tunggal[p])); else ctx.lineTo(x(p), y(tunggal[p])); }
+    ctx.stroke();
+
+    /* garis bunga majemuk */
+    ctx.strokeStyle = c.INK; ctx.lineWidth = 2.5;
+    ctx.beginPath();
+    for(var q=0; q<=t; q++){ if(q===0) ctx.moveTo(x(q), y(majemuk[q])); else ctx.lineTo(x(q), y(majemuk[q])); }
+    ctx.stroke();
+
+    /* titik ujung */
+    [[tunggal[t], c.AXIS],[majemuk[t], c.YEL]].forEach(function(d){
+      ctx.fillStyle = d[1]; ctx.strokeStyle = c.INK; ctx.lineWidth = 1.5;
+      ctx.beginPath(); ctx.arc(x(t), y(d[0]), 6, 0, Math.PI*2); ctx.fill(); ctx.stroke();
+    });
+
+    /* label tahun */
+    var langkah = t > 12 ? 5 : (t > 6 ? 2 : 1);
+    for(var s=0; s<=t; s+=langkah) tag(ctx, 'Th ' + s, x(s), y(0) + 22, c.MUT, 'center', 12, 400);
+
+    /* keterangan garis */
+    tag(ctx, 'majemuk ' + ringkas(majemuk[t]), W - padR, y(majemuk[t]) - 18, c.INK, 'right', 13, 700);
+    tag(ctx, 'tunggal ' + ringkas(tunggal[t]), W - padR, y(tunggal[t]) + 20, c.MUT, 'right', 13, 400);
+  }
+
+  /* =========================================================
+     SIMULASI 1 - PENJELAJAH BUNGA TUNGGAL
+     ========================================================= */
+  (function(){
+    var cv = document.getElementById('bt-canvas'); if(!cv) return;
+    var W = 920, H = 360, ctx = fitCanvas(cv, W, H);
+    var iM = document.getElementById('bt-m'), iI = document.getElementById('bt-i'), iT = document.getElementById('bt-t');
+    var oM = document.getElementById('bt-out-m'), oI = document.getElementById('bt-out-i'), oT = document.getElementById('bt-out-t');
+    var roP = document.getElementById('bt-ro-per'), roB = document.getElementById('bt-ro-b'), roA = document.getElementById('bt-ro-a');
+    var step = document.getElementById('bt-langkah');
+
+    function draw(){
+      var c = simC();
+      var M = +iM.value, ip = +iI.value, t = +iT.value, i = ip/100;
+      oM.textContent = num(M); oI.textContent = ip + '%'; oT.textContent = String(t);
+
+      var nilai = [];
+      for(var k=0; k<=t; k++) nilai.push(M * (1 + i*k));
+      var B = M * i * t, A = M + B;
+
+      drawNilai(ctx, W, H, nilai, c);
+
+      roP.textContent = rp(M*i);
+      roB.textContent = rp(B);
+      roA.textContent = rp(A);
+
+      step.innerHTML =
+        '<span class="ln">B = M × i × t</span>' +
+        '<span class="ln">B = ' + num(M) + ' × ' + num(i,4) + ' × ' + t + ' = <b>' + num(B) + '</b></span>' +
+        '<span class="ln">A = M + B</span>' +
+        '<span class="ln">A = ' + num(M) + ' + ' + num(B) + ' = <b>' + num(A) + '</b></span>';
+    }
+    [iM, iI, iT].forEach(function(el){
+      el.addEventListener('input', draw);
+      el.addEventListener('change', draw);
+    });
+    draw();
+    window.ngRedraw1 = draw;
+  })();
+
+  /* =========================================================
+     SIMULASI 2 - PENJELAJAH BUNGA MAJEMUK
+     ========================================================= */
+  (function(){
+    var cv = document.getElementById('bm-canvas'); if(!cv) return;
+    var W = 920, H = 360, ctx = fitCanvas(cv, W, H);
+    var iM = document.getElementById('bm-m'), iI = document.getElementById('bm-i'), iT = document.getElementById('bm-t');
+    var oM = document.getElementById('bm-out-m'), oI = document.getElementById('bm-out-i'), oT = document.getElementById('bm-out-t');
+    var roP = document.getElementById('bm-ro-per'), roB = document.getElementById('bm-ro-b'), roA = document.getElementById('bm-ro-a');
+    var step = document.getElementById('bm-langkah');
+
+    function draw(){
+      var c = simC();
+      var M = +iM.value, ip = +iI.value, t = +iT.value, i = ip/100;
+      oM.textContent = num(M); oI.textContent = ip + '%'; oT.textContent = String(t);
+
+      var nilai = [];
+      for(var k=0; k<=t; k++) nilai.push(M * Math.pow(1+i, k));
+      var A = nilai[t], B = A - M;
+      var bungaAkhir = nilai[t] - nilai[t-1];
+      var faktor = Math.pow(1+i, t);
+
+      drawNilai(ctx, W, H, nilai, c);
+
+      roP.textContent = rp(bungaAkhir);
+      roB.textContent = rp(B);
+      roA.textContent = rp(A);
+
+      step.innerHTML =
+        '<span class="ln">A = M(1 + i)<sup>t</sup></span>' +
+        '<span class="ln">A = ' + num(M) + ' × (1 + ' + num(i,4) + ')<sup>' + t + '</sup></span>' +
+        '<span class="ln">A = ' + num(M) + ' × ' + num(faktor,6) + '</span>' +
+        '<span class="ln">A = <b>' + num(Math.round(A)) + '</b></span>';
+    }
+    [iM, iI, iT].forEach(function(el){
+      el.addEventListener('input', draw);
+      el.addEventListener('change', draw);
+    });
+    draw();
+    window.ngRedraw2 = draw;
+  })();
+
+  /* =========================================================
+     SIMULASI 3 - ADU TUNGGAL LAWAN MAJEMUK
+     ========================================================= */
+  (function(){
+    var cv = document.getElementById('ad-canvas'); if(!cv) return;
+    var W = 920, H = 380, ctx = fitCanvas(cv, W, H);
+    var iM = document.getElementById('ad-m'), iI = document.getElementById('ad-i'), iT = document.getElementById('ad-t');
+    var oM = document.getElementById('ad-out-m'), oI = document.getElementById('ad-out-i'), oT = document.getElementById('ad-out-t');
+    var roT = document.getElementById('ad-ro-t'), roM = document.getElementById('ad-ro-m'), roS = document.getElementById('ad-ro-s');
+    var step = document.getElementById('ad-langkah'), res = document.getElementById('ad-res');
+
+    function draw(){
+      var c = simC();
+      var M = +iM.value, ip = +iI.value, t = +iT.value, i = ip/100;
+      oM.textContent = num(M); oI.textContent = ip + '%'; oT.textContent = String(t);
+
+      var At = M * (1 + i*t);
+      var Am = M * Math.pow(1+i, t);
+      var selisih = Am - At;
+
+      drawAdu(ctx, W, H, M, i, t, c);
+
+      roT.textContent = rp(At);
+      roM.textContent = rp(Am);
+      roS.textContent = rp(selisih);
+
+      step.innerHTML =
+        '<span class="ln">Tunggal: A = M(1 + i × t) = ' + num(M) + ' × (1 + ' + num(i,4) + ' × ' + t + ') = <b>' + num(Math.round(At)) + '</b></span>' +
+        '<span class="ln">Majemuk: A = M(1 + i)<sup>t</sup> = ' + num(M) + ' × ' + num(Math.pow(1+i,t),6) + ' = <b>' + num(Math.round(Am)) + '</b></span>' +
+        '<span class="ln">Selisih = ' + num(Math.round(Am)) + ' − ' + num(Math.round(At)) + ' = <b>' + num(Math.round(selisih)) + '</b></span>';
+
+      var persen = At > 0 ? (selisih/At*100) : 0;
+      if(t === 1){
+        res.className = 'calc-res';
+        res.textContent = 'Pada tahun pertama keduanya sama persis, sebab bunga majemuk belum sempat berbunga.';
+      } else {
+        res.className = 'calc-res is-ok';
+        res.textContent = 'Setelah ' + t + ' tahun, bunga majemuk unggul ' + rp(selisih)
+                        + ' atau sekitar ' + num(persen,1) + '% lebih banyak daripada bunga tunggal.';
+      }
+    }
+    [iM, iI, iT].forEach(function(el){
+      el.addEventListener('input', draw);
+      el.addEventListener('change', draw);
+    });
+    draw();
+    window.ngRedraw3 = draw;
+  })();
+
+  /* =========================================================
+     REFLEKSI
+     ========================================================= */
+  (function(){
+    var host = document.getElementById('rf-btns'); if(!host) return;
+    var res = document.getElementById('rf-res');
+    var items = [
+      'Membedakan bunga simpanan dan bunga pinjaman',
+      'Menjelaskan pengertian bunga tunggal',
+      'Menggunakan rumus bunga tunggal',
+      'Menjelaskan pengertian bunga majemuk',
+      'Menggunakan rumus bunga majemuk',
+      'Membedakan pola bunga tunggal dan bunga majemuk',
+      'Menerapkan konsep bunga pada masalah sehari-hari'
+    ];
+    host.innerHTML = items.map(function(t,i){
+      return '<button class="btn btn-ghost btn-sm" type="button" data-rf="' + i + '">' + t + '</button>';
+    }).join('');
+    function refresh(){
+      var on = host.querySelectorAll('[data-rf].is-active').length;
+      res.className = 'calc-res' + (on === items.length ? ' is-ok' : '');
+      res.textContent = on === 0 ? 'Belum ada yang dicentang.'
+                      : on + ' dari ' + items.length + ' sudah kamu kuasai.'
+                        + (on === items.length ? ' Bab 2 selesai kamu pelajari.' : '');
+    }
+    host.querySelectorAll('[data-rf]').forEach(function(b){
+      b.addEventListener('click', function(){ b.classList.toggle('is-active'); refresh(); });
+    });
+    refresh();
+  })();
+
+  /* =========================================================
+     TEMA - NAV - KUIS
+     ========================================================= */
+  window.ngRedrawSims = function(){
+    if(window.ngRedraw1) window.ngRedraw1();
+    if(window.ngRedraw2) window.ngRedraw2();
+    if(window.ngRedraw3) window.ngRedraw3();
+  };
+
+  try{ var saved = localStorage.getItem('ng-theme'); if(saved === 'dark') root.setAttribute('data-theme','dark'); }catch(e){}
+  var tt = document.querySelector('.theme-toggle');
+  if(tt){ tt.addEventListener('click', function(){
+    var dark = root.getAttribute('data-theme') === 'dark';
+    if(dark) root.removeAttribute('data-theme'); else root.setAttribute('data-theme','dark');
+    try{ localStorage.setItem('ng-theme', dark ? 'light' : 'dark'); }catch(e){}
+    window.ngRedrawSims();
+  }); }
+
+  var burger = document.querySelector('.nav-toggle'), list = document.getElementById('nav-list');
+  if(burger && list){
+    burger.addEventListener('click', function(e){
+      e.stopPropagation();
+      var open = list.hidden; list.hidden = !open;
+      burger.setAttribute('aria-expanded', String(open));
+    });
+    document.addEventListener('click', function(e){
+      if(!list.hidden && !list.contains(e.target) && !burger.contains(e.target)){
+        list.hidden = true; burger.setAttribute('aria-expanded','false');
+      }
+    });
+    list.querySelectorAll('a').forEach(function(a){
+      a.addEventListener('click', function(){ list.hidden = true; burger.setAttribute('aria-expanded','false'); });
+    });
+  }
+
+  document.querySelectorAll('[data-quiz]').forEach(function(quiz){
+    var qs = [].slice.call(quiz.querySelectorAll('.q'));
+    var total = qs.length, answered = 0, correct = 0;
+    var scoreEl = quiz.querySelector('.quiz-score');
+    qs.forEach(function(q){
+      var ans = q.getAttribute('data-correct');
+      var explain = q.getAttribute('data-explain') || '';
+      var fb = q.querySelector('.q-feedback');
+      var opts = [].slice.call(q.querySelectorAll('.opt'));
+      opts.forEach(function(opt){
+        opt.addEventListener('click', function(){
+          if(q.dataset.done) return;
+          q.dataset.done = '1'; answered++;
+          var ok = opt.getAttribute('data-opt') === ans;
+          if(ok) correct++;
+          opts.forEach(function(o){
+            o.disabled = true;
+            if(o.getAttribute('data-opt') === ans) o.classList.add('is-correct');
+            else if(o === opt) o.classList.add('is-wrong');
+          });
+          if(fb){
+            fb.classList.add('show', ok ? 'ok' : 'no');
+            fb.innerHTML = (ok ? '<strong>Benar.</strong> ' : '<strong>Belum tepat.</strong> ') + explain;
+            if(window.ngTypeset) window.ngTypeset(fb);
+          }
+          if(answered === total && scoreEl){
+            scoreEl.classList.add('show');
+            scoreEl.textContent = 'Skor kamu: ' + correct + ' dari ' + total + ' benar.';
+          }
+        });
+      });
+    });
+  });
+
+  window.addEventListener('resize', function(){ window.ngRedrawSims(); });
+})();
+
+/* ---- KaTeX ---- */
+window.ngTypeset = function(el){
+  if(!window.renderMathInElement) return;
+  try{
+    renderMathInElement(el, {
+      delimiters: [ {left:'\\[',right:'\\]',display:true}, {left:'\\(',right:'\\)',display:false} ],
+      throwOnError:false
+    });
+  }catch(_){}
+};
+document.addEventListener('DOMContentLoaded', function(){ window.ngTypeset(document.body); });
+window.addEventListener('load', function(){ window.ngTypeset(document.body); });
+</script>
+</body>
+</html>
